@@ -156,7 +156,7 @@
     .footer1>div:nth-of-type(2){
      width:178px;
      height:60px;
-     background:rgba(1,211,210,1);
+     background:rgba(0,79,111,1);
      border-radius:2px;
      font-size:22px;
      color:rgba(255,255,255,1);

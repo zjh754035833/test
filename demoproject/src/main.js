@@ -5,12 +5,11 @@ import router from '@/router/index.js'
 import Element from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import echarts from 'echarts'
-import $ from 'jquery'
- 
+import infiniteScroll from 'vue-infinite-scroll'
+Vue.use(infiniteScroll)
 Vue.use(Element)
 Vue.prototype.$echarts = echarts
 Vue.config.productionTip = false
-
 new Vue({
   router,
   render: h => h(App)

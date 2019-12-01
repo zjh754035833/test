@@ -1,6 +1,39 @@
 <template>
 	<div>
 		<v-sell></v-sell>
+ <div class="bottomarea2">
+			<span>Binance Optimizes API Order Rate Limits 11-18</span>
+			<span></span>
+			<span>More</span>
+			<span></span>
+		</div>
+		<div class="bottomarea3">
+			<div class="bottomarea3-1">
+				<div class="bottomarea3-1-top">
+					<span>Name</span>
+					<span>Last Price</span>
+					<span>24h Change</span>
+					<span>Markets</span>
+				</div>
+				<div class="xian"></div>
+				<div v-for="gtem in tableData" :key='gtem.index'>
+					<div class="tablesty">
+						<img :src="gtem.img" />
+						<span>
+							<span>{{ gtem.text1 }}</span>
+							<span>{{ gtem.text2 }}</span>
+						</span>
+						<span>{{ gtem.text3 }}</span>
+		
+						<span style="color: rgba(238, 66, 86, 1);" v-if="gtem.text4 > 0">{{ gtem.text4 }}%</span>
+						<span style="color: rgba(1, 211, 210, 1)" v-if="gtem.text4 < 0">{{ gtem.text4 }}%</span>
+						<span><img :src="gtem.img5" /></span>
+					</div>
+					<div class="xian2"></div>
+				</div>
+				<div class="more"><span>View more markets</span></div>
+			</div>
+		</div> 
 		<div class="sellbuy1">
 			<div class="sellbuy3">
 				<span>BTC</span>
@@ -73,6 +106,57 @@ export default {
 	},
 	data() {
 		return {
+			tableData: [
+				{
+					img: require('../../static/Bitmap.png'),
+					text1: 'BNB',
+					text2: 'BNB',
+					text3: '$19.2',
+					text4: '-1.04',
+					img5: require('../../static/Path5.png')
+				},
+			
+				{
+					img: require('../../static/Bitmap (6).png'),
+					text1: 'BNB',
+					text2: 'BNB',
+					text3: '$19.2',
+					text4: '+1.04',
+					img5: require('../../static/Path5.png')
+				},
+				{
+					img: require('../../static/Bitmap (2).png'),
+					text1: 'BN123B',
+					text2: 'BN23B',
+					text3: '$192.2',
+					text4: '-1.04',
+					img5: require('../../static/Path5.png')
+				},
+				{
+					img: require('../../static/Bitmap (3).png'),
+					text1: 'BNB',
+					text2: 'BNB',
+					text3: '$19.2',
+					text4: '-1.04',
+					img5: require('../../static/Path5.png')
+				},
+				{
+					img: require('../../static/Bitmap (4).png'),
+					text1: 'BCHABC',
+					text2: 'BNB',
+					text3: '$19.2',
+					text4: '+1.04',
+					img5: require('../../static/Path5.png')
+				},
+				{
+					img: require('../../static/Bitmap (5).png'),
+					text1: 'BNB',
+					text2: 'BNB',
+					text3: '$19.2',
+					text4: '-1.04',
+					img5: require('../../static/Path5.png')
+				}
+			],
 			list: [
 				{ msg: 'Last Price', price: '8,148.85 $8,767.8' },
 				{ msg: '24h change', price: '-78.23 -0.87%' },
@@ -85,7 +169,7 @@ export default {
 	mounted() {
 		this.drawLine();
 		
-		document.querySelector('body').setAttribute('style', 'background-color:#F0F0F0');
+		document.querySelector('body').setAttribute('style', 'background:rgba(254,254,254,1);');
 	},
 	methods: {
 		splitData(rawData) {
@@ -339,6 +423,131 @@ export default {
 </script>
 
 <style scoped>
+	
+	.more {
+		display: flex;
+		justify-content: center;
+		font-size: 18px;
+		margin-top: 25px;
+		color: rgba(153, 153, 153, 1);
+	}
+	.tablesty > img {
+		width: 44px;
+		height: 50px;
+		margin-left: 28px;
+		position: absolute;
+	}
+	.tablesty > span:nth-of-type(1) {
+		margin-left: 90px;
+		font-size: 18px;
+		position: absolute;
+		font-weight: normal;
+	}
+	.tablesty > span > span:nth-of-type(1) {
+		color: rgba(51, 51, 51, 1);
+	}
+	.tablesty > span > span:nth-of-type(2) {
+		color: rgba(153, 153, 153, 1);
+		font-size: 16px;
+		margin-left: 16px;
+	}
+	.tablesty > span:nth-of-type(2) {
+		margin-left: 566px;
+		font-size: 17px;
+		color: rgba(51, 51, 51, 1);
+		font-weight: bold;
+		position: absolute;
+	}
+	.tablesty > span:nth-of-type(3) {
+		font-size: 17px;
+		font-weight: bold;
+		margin-left: 771px;
+		position: absolute;
+	}
+	.tablesty > span:nth-of-type(4) {
+		font-size: 17px;
+		font-weight: bold;
+		color: rgba(51, 51, 51, 1);
+		position: absolute;
+		margin-left: 980px;
+	}
+	
+	.tablesty {
+		display: flex;
+		align-items: center;
+		height: 78px;
+	}
+	.xian {
+		width: 1143px;
+		height: 1px;
+		background: rgba(238, 238, 238, 1);
+		margin-top: 27px;
+	}
+	.xian2 {
+		width: 1143px;
+		height: 1px;
+		background: rgba(238, 238, 238, 1);
+	}
+	.bottomarea3-1-top > span:nth-of-type(1) {
+		margin-left: 41px;
+	}
+	.bottomarea3-1-top > span:nth-of-type(2) {
+		margin-left: 476px;
+	}
+	.bottomarea3-1-top > span:nth-of-type(3) {
+		margin-left: 124px;
+	}
+	.bottomarea3-1-top > span:nth-of-type(4) {
+		margin-left: 111px;
+	}
+	.bottomarea3-1-top {
+		font-size: 18px;
+		color: rgba(102, 102, 102, 1);
+		display: flex;
+		margin-top: 32px;
+	}
+	.bottomarea3-1 {
+		width: 1146px;
+		height: 634px;
+		background: rgba(255, 255, 255, 1);
+		box-shadow: 0px 2px 17px 0px rgba(219, 219, 219, 0.5);
+		border-radius: 7px;
+		position: absolute;
+		margin-left: 147px;
+		margin-top: 15px;
+	}
+	.bottomarea3 {
+		width: 1440px;
+		height: 710px;
+		background: rgba(254, 254, 254, 1);
+		margin-top: 24px;
+	}
+	.all {
+	}
+	.bottomarea2 > span:nth-of-type(1) {
+		color: rgba(46, 46, 46, 1);
+	}
+	.bottomarea2 > span:nth-of-type(2) {
+		width: 2px;
+		height: 23px;
+		margin-top: 1.5px;
+		background-color: rgba(151, 151, 151, 1);
+		margin-left: 30px;
+	}
+	.bottomarea2 > span:nth-of-type(3) {
+	color:rgba(0,195,255,1);
+		margin-left: 21px;
+	}
+	.bottomarea2 > span:nth-of-type(4) {
+	}
+	.bottomarea2 {
+		font-size: 20px;
+		width: 1440px;
+		text-align: center;
+		margin-top: 25px;
+		display: flex;
+		justify-content: center;
+	}
 	.biaoti{
 		margin-top: 139px;
 		margin-left: 88px;

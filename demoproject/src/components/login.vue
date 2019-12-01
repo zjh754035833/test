@@ -8,7 +8,7 @@
         <input class="half2" placeholder="Email" />
         <input class="half2" style="margin-top: 228px;" placeholder="Phone number" />
         <input class="half2" style="margin-top:320px;" placeholder="password" />
-        <div class="half6">Login in</div>
+        <div class="half6 shou" @click="formyaccount">Login in</div>
         <div class="half5">Forgot password?</div>
         <div class="halfboot">
           <img src="../../static/z1.png" />
@@ -31,7 +31,11 @@ export default {
 
     hrefsignup() {
       this.$router.push({ path: '/signup' });
-    }
+    },
+	formyaccount(){
+	this.$router.push({ path: '/Myaccount' });
+	}
+	
   }
 };
 </script>
@@ -71,17 +75,14 @@ export default {
 
 ::-webkit-input-placeholder {
   /*Chrome/Safari*/
-  　　font-size: 18px;
   color: rgba(153, 153, 153, 1);
 }
 ::-moz-placeholder {
   /*Firefox*/
-  　　　font-size: 18px;
   color: rgba(153, 153, 153, 1);
 }
 ::-ms-input-placeholder {
   /*IE*/
-  　　　　font-size: 18px;
   color: rgba(153, 153, 153, 1);
 }
 .half7 {

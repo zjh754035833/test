@@ -3,7 +3,7 @@
          <span class="box1">AUWELS</span>
          <div class="box3">
            <span @click="forbuyshell">Buy/Sell</span>
-           <span  @click="forAnction">Anction</span>
+           <span  @click="fornewAnction">Anction</span>
            <span  @click="forSavings">Savings</span>
            <span  @click="forMining">Mining</span>
          </div>
@@ -24,8 +24,8 @@
   forbuyshell(){
    this.$router.push({ path: '/sellbuy' });
       },
-  forAnction(){
-     this.$router.push({ path: '/Anction' });
+  fornewAnction(){
+     this.$router.push({ path: '/newAnction' });
   },
   forSavings(){
      this.$router.push({ path: '/Savings' });

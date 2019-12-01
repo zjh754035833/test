@@ -20,8 +20,8 @@
 				</div>
 				<img src="../../static/Fill.png" class="box2" />
 				<div class="box5">
-					<span @click="forbuyshell">Buy/Sell</span>
-					<span @click="forAnction">Anction</span>
+					<span @click="forsignup">sign up</span>
+					<span @click="forlogin">login</span>
 				</div>
 			</div>
 			<div class="halfarea-2">
@@ -30,42 +30,8 @@
 				<div class="shou">learn more</div>
 			</div>
 		</div>
-		<div class="bottomarea"></div>
-		<div class="bottomarea2">
-			<span>Binance Optimizes API Order Rate Limits 11-18</span>
-			<span></span>
-			<span>More</span>
-			<span></span>
-		</div>
-		<div class="bottomarea3">
-			<div class="bottomarea3-1">
-				<div class="bottomarea3-1-top">
-					<span>Name</span>
-					<span>Last Price</span>
-					<span>24h Change</span>
-					<span>Markets</span>
-				</div>
-				<div class="xian"></div>
-				<div v-for="gtem in tableData" :key='gtem.index'>
-					<div class="tablesty">
-						<img :src="gtem.img" />
-						<span>
-							<span>{{ gtem.text1 }}</span>
-							<span>{{ gtem.text2 }}</span>
-						</span>
-						<span>{{ gtem.text3 }}</span>
-
-						<span style="color: rgba(238, 66, 86, 1);" v-if="gtem.text4 > 0">{{ gtem.text4 }}%</span>
-						<span style="color: rgba(1, 211, 210, 1)" v-if="gtem.text4 < 0">{{ gtem.text4 }}%</span>
-						<span><img :src="gtem.img5" /></span>
-					</div>
-					<div class="xian2"></div>
-				</div>
-				<div class="more"><span>View more markets</span></div>
-			</div>
-		</div>
 		<div class="bottomarea4">
-			<div class="bottomarea4-1">Our strengths</div>
+			<div class="bottomarea4-1">OUR STRENGTHS</div>
 			<div class="boxzall">
 				<div class="z1">
 					<img src="../../static/x3.png" class="z-img1" />
@@ -84,7 +50,20 @@
 				</div>
 			</div>
 		</div>
-		<div class="bottomarea5">
+		<div class="index1">
+			<img src="../../static/mobile1.png" />
+			<div class="index1-1">The simplest way to have a professioanal webpage.</div>
+			<div class="index1-2">Get all the benefits of an in-wall or in-ceiling speaker system without any of the hassle. Just replace a few lights around your house, and start streaming crisp, clear audio, everywhere.</div>
+		</div>
+		<div class="index2">
+			<img src="../../static/mobile2.png" />
+			<div>Trade on the go</div>
+			<div>Take Poloniex everywhere you go with our apps.</div>
+			<img src="../../static/dowload2.png" />
+			<img src="../../static/dowload1.png" />
+		</div>
+	
+		<!-- <div class="bottomarea5">
 			<div class="bottomarea5-1">OUR ADVANTAGE</div>
 			<div class="bottomarea5-2">
 				<div>
@@ -104,7 +83,6 @@
 				<div><img src="../../static/S5.png" /></div>
 				<div>
 					<div>Many Options</div>
-					<img src="../../static/Bitmap.png" />
 					<div>
 						Pick from the various payment methods here. Buy Bitcoin with credit card (You can also buy XRP, ETH, LTC and BCH), or buy crypto with US Dollars or Euro
 						through TUSD or PAX stablecoins. You also have options to turn your TUSD or PAX back into cash.
@@ -113,7 +91,8 @@
 				<div><img src="../../static/S2.png" class="imgs2" />
 				</div>
 			</div>
-		</div>
+		</div> -->
+		<div class="bottomarea"></div>
 		<v-footer></v-footer>
 	</div>
 </template>
@@ -127,57 +106,6 @@ export default {
 	},
 	data() {
 		return {
-			tableData: [
-				{
-					img: require('../../static/Bitmap.png'),
-					text1: 'BNB',
-					text2: 'BNB',
-					text3: '$19.2',
-					text4: '-1.04',
-					img5: require('../../static/Path5.png')
-				},
-
-				{
-					img: require('../../static/Bitmap (6).png'),
-					text1: 'BNB',
-					text2: 'BNB',
-					text3: '$19.2',
-					text4: '+1.04',
-					img5: require('../../static/Path5.png')
-				},
-				{
-					img: require('../../static/Bitmap (2).png'),
-					text1: 'BN123B',
-					text2: 'BN23B',
-					text3: '$192.2',
-					text4: '-1.04',
-					img5: require('../../static/Path5.png')
-				},
-				{
-					img: require('../../static/Bitmap (3).png'),
-					text1: 'BNB',
-					text2: 'BNB',
-					text3: '$19.2',
-					text4: '-1.04',
-					img5: require('../../static/Path5.png')
-				},
-				{
-					img: require('../../static/Bitmap (4).png'),
-					text1: 'BCHABC',
-					text2: 'BNB',
-					text3: '$19.2',
-					text4: '+1.04',
-					img5: require('../../static/Path5.png')
-				},
-				{
-					img: require('../../static/Bitmap (5).png'),
-					text1: 'BNB',
-					text2: 'BNB',
-					text3: '$19.2',
-					text4: '-1.04',
-					img5: require('../../static/Path5.png')
-				}
-			],
 			list: [
 				{ msg: 'Bitcoin 24h', priceper: '-4.95', price: '$8,148.85' },
 				{ msg: 'Ethereum 24h', priceper: '-4.95', price: '$8,148.85' },
@@ -188,18 +116,24 @@ export default {
 		};
 	},
 	methods: {
-		forbuyshell() {
-			this.$router.push({ path: '/sellbuy' });
-		},
-		forAnction() {
-			this.$router.push({ path: '/Anction' });
-		},
-		forSavings() {
-			this.$router.push({ path: '/Savings' });
-		},
-		forMining() {
-			this.$router.push({ path: '/Mining' });
-		}
+			forbuyshell() {
+					this.$router.push({ path: '/sellbuy' });
+				},
+				forAnction() {
+					this.$router.push({ path: '/newAnction' });
+				},
+				forSavings() {
+					this.$router.push({ path: '/Savings' });
+				},
+				forMining() {
+					this.$router.push({ path: '/Mining' });
+				},
+				forlogin(){
+					this.$router.push({ path: '/login' });
+				},
+				forsignup(){
+						this.$router.push({ path: '/signup' });
+				}
 	
 	},
 	created() {},
@@ -209,6 +143,87 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+	.index2>div:nth-of-type(2){
+		margin-top: 294px;
+		margin-left: 752px;
+		font-size:26px;
+		font-family:SFUIDisplay-Bold,SFUIDisplay;
+		font-weight:bold;
+	color:rgba(153,153,153,1);
+		position: absolute;
+	}
+	.index2>div:nth-of-type(1){
+		margin-top: 220px;
+		margin-left: 752px;
+		font-size:51px;
+		font-family:SFUIDisplay-Bold,SFUIDisplay;
+		font-weight:bold;
+		color:rgba(51,51,51,1);
+		line-height:61px;
+		position: absolute;
+	}
+	.index2{
+		width:1439px;
+		height:618px;
+		background:rgba(247,247,247,1);
+		border-radius:2px;
+		
+	}
+	.index2>img:nth-of-type(1){
+		width: 506px;
+		height: 523px;
+		position: absolute;
+		margin-top: 95px;
+		margin-left: 172px;
+	}
+	.index2>img:nth-of-type(2){
+		width:215px;
+		height:72px;
+		position: absolute;
+		margin-top: 376px;
+		margin-left: 752px;
+	}
+	.index2>img:nth-of-type(3){
+		width:215px;
+		height:72px;
+		position: absolute;
+		margin-top: 376px;
+		margin-left: 983px;
+	}
+	.index1{
+		width:1440px;
+		height:800px;
+		background:rgba(10,62,105,1);
+	}
+	.index1>img{
+		width:281px;
+		height:578px;
+		position: absolute;
+		margin-top: 109px;
+		margin-left: 257px;
+	}
+	.index1-1{
+		position: absolute;
+		margin-top: 258px;
+		margin-left: 728px;
+		width:475px;
+		height:86px;
+		font-size:36px;
+		font-weight:400;
+		color:rgba(255,255,255,1);
+		line-height:43px;
+	}
+	.index1-2{
+		position: absolute;
+		margin-top: 371px;
+		margin-left: 728px;
+		width:475px;
+		height:150px;
+		font-size:18px;
+		font-weight:400;
+		color:rgba(138,154,183,1);
+		line-height:30px;
+	}
 .imgs2 {
 	margin-top: 112px;
 	width: 510px;
@@ -302,16 +317,17 @@ export default {
 }
 .xx2 {
 	position: absolute;
-	margin-top: 120px;
+	margin-top: 100px;
+	color: #828A93;
 }
 .xx {
 	position: absolute;
-	margin-top: 80px;
+	margin-top: 60px;
 }
 .boxzall {
 	width: 1440px;
 	display: flex;
-	margin-top: 192px;
+	margin-top: 80px;
 	position: absolute;
 	justify-content: center;
 }
@@ -346,140 +362,15 @@ export default {
 .bottomarea4-1 {
 	width: 1440px;
 	text-align: center;
-	color: rgba(255, 255, 255, 1);
-	font-size: 27px;
+	font-size:20px;
+	color:rgba(102,117,127,1);
 	position: absolute;
-	margin-top: 69px;
+	margin-top: 20px;
 }
 .bottomarea4 {
 	width: 1440px;
-	height: 437px;
+height:259px;
 	background: rgba(0, 17, 35, 1);
-}
-.more {
-	display: flex;
-	justify-content: center;
-	font-size: 18px;
-	margin-top: 25px;
-	color: rgba(153, 153, 153, 1);
-}
-.tablesty > img {
-	width: 44px;
-	height: 50px;
-	margin-left: 28px;
-	position: absolute;
-}
-.tablesty > span:nth-of-type(1) {
-	margin-left: 90px;
-	font-size: 18px;
-	position: absolute;
-	font-weight: normal;
-}
-.tablesty > span > span:nth-of-type(1) {
-	color: rgba(51, 51, 51, 1);
-}
-.tablesty > span > span:nth-of-type(2) {
-	color: rgba(153, 153, 153, 1);
-	font-size: 16px;
-	margin-left: 16px;
-}
-.tablesty > span:nth-of-type(2) {
-	margin-left: 566px;
-	font-size: 17px;
-	color: rgba(51, 51, 51, 1);
-	font-weight: bold;
-	position: absolute;
-}
-.tablesty > span:nth-of-type(3) {
-	font-size: 17px;
-	font-weight: bold;
-	margin-left: 771px;
-	position: absolute;
-}
-.tablesty > span:nth-of-type(4) {
-	font-size: 17px;
-	font-weight: bold;
-	color: rgba(51, 51, 51, 1);
-	position: absolute;
-	margin-left: 980px;
-}
-
-.tablesty {
-	display: flex;
-	align-items: center;
-	height: 78px;
-}
-.xian {
-	width: 1143px;
-	height: 1px;
-	background: rgba(238, 238, 238, 1);
-	margin-top: 27px;
-}
-.xian2 {
-	width: 1143px;
-	height: 1px;
-	background: rgba(238, 238, 238, 1);
-}
-.bottomarea3-1-top > span:nth-of-type(1) {
-	margin-left: 41px;
-}
-.bottomarea3-1-top > span:nth-of-type(2) {
-	margin-left: 476px;
-}
-.bottomarea3-1-top > span:nth-of-type(3) {
-	margin-left: 124px;
-}
-.bottomarea3-1-top > span:nth-of-type(4) {
-	margin-left: 111px;
-}
-.bottomarea3-1-top {
-	font-size: 18px;
-	color: rgba(102, 102, 102, 1);
-	display: flex;
-	margin-top: 32px;
-}
-.bottomarea3-1 {
-	width: 1146px;
-	height: 634px;
-	background: rgba(255, 255, 255, 1);
-	box-shadow: 0px 2px 17px 0px rgba(219, 219, 219, 0.5);
-	border-radius: 7px;
-	position: absolute;
-	margin-left: 147px;
-	margin-top: 15px;
-}
-.bottomarea3 {
-	width: 1440px;
-	height: 710px;
-	background: rgba(254, 254, 254, 1);
-	margin-top: 24px;
-}
-.all {
-	background-color: #e8e8e8;
-}
-.bottomarea2 > span:nth-of-type(1) {
-	color: rgba(46, 46, 46, 1);
-}
-.bottomarea2 > span:nth-of-type(2) {
-	width: 2px;
-	height: 23px;
-	margin-top: 1.5px;
-	background-color: rgba(151, 151, 151, 1);
-	margin-left: 30px;
-}
-.bottomarea2 > span:nth-of-type(3) {
-	color: rgba(69, 141, 254, 1);
-	margin-left: 21px;
-}
-.bottomarea2 > span:nth-of-type(4) {
-}
-.bottomarea2 {
-	font-size: 20px;
-	width: 1440px;
-	text-align: center;
-	margin-top: 41px;
-	display: flex;
-	justify-content: center;
 }
 .bottomarea {
 	background-image: url('../../static/TrustedBy.png');
@@ -512,7 +403,7 @@ export default {
 	margin-top: 43px;
 	width: 178px;
 	height: 57px;
-	background: rgba(1, 211, 210, 1);
+background:rgba(0,195,255,1);
 	border-radius: 2px;
 	border: 1px solid rgba(69, 141, 254, 1);
 	font-size: 22px;
@@ -536,10 +427,13 @@ export default {
 	border: 1px solid rgba(255, 255, 255, 1);
 	text-align: center;
 	line-height: 31px;
+	font-weight: bold;
 	cursor: pointer;
 }
 .box5 > span:nth-of-type(2) {
 	margin-left: 22px;
+	background:rgba(0,195,255,1);
+	border: 0px solid rgba(255, 255, 255, 1);
 }
 .box3 {
 	position: absolute;
@@ -554,6 +448,7 @@ export default {
 	margin-left: 453px;
 }
 .box3 > span {
+	font-weight: bold;
 	cursor: pointer;
 	margin-left: 54px;
 }
