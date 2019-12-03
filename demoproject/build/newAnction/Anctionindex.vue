@@ -37,6 +37,9 @@ export default {
 			/* storage.set(this.pagetype) */
 		}
 	},
+	created() {
+		localStorage.setItem('clicksell',2);
+	},
 	
 };
 </script>

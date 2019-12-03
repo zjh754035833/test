@@ -79,6 +79,7 @@
                       setTimeout(this.countTime, 1000);
                   }
     },
+
     mounted() {
       this.countTime();
       document.querySelector('body').setAttribute('style', 'background-color:#F0F0F0');

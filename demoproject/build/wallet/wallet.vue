@@ -1,29 +1,29 @@
 <template>
 	<div>
 		<div class="halfarea-1">
-			<span class="box1">AUWELS</span>
-			<div class="box3">
-				<span @click="forbuyshell">Buy/Sell</span>
-				<span @click="forAnction">Anction</span>
-				<span @click="forSavings">Savings</span>
-				<span @click="forMining">Mining</span>
-			</div>
 			<img src="../../static/Fill.png" class="box2" />
+			<span class="box1 shou" @click="forindex">AUWELS</span>
+			<div class="box3">
+				<span @click="forbuyshell" :class="[blue1 == 1 ? 'blue' : '']">Buy/Sell</span>
+				<span @click="forAnction" :class="[blue1 == 2 ? 'blue' : '']">Anction</span>
+				<span @click="forSavings" :class="[blue1 == 3 ? 'blue' : '']">Savings</span>
+				<span @click="forMining" :class="[blue1 == 4 ? 'blue' : '']">Mining</span>
+			</div>
 			<div class="box5">
 				<span @click="forkuang">Wallet</span>
 				<img src="../../static/dx1.png" />
 				<span @click="forkuang">Orders</span>
 				<img src="../../static/dx2.png" />
-				<span class="headimg"></span>
+				<div @click="formyaccount" class="shou"></div>
 				<span>
-					<img src="../../static/dowload4.png" style="height: 21px;width: 25px;" />
+					<img src="../../static/dowload4.png" />
 					<span class="yuanjiao">2</span>
 				</span>
 				<span><img src="../../static/dowload3.png" /></span>
-				<span class="and">
-					AUD
-					<img src="../../static/dx2.png" style="width:8px;height:5px;margin-left:8px;" />
-				</span>
+				<div>
+					<span>AUD</span>
+					<img src="../../static/dx2.png" style="" />
+				</div>
 			</div>
 		</div>
 		<div class="waletshow" :style="tankstyle">
@@ -42,13 +42,19 @@
 
 <script>
 export default {
-	components: {},
 	data() {
 		return {
+			blue1: '',
 			tankstyle: 'display:none'
 		};
 	},
+	mounted() {
+		this.blue1 = localStorage.getItem('clicksell');
+	},
 	methods: {
+		forindex() {
+			this.$router.push({ path: '/' });
+		},
 		forlogin() {
 			this.$router.push({ path: '/login' });
 		},
@@ -68,18 +74,23 @@ export default {
 			this.$router.push({ path: '/Mining' });
 		},
 		forkuang() {
-			if(this.tankstyle =='display:none'){
+			if (this.tankstyle == 'display:none') {
 				this.tankstyle = 'display:block';
-			}else{
+			} else {
 				this.tankstyle = 'display:none';
 			}
-			
+		},
+		formyaccount() {
+			this.$router.push({ path: '/Myaccount' });
 		}
 	}
 };
 </script>
 
 <style scoped="scoped">
+.blue {
+	color: #00c3ff;
+}
 .xian4 {
 	width: 175px;
 	height: 2px;
@@ -123,7 +134,7 @@ export default {
 	height: 111px;
 	background: rgba(10, 62, 105, 1);
 	box-shadow: 0px 2px 5px 0px rgba(193, 208, 232, 1);
-	position:absolute;
+	position: absolute;
 	margin-left: 981px;
 	z-index: 999;
 	margin-top: -10px;
@@ -141,41 +152,62 @@ export default {
 	margin-left: -5px;
 	border-radius: 16px;
 }
-.and {
+.box5 > div:nth-of-type(2) {
 	width: 76px;
 	height: 29px;
-	background: #507aa5;
+	margin-left: 30px;
+	background-color: #507aa5;
 	border-radius: 15px;
 	font-size: 16px;
-	text-align: center;
-	line-height: 29px;
+	color: rgba(255, 255, 255, 1);
 	display: flex;
 	justify-content: center;
 	align-items: center;
 }
-.headimg {
-	width: 33px;
-	height: 33px;
-	border: 1px solid rgba(255, 255, 255, 1);
-	border-radius: 20px;
+.box5 > div:nth-of-type(2) > img {
+	width: 8px;
+	height: 5px;
 }
+
 .halfarea-1 {
-	width: 1440px;
+	display: flex;
+	align-items: center;
+	width: 100%;
 	height: 65px;
 	background: rgba(10, 62, 105, 1);
 }
 .box5 {
-	margin-left: 950px;
-	width: 490px;
 	height: 65px;
 	display: flex;
 	align-items: center;
 }
+.box5 > div:nth-of-type(1) {
+	width: 33px;
+	height: 33px;
+	border: 1px solid rgba(255, 255, 255, 1);
+	border-radius: 20px;
+	margin-left: 30px;
+}
 .box5 > span {
-	margin-left: 22px;
 	cursor: pointer;
 	font-size: 18px;
 	color: rgba(255, 255, 255, 1);
+}
+.box5 > span:nth-of-type(1) {
+	margin-left: 185px;
+}
+.box5 > span:nth-of-type(2) {
+	margin-left: 22px;
+}
+.box5 > span:nth-of-type(3) {
+	margin-left: 30px;
+	width: 25px;
+	height: 21px;
+}
+.box5 > span:nth-of-type(4) {
+	width: 25px;
+	height: 25px;
+	margin-left: 30px;
 }
 .box5 > span > img {
 	cursor: pointer;
@@ -188,36 +220,26 @@ export default {
 	height: 5px;
 	cursor: pointer;
 	font-size: 18px;
-	font-family: ArialMT;
 	color: rgba(255, 255, 255, 1);
 }
 
 .box3 {
-	position: absolute;
-	margin-top: 24px;
 	display: flex;
-	font-size: 18px;
-	font-weight: bold;
+	font-size: 16px;
 	color: rgba(255, 255, 255, 1);
 }
-.box3:nth-of-type(1) {
-	margin-left: 380px;
-}
+
 .box3 > span {
 	cursor: pointer;
-	margin-left: 54px;
+	margin-left: 45px;
 }
 .box2 {
-	position: absolute;
-	margin-left: 134px;
-	margin-top: 14px;
+	margin-left: 159px;
 	width: 37px;
 	height: 34px;
 }
 .box1 {
-	position: absolute;
-	margin-top: 9px;
-	margin-left: 196px;
+	margin-left: 18px;
 	font-size: 34px;
 	font-weight: 900;
 	color: rgba(255, 255, 255, 1);

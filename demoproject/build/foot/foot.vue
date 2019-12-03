@@ -50,7 +50,7 @@
 
 <style scoped>
   .footer7{
-      width: 1440px;
+      width:100%;
       position: absolute;
       margin-top: 465px;
       display: flex;
@@ -63,7 +63,7 @@
     }
     .footer6{
     display: flex;
-    width: 1440px;
+   width:100%;
     justify-content: center;
     color:rgba(255,255,255,1);
     margin-top: 495px;
@@ -176,7 +176,7 @@
    margin-top: 23px;
     }
     .footer{
-      width:1440px;
+      width:100%;
       height:567px;
       background:rgba(0,17,35,1);
     }

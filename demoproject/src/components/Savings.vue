@@ -71,6 +71,9 @@
 
       };
     },
+	created() {
+		localStorage.setItem('clicksell',3);
+	},
     mounted() {
       document.querySelector('body').setAttribute('style', 'background-color:#F0F0F0');
     }

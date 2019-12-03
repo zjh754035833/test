@@ -163,7 +163,7 @@ export default {
 		position: absolute;
 	}
 	.index2{
-		width:1439px;
+		width:100%;
 		height:618px;
 		background:rgba(247,247,247,1);
 		border-radius:2px;
@@ -191,7 +191,7 @@ export default {
 		margin-left: 983px;
 	}
 	.index1{
-		width:1440px;
+		width:100%;
 		height:800px;
 		background:rgba(10,62,105,1);
 	}
@@ -305,12 +305,12 @@ export default {
 	font-weight: normal;
 	color: rgba(255, 255, 255, 1);
 	position: absolute;
-	width: 1440px;
+	width: 100%;
 	margin-top: 44px;
 	text-align: center;
 }
 .bottomarea5 {
-	width: 1440px;
+	width: 100%;
 	height: 1185px;
 	background: rgba(30, 73, 211, 1);
 	border-radius: 1px;
@@ -325,7 +325,7 @@ export default {
 	margin-top: 60px;
 }
 .boxzall {
-	width: 1440px;
+	width: 100%;
 	display: flex;
 	margin-top: 80px;
 	position: absolute;
@@ -360,7 +360,7 @@ export default {
 	height: 45px;
 }
 .bottomarea4-1 {
-	width: 1440px;
+	width: 100%;
 	text-align: center;
 	font-size:20px;
 	color:rgba(102,117,127,1);
@@ -368,13 +368,13 @@ export default {
 	margin-top: 20px;
 }
 .bottomarea4 {
-	width: 1440px;
+	width: 100%;
 height:259px;
 	background: rgba(0, 17, 35, 1);
 }
 .bottomarea {
 	background-image: url('../../static/TrustedBy.png');
-	width: 1440px;
+	width: 100%;
 	height: 141px;
 	background-size: 100%;
 }
@@ -469,7 +469,7 @@ background:rgba(0,195,255,1);
 }
 .halfarea {
 	background-image: url('../../static/Group.png');
-	width: 1440px;
+	width: 100%;
 	height: 710px;
 	background-size: 100%;
 }
@@ -488,7 +488,7 @@ background:rgba(0,195,255,1);
 	line-height: 18px;
 }
 .toparea {
-	width: 1440px;
+	width: 100%;
 	height: 76px;
 	background: rgba(0, 17, 35, 1);
 	justify-content: space-around;

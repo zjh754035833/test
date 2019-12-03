@@ -149,7 +149,7 @@ export default {
 	width: 233px;
 }
 .accounthalf {
-	width: 1440px;
+	width: 100%;
 	height: 735px;
 }
 .account1 {
