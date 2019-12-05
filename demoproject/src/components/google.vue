@@ -14,14 +14,14 @@
 			</div>
 		</div>
 		<div class="google16">
-			<div class="google16-1" v-if="numlist[2].type == 'halfon'">
+			<div class="google16-1" v-if="numlist[0].type == 'halfon'">
 				<div>
 					<span>Step 1:</span>
 					<span>Download and install the Google Authenticator app</span>
 				</div>
 				<div>
-					<img src="../../static/apstore.png" />
-					<img src="../../static/appstoregoo.png" />
+					<img src="../../static/apstore.png"  @click="fornext(1)"/>
+					<img src="../../static/appstoregoo.png"  @click="fornext(1)" />
 				</div>
 			</div>
 			<div class="google16-2" v-if="numlist[1].type == 'halfon'">
@@ -36,7 +36,7 @@
 						<div>XYUIOUIOHHK</div>
 					</div>
 				</div>
-				<div class="google16-2-3">NEXT</div>
+				<div class="google16-2-3" @click="fornext(2)">NEXT</div>
 			</div>
 			<div class="google16-3" v-if="numlist[2].type == 'halfon'">
 				<div class="google16-3-1">Step 3:</div>
@@ -45,19 +45,51 @@
 					<div>Resetting your Google Authenticator requires opening a support ticket and takes at least 7days to process.</div>
 					<div>XYUIOUIOHHK</div>
 				</div>
-				<div class="google16-3-3">NEXT</div>
+				<div class="google16-3-3"  @click="fornext(3)">NEXT</div>
 			</div>
-			<div class="google16-3" v-if="numlist[3].type == 'halfon'">
-				
+			<div class="google16-4" v-if="numlist[3].type == 'halfon'">
+				<div class="google16-4-left">
+					<div class="google16-4-1">
+						<span>Step 4:</span>
+						<span>Enable your Google Authenticator.</span>
+					</div>
+					<div class="google16-4-2">Login password</div>
+					<input class="google16-4-3"/>
+					<div class="google16-4-4">SMS Authentication Code</div>
+					<div class="google16-4-5">
+						<input maxlength="1" />
+						<input maxlength="1" />
+						<input maxlength="1" />
+						<input maxlength="1" />
+						<input maxlength="1" />
+						<input maxlength="1" />
+						<div>Send SMS</div>
+					</div>
+					<div class="google16-4-6">
+						<span>Did not receive SMS message? Please try</span>
+						<span>voice verification</span>
+					</div>
+				</div>
+				<div class="google16-4-right">
+					<div>Google Authentication Code</div>
+					<div >
+						<input maxlength="1" />
+						<input maxlength="1" />
+						<input maxlength="1" />
+						<input maxlength="1" />
+						<input maxlength="1" />
+						<input maxlength="1" />
+					</div>
+				</div>
 			</div>
 		</div>
 
-		<v-footer></v-footer>
+		<v-footer style="margin-top: 30px;"></v-footer>
 	</div>
 </template>
 <script>
-import sell from '../../build/sell/sell.vue';
-import footer from '../../build/foot/foot.vue';
+import sell from '../assembly/sell/sell.vue';
+import footer from '../assembly/foot/foot.vue';
 export default {
 	components: {
 		'v-sell': sell,
@@ -75,11 +107,130 @@ export default {
 	},
 	mounted() {
 		document.querySelector('body').setAttribute('style', 'background-color:#F0F0F0');
+	},
+	methods:{
+		fornext(e){
+			this.numlist.forEach((gtem,index)=> {
+				if(index<e){
+					gtem.type="on"
+				}else{
+					gtem.type="off"
+				}
+			});
+			this.numlist[e].type = "halfon";
+		}
 	}
+	
 };
 </script>
 
 <style>
+	.google16-4-right>div:nth-of-type(2)>input:nth-of-type(1){
+	margin-left: 0px;
+	}
+	.google16-4-right>div:nth-of-type(2)>input{
+		margin-top: 38px;
+		padding-left: 23px;
+		font-weight: bold;
+		color: rgba(51, 51, 51, 1);
+		border: none;
+		width: 33px;
+		margin-left: 17px;
+		border-bottom: #c0c0c0 1px solid;
+		outline: none;
+	}
+	.google16-4-right{
+		margin-left:700px;
+		margin-top: 100px;
+		position: absolute;
+		display: flex;
+		flex-direction: column;
+	}
+	.google16-4-right>div:nth-of-type(1){
+		font-size:17px;
+		font-weight:400;
+		color:rgba(153,153,153,1)
+	}
+	.google16-4-6{
+		margin-top:14px;
+	}
+	.google16-4-6>span:nth-of-type(1){
+		font-size:17px;
+		font-weight:400;
+		color:rgba(153,153,153,1);
+	}
+	.google16-4-6>span:nth-of-type(2){
+		font-size:17px;
+		font-weight:400;
+		color:rgba(0, 195, 255, 1);
+		margin-left: 5px;
+	}
+	.google16-4-5{
+		display: flex;
+	}
+	.google16-4-5 > input:nth-of-type(1) {
+		margin-left: 0px;
+	}
+	.google16-4-5 > input {
+		margin-top: 18px;
+		padding-left: 23px;
+		font-weight: bold;
+		color: rgba(51, 51, 51, 1);
+		border: none;
+		width: 36px;
+		margin-left: 17px;
+		border-bottom: #c0c0c0 1px solid;
+		outline: none;
+	}
+	.google16-4-5>div{
+		width:128px;
+		font-weight:400;
+		color:rgba(0,195,255,1);
+		height:37px;
+		border:1px solid rgba(0,195,255,1);
+		margin-left: 25px;
+		text-align: center;
+		font-size:16px;
+		line-height:37px ;
+	}
+	.google16-4-4{
+		margin-top: 24px;
+		font-size:17px;
+		font-weight:400;
+		color:rgba(153,153,153,1);
+	}
+	.google16-4-3{
+		margin-top: 20px;
+		width:432px;
+		border: none;
+		border-bottom: #c0c0c0 1px solid;
+		outline: none;
+		}
+	.google16-4-2{
+		margin-top: 31px;
+		font-size:17px;
+		font-weight:400;
+		color:rgba(153,153,153,1);
+	}
+.google16-4-left {
+	display: flex;
+	flex-direction: column;
+	float: left;
+	margin-left: 90px;
+	margin-top: 34px;
+	position: absolute;
+}
+.google16-4-1 > span:nth-of-type(1) {
+	font-size: 30px;
+	font-weight: 600;
+	color: rgba(51, 51, 51, 1);
+}
+.google16-4-1 > span:nth-of-type(2) {
+	font-size: 20px;
+	font-weight: 400;
+	color: rgba(51, 51, 51, 1);
+	margin-left: 23px;
+}
 .google16-3-2 {
 	margin-left: 449px;
 	margin-top: 61px;
@@ -234,7 +385,7 @@ export default {
 }
 .google16 {
 	width: 1169px;
-	height: 291px;
+	height: 324px;
 	background: rgba(255, 255, 255, 1);
 	box-shadow: 0px 2px 10px 0px rgba(220, 220, 220, 0.5);
 	border-radius: 1px;

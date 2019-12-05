@@ -12,6 +12,7 @@ import Registsucess from '@/components/Registsucess'
 import Myaccount from '@/components/Myaccount'
 import SMS from '@/components/SMS'
 import google from '@/components/google'
+import place from '@/components/placeabid'
 Vue.use(VueRouter)
 
 const routes = [
@@ -74,6 +75,11 @@ const routes = [
    path: '/google',
    name: 'google',
    component: google
+ },
+ {
+   path: '/place',
+   name: 'place',
+   component: place
  },
 ]
 

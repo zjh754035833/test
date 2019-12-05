@@ -2,7 +2,7 @@
 	<div>
 	<div class="newanction1">
 		<div class="newanction1-1">
-			<div class="shou" @click="forplace">Place a bid</div>
+			<div >Place a bid</div>
 			<div>
 				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer iaculis, lacus sed viverra interdum, nulla mi interdum eros, ac hendrerit urna lectus sit amet
 				massa. Phasellus eget nisi eget lectus fringilla vehicula. Sed maximus velit ac lectus consequat condimentum. Etiam in accumsan quam.
@@ -15,8 +15,8 @@
 				massa. Phasellus eget nisi eget lectus fringilla vehicula. Sed maximus velit ac lectus consequat condimentum. Etiam in accumsan quam.
 			</div>
 		</div>
-		<img src="../../static/y1.png" class="newanction1-3" />
-		<img src="../../static/y2.png" class="newanction1-4" />
+		<img src="../../../static/y1.png" class="newanction1-3" />
+		<img src="../../../static/y2.png" class="newanction1-4" />
 	</div>
 	<div style="height: 27px;"></div>
 	</div>
@@ -32,10 +32,7 @@ export default {
 		};
 	},
 	methods: {
-		forplace() {
-			this.$emit('pagetype', '2');
-			/* storage.set(this.pagetype) */
-		}
+
 	},
 	created() {
 		localStorage.setItem('clicksell',2);

@@ -49,7 +49,7 @@
 			</div>
 		</div>
 		<div class="sellbuy6"></div>
-		<div style="width: 800px;height: 694px; position: absolute;"><div id="myChart" :style="{ width: '100%', height: '100%' }" class="biaoti"></div></div>
+		<div id="myChart" :style="{ width: '80vh', height: '684px' ,position:'absolute' }" class="biaoti"></div>
 		<div class="sellbuy5"><span>Buy BTC</span></div>
 		<div class="sellbuy4">
 			<div>
@@ -72,8 +72,8 @@
 			</div>
 			<div class="forbuy">Buy</div>
 		</div>
-		<div class="sellbuy5" style="margin-top: 421px;"><span>Buy BTC</span></div>
-		<div class="sellbuy4" style="margin-top: 458px;">
+		<div class="sellbuy5" style="margin-top: 25px;"><span>Buy BTC</span></div>
+		<div class="sellbuy4" style="margin-top: 95px;">
 			<div>
 				<span>Price：</span>
 				<input />
@@ -98,7 +98,7 @@
 </template>
 
 <script>
-import sell from '../../build/sell/sell.vue';
+import sell from '../assembly/sell/sell.vue';
 
 export default {
 	components: {
@@ -613,7 +613,7 @@ export default {
 	justify-content: center;
 }
 .biaoti {
-	margin-top: 139px;
+	margin-top: 200px;
 	margin-left: 88px;
 }
 .sellbuy6 {
@@ -737,7 +737,6 @@ export default {
 	border: 1px solid rgba(232, 232, 232, 1);
 	margin-left: 1007px;
 	margin-top: 180px;
-	position: absolute;
 }
 .sellbuy1 > div:nth-of-type(1) > span:nth-of-type(1) {
 	font-size: 28px;

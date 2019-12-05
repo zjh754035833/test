@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import head from '../../build/head/head.vue';
+import head from '../assembly/head/head.vue';
 
 export default {
 	data() {

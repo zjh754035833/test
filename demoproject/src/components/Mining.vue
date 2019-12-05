@@ -92,8 +92,8 @@
 </template>
 
 <script>
-import sell from '../../build/sell/sell.vue';
-import footer from '../../build/foot/foot.vue';
+import sell from '../assembly/sell/sell.vue';
+import footer from '../assembly/foot/foot.vue';
 export default {
 	components: {
 		'v-sell': sell,

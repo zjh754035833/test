@@ -31,7 +31,7 @@
 		<div class="dashboard3-2">
 			<li>
 				<span>Enable 2FA</span>
-				<span>On</span>
+				<span @click="forchecksg">On</span>
 			</li>
 			<li>
 				<span>Identity Verification</span>
@@ -88,6 +88,11 @@
 			],
 		};
 	},
+	methods:{
+		forchecksg(){
+				localStorage.setItem('checksg',true);
+		}
+	}
 	}
 </script>
 
@@ -272,7 +277,7 @@
 		display: inline-block;
 	}
 	.dashboard2-1 > div:nth-of-type(2) {
-		width: 76px;
+		min-width: 76px;
 		height: 31px;
 		background: rgba(255, 100, 100, 1);
 		font-weight: bold;
@@ -284,7 +289,7 @@
 		color: rgba(255, 255, 255, 1);
 	}
 	.dashboard2-1 > div:nth-of-type(3) {
-		width: 76px;
+		min-width: 76px;
 		height: 31px;
 		border: 1px solid rgba(153, 153, 153, 1);
 		font-weight: bold;

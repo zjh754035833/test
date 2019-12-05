@@ -1,47 +1,33 @@
 <template>
 	<div>
-		<v-wallet v-if="loginstate==1"></v-wallet>
-		<div class="halfarea-1" v-if="loginstate!=1">
-			<img src="../../static/Fill.png" class="box2" />
-			<span class="box1 shou" @click="forindex">AUWELS</span>
-			<div class="box3">
-				<span @click="forbuyshell" :class="[blue1 == 1 ? 'blue' : '']">Buy/Sell</span>
-				<span @click="forAnction" :class="[blue1 == 2 ? 'blue' : '']">Anction</span>
-				<span @click="forSavings" :class="[blue1 == 3 ? 'blue' : '']">Savings</span>
-				<span @click="forMining" :class="[blue1 == 4 ? 'blue' : '']">Mining</span>
-			</div>
-
 			<div class="box5">
 				<div @click="forsign">sign up</div>
 				<div @click="forlogin">login</div>
 			</div>
 		</div>
-	</div>
 </template>
 
 <script>
-import wallet from '../../build/wallet/wallet.vue';
 export default {
 	components: {
-		'v-wallet': wallet
 	},
 	data() {
 		return {
-			blue1: '',
-			loginstate:''
+			/* blue1: '',
+			loginstate:'' */
 		};
 	},
 	methods: {
-		forindex() {
+		/* forindex() {
 			this.$router.push({ path: '/' });
-		},
+		}, */
 		forlogin() {
 			this.$router.push({ path: '/login' });
 		},
 		forsign() {
 			this.$router.push({ path: '/signup' });
 		},
-		forbuyshell() {
+		/* forbuyshell() {
 			this.$router.push({ path: '/sellbuy' });
 			localStorage.setItem('clicksell', 1);
 		},
@@ -54,11 +40,11 @@ export default {
 		},
 		forMining() {
 			this.$router.push({ path: '/Mining' });
-		}
+		} */
 	},
 	mounted() {
-		this.blue1 = localStorage.getItem('clicksell');
-		this.loginstate=localStorage.getItem('loginstate');
+		/* this.blue1 = localStorage.getItem('clicksell');
+		this.loginstate=localStorage.getItem('loginstate'); */
 	}
 };
 </script>

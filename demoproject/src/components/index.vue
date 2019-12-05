@@ -1,7 +1,7 @@
 <template>
 	<div class="all">
 		<div class="toparea">
-			<div class="text1" v-for="item in list" :key=item.index>
+			<div class="text1" v-for="item in list" :key="item.index">
 				<div>{{ item.msg }}</div>
 				<div style="height: 3px;"></div>
 				<span>{{ item.price }}</span>
@@ -10,7 +10,8 @@
 			</div>
 		</div>
 		<div class="halfarea">
-			<div class="halfarea-1">
+			<v-sell></v-sell>
+			<!-- 	<div class="halfarea-1">
 				<span class="box1">AUWELS</span>
 				<div class="box3">
 					<span @click="forbuyshell" style="z-index: 1;">Buy/Sell</span>
@@ -23,7 +24,7 @@
 					<span @click="forsignup">sign up</span>
 					<span @click="forlogin">login</span>
 				</div>
-			</div>
+			</div> -->
 			<div class="halfarea-2">
 				<div>Build. Understand. G</div>
 				<div>Auwels is a platform that helps your mobile team build better apps, understand your users, and grow your business.</div>
@@ -53,16 +54,19 @@
 		<div class="index1">
 			<img src="../../static/mobile1.png" />
 			<div class="index1-1">The simplest way to have a professioanal webpage.</div>
-			<div class="index1-2">Get all the benefits of an in-wall or in-ceiling speaker system without any of the hassle. Just replace a few lights around your house, and start streaming crisp, clear audio, everywhere.</div>
+			<div class="index1-2">
+				Get all the benefits of an in-wall or in-ceiling speaker system without any of the hassle. Just replace a few lights around your house, and start streaming crisp,
+				clear audio, everywhere.
+			</div>
 		</div>
 		<div class="index2">
 			<img src="../../static/mobile2.png" />
 			<div>Trade on the go</div>
 			<div>Take Poloniex everywhere you go with our apps.</div>
-			<img src="../../static/dowload2.png" />
-			<img src="../../static/dowload1.png" />
+			<img src="../../static/dowload2.png"  class="shou" @click="dowloadapp"/>
+			<img src="../../static/dowload1.png"  class="shou" @click="dowloadgoogle"/>
 		</div>
-	
+
 		<!-- <div class="bottomarea5">
 			<div class="bottomarea5-1">OUR ADVANTAGE</div>
 			<div class="bottomarea5-2">
@@ -98,10 +102,11 @@
 </template>
 
 <script>
-import footer from '../../build/foot/foot.vue';
-
+import footer from '../assembly/foot/foot.vue';
+import sell from '../assembly/sell/sell.vue';
 export default {
 	components: {
+		'v-sell': sell,
 		'v-footer': footer
 	},
 	data() {
@@ -116,114 +121,121 @@ export default {
 		};
 	},
 	methods: {
-			forbuyshell() {
-					this.$router.push({ path: '/sellbuy' });
-				},
-				forAnction() {
-					this.$router.push({ path: '/newAnction' });
-				},
-				forSavings() {
-					this.$router.push({ path: '/Savings' });
-				},
-				forMining() {
-					this.$router.push({ path: '/Mining' });
-				},
-				forlogin(){
-					this.$router.push({ path: '/login' });
-				},
-				forsignup(){
-						this.$router.push({ path: '/signup' });
-				}
-	
+		forbuyshell() {
+			this.$router.push({ path: '/sellbuy' });
+		},
+		forAnction() {
+			this.$router.push({ path: '/newAnction' });
+		},
+		forSavings() {
+			this.$router.push({ path: '/Savings' });
+		},
+		forMining() {
+			this.$router.push({ path: '/Mining' });
+		},
+		forlogin() {
+			this.$router.push({ path: '/login' });
+		},
+		forsignup() {
+			this.$router.push({ path: '/signup' });
+		},
+		dowloadapp(){
+			alert("下载中")
+		},
+		dowloadgoogle(){
+			alert("下载中")
+		}
 	},
-	created() {},
-	mounted() {}
+	created() {
+	},
+	mounted() {
+		
+	}
 };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-	.index2>div:nth-of-type(2){
-		margin-top: 294px;
-		margin-left: 752px;
-		font-size:26px;
-		font-family:SFUIDisplay-Bold,SFUIDisplay;
-		font-weight:bold;
-	color:rgba(153,153,153,1);
-		position: absolute;
-	}
-	.index2>div:nth-of-type(1){
-		margin-top: 220px;
-		margin-left: 752px;
-		font-size:51px;
-		font-family:SFUIDisplay-Bold,SFUIDisplay;
-		font-weight:bold;
-		color:rgba(51,51,51,1);
-		line-height:61px;
-		position: absolute;
-	}
-	.index2{
-		width:100%;
-		height:618px;
-		background:rgba(247,247,247,1);
-		border-radius:2px;
-		
-	}
-	.index2>img:nth-of-type(1){
-		width: 506px;
-		height: 523px;
-		position: absolute;
-		margin-top: 95px;
-		margin-left: 172px;
-	}
-	.index2>img:nth-of-type(2){
-		width:215px;
-		height:72px;
-		position: absolute;
-		margin-top: 376px;
-		margin-left: 752px;
-	}
-	.index2>img:nth-of-type(3){
-		width:215px;
-		height:72px;
-		position: absolute;
-		margin-top: 376px;
-		margin-left: 983px;
-	}
-	.index1{
-		width:100%;
-		height:800px;
-		background:rgba(10,62,105,1);
-	}
-	.index1>img{
-		width:281px;
-		height:578px;
-		position: absolute;
-		margin-top: 109px;
-		margin-left: 257px;
-	}
-	.index1-1{
-		position: absolute;
-		margin-top: 258px;
-		margin-left: 728px;
-		width:475px;
-		height:86px;
-		font-size:36px;
-		font-weight:400;
-		color:rgba(255,255,255,1);
-		line-height:43px;
-	}
-	.index1-2{
-		position: absolute;
-		margin-top: 371px;
-		margin-left: 728px;
-		width:475px;
-		height:150px;
-		font-size:18px;
-		font-weight:400;
-		color:rgba(138,154,183,1);
-		line-height:30px;
-	}
+.index2 > div:nth-of-type(2) {
+	margin-top: 294px;
+	margin-left: 752px;
+	font-size: 26px;
+	font-family: SFUIDisplay-Bold, SFUIDisplay;
+	font-weight: bold;
+	color: rgba(153, 153, 153, 1);
+	position: absolute;
+}
+.index2 > div:nth-of-type(1) {
+	margin-top: 220px;
+	margin-left: 752px;
+	font-size: 51px;
+	font-family: SFUIDisplay-Bold, SFUIDisplay;
+	font-weight: bold;
+	color: rgba(51, 51, 51, 1);
+	line-height: 61px;
+	position: absolute;
+}
+.index2 {
+	width: 100%;
+	height: 618px;
+	background: rgba(247, 247, 247, 1);
+	border-radius: 2px;
+}
+.index2 > img:nth-of-type(1) {
+	width: 506px;
+	height: 523px;
+	position: absolute;
+	margin-top: 95px;
+	margin-left: 172px;
+}
+.index2 > img:nth-of-type(2) {
+	width: 215px;
+	height: 72px;
+	position: absolute;
+	margin-top: 376px;
+	margin-left: 752px;
+}
+.index2 > img:nth-of-type(3) {
+	width: 215px;
+	height: 72px;
+	position: absolute;
+	margin-top: 376px;
+	margin-left: 983px;
+}
+.index1 {
+	width: 100%;
+	height: 800px;
+	background: rgba(10, 62, 105, 1);
+}
+.index1 > img {
+	width: 281px;
+	height: 578px;
+	position: absolute;
+	margin-top: 109px;
+	margin-left: 257px;
+}
+.index1-1 {
+	position: absolute;
+	margin-top: 258px;
+	margin-left: 728px;
+	width: 475px;
+	height: 86px;
+	font-size: 36px;
+	font-weight: 400;
+	color: rgba(255, 255, 255, 1);
+	line-height: 43px;
+}
+.index1-2 {
+	position: absolute;
+	margin-top: 371px;
+	margin-left: 728px;
+	width: 475px;
+	height: 150px;
+	font-size: 18px;
+	font-weight: 400;
+	color: rgba(138, 154, 183, 1);
+	line-height: 30px;
+}
 .imgs2 {
 	margin-top: 112px;
 	width: 510px;
@@ -318,7 +330,7 @@ export default {
 .xx2 {
 	position: absolute;
 	margin-top: 100px;
-	color: #828A93;
+	color: #828a93;
 }
 .xx {
 	position: absolute;
@@ -362,14 +374,14 @@ export default {
 .bottomarea4-1 {
 	width: 100%;
 	text-align: center;
-	font-size:20px;
-	color:rgba(102,117,127,1);
+	font-size: 20px;
+	color: rgba(102, 117, 127, 1);
 	position: absolute;
 	margin-top: 20px;
 }
 .bottomarea4 {
 	width: 100%;
-height:259px;
+	height: 259px;
 	background: rgba(0, 17, 35, 1);
 }
 .bottomarea {
@@ -385,7 +397,7 @@ height:259px;
 	margin-left: 116px;
 }
 .halfarea-2 > div:nth-of-type(1) {
-	margin-top: 197px;
+	margin-top: 137px;
 	width: 470px;
 	height: 47px;
 	font-size: 42px;
@@ -403,7 +415,7 @@ height:259px;
 	margin-top: 43px;
 	width: 178px;
 	height: 57px;
-background:rgba(0,195,255,1);
+	background: rgba(0, 195, 255, 1);
 	border-radius: 2px;
 	border: 1px solid rgba(69, 141, 254, 1);
 	font-size: 22px;
@@ -432,7 +444,7 @@ background:rgba(0,195,255,1);
 }
 .box5 > span:nth-of-type(2) {
 	margin-left: 22px;
-	background:rgba(0,195,255,1);
+	background: rgba(0, 195, 255, 1);
 	border: 0px solid rgba(255, 255, 255, 1);
 }
 .box3 {

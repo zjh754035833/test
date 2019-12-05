@@ -1,28 +1,37 @@
 <template>
 	<div>
 		<div class="halfarea-1">
-			<img src="../../static/Fill.png" class="box2" />
+			<img src="../../../static/Fill.png" class="box2" />
 			<span class="box1 shou" @click="forindex">AUWELS</span>
 			<div class="box3">
 				<span @click="forbuyshell" :class="[blue1 == 1 ? 'blue' : '']">Buy/Sell</span>
-				<span @click="forAnction" :class="[blue1 == 2 ? 'blue' : '']">Anction</span>
+				<div  @mouseenter="mouAnction" @mouseleave="leaveAnction">
+				<div @click="forAnction" :class="[blue1 == 2 ? 'blue' : '']">Anction</div>
+					<div class="anctionshow" :style="anctionstyle"  >
+						<div style=""></div>
+						<div :style="anction1" @mouseenter="forkuang1" @mouseleave="leavekuang1" @click="forpice"><div style="margin-left: 21px;z-index: 9999;" >Place a bid</div></div>
+						<div class="xian5"></div>
+						<div @mouseenter="forkuang2" @mouseleave="leavekuang2" :style="anction2"><div style="margin-left: 21px;" >Creat an auction</div></div>
+					</div>
+					</div>
 				<span @click="forSavings" :class="[blue1 == 3 ? 'blue' : '']">Savings</span>
 				<span @click="forMining" :class="[blue1 == 4 ? 'blue' : '']">Mining</span>
 			</div>
-			<div class="box5">
-				<span @click="forkuang">Wallet</span>
-				<img src="../../static/dx1.png" />
-				<span @click="forkuang">Orders</span>
-				<img src="../../static/dx2.png" />
+			<v-wallet v-if="loginstate!=1"></v-wallet>
+			<div class="box5"  v-if="loginstate==1">
+				<span @mouseenter="forkuang" @mouseleave="leavekuang">Wallet</span>
+				<img src="../../../static/dx1.png" />
+				<span>Orders</span>
+				<img src="../../../static/dx2.png" />
 				<div @click="formyaccount" class="shou"></div>
 				<span>
-					<img src="../../static/dowload4.png" />
+					<img src="../../../static/dowload4.png" />
 					<span class="yuanjiao">2</span>
 				</span>
-				<span><img src="../../static/dowload3.png" /></span>
+				<span><img src="../../../static/dowload3.png" /></span>
 				<div>
 					<span>AUD</span>
-					<img src="../../static/dx2.png" style="" />
+					<img src="../../../static/dx2.png" style="margin-left: 2px;" />
 				</div>
 			</div>
 		</div>
@@ -37,21 +46,35 @@
 				<span>A$998,020,00</span>
 			</div>
 		</div>
+	
 	</div>
 </template>
 
 <script>
+	import wallet from '../wallet/wallet.vue';
 export default {
+	components: {
+		'v-wallet': wallet
+	},
 	data() {
 		return {
 			blue1: '',
-			tankstyle: 'display:none'
+			tankstyle: 'display:none',
+			anctionstyle: 'display:none',
+			anction1: '',
+			anction2: '',
+			loginstate:''
 		};
 	},
 	mounted() {
 		this.blue1 = localStorage.getItem('clicksell');
+		localStorage.removeItem('clicksell')
+				this.loginstate=localStorage.getItem('loginstate');
 	},
 	methods: {
+		forpice(){
+			this.$router.push({ path: '/place' });
+		},
 		forindex() {
 			this.$router.push({ path: '/' });
 		},
@@ -74,14 +97,31 @@ export default {
 			this.$router.push({ path: '/Mining' });
 		},
 		forkuang() {
-			if (this.tankstyle == 'display:none') {
-				this.tankstyle = 'display:block';
-			} else {
-				this.tankstyle = 'display:none';
-			}
+			this.tankstyle = 'display:block';
+		},
+		leavekuang() {
+			this.tankstyle = 'display:none';
 		},
 		formyaccount() {
 			this.$router.push({ path: '/Myaccount' });
+		},
+		forkuang1() {
+			this.anction1 = 'background:rgba(0,195,255,1);';
+		},
+		leavekuang1() {
+			this.anction1 = '';
+		},
+		forkuang2() {
+			this.anction2 = 'background:rgba(0,195,255,1);';
+		},
+		leavekuang2() {
+			this.anction2 = '';
+		},
+		mouAnction(){
+			this.anctionstyle = 'display:block';
+		},
+		leaveAnction(){
+			this.anctionstyle = 'display:none';
 		}
 	}
 };
@@ -91,13 +131,56 @@ export default {
 .blue {
 	color: #00c3ff;
 }
+.xian5{
+		width: 100%;
+	height: 2px;
+	background: rgba(10, 62, 105, 1);
+	position: absolute;
+	margin-top: 55px;
+}
 .xian4 {
 	width: 175px;
 	height: 2px;
 	background-color: #27557e;
 	position: absolute;
 	margin-left: 10px;
-	margin-top: 51px;
+	margin-top: 55px;
+}
+.anctionshow > div:nth-of-type(1) {
+	height: 20px;
+	width: 100%;
+}
+.anctionshow > div:nth-of-type(2) {
+	display: flex;
+	align-items: center;
+	width: 100%;
+	height: 55px;
+	background: rgba(10, 62, 105, 1);
+	box-shadow: 0px 2px 5px 0px rgba(193, 208, 232, 1);
+	font-size: 14px;
+	font-weight: 600;
+	color: rgba(255, 255, 255, 1);
+	position: absolute;
+}
+.anctionshow > div:nth-of-type(4) {
+	display: flex;
+	align-items: center;
+	font-size: 14px;
+	width: 100%;
+	height: 55px;
+	font-weight: 600;
+	background: rgba(10, 62, 105, 1);
+	box-shadow: 0px 2px 5px 0px rgba(193, 208, 232, 1);
+	margin-top: 57px;
+	color: rgba(255, 255, 255, 1);
+	position: absolute;
+}
+.anctionshow {
+	z-index: 999;
+	font-size: 14px;
+	width: 15%;
+	height: 131px;
+	position: absolute;
 }
 .waletshow > div:nth-of-type(1) {
 	font-size: 14px;
@@ -130,12 +213,13 @@ export default {
 	margin-left: 58px;
 }
 .waletshow {
-	width: 194px;
+	font-size: 14px;
+	width: 18%;
 	height: 111px;
 	background: rgba(10, 62, 105, 1);
 	box-shadow: 0px 2px 5px 0px rgba(193, 208, 232, 1);
 	position: absolute;
-	margin-left: 981px;
+	margin-left: 951px;
 	z-index: 999;
 	margin-top: -10px;
 }
@@ -225,6 +309,7 @@ export default {
 
 .box3 {
 	display: flex;
+	font-weight:bold ;
 	font-size: 16px;
 	color: rgba(255, 255, 255, 1);
 }
@@ -233,8 +318,13 @@ export default {
 	cursor: pointer;
 	margin-left: 45px;
 }
+.box3 > div {
+	cursor: pointer;
+	margin-left: 45px;
+	
+}
 .box2 {
-	margin-left: 159px;
+	margin-left: 126px;
 	width: 37px;
 	height: 34px;
 }

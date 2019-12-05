@@ -1,6 +1,7 @@
 <template>
 	<div>
-		<v-wallet></v-wallet>
+		<v-sell></v-sell>
+		<v-checksg></v-checksg>
 		<div class="accounthalf">
 			<div class="account1">
 				<div class="account1-1">
@@ -30,16 +31,18 @@
 </template>
 
 <script>
-import wallet from '../../build/wallet/wallet.vue';
-import footer from '../../build/foot/foot.vue';
-import Dashboard from '../../build/accountvue/Dashboard.vue';
-import newwallet from '../../build/accountvue/wallet.vue'
+	import checksg from '../assembly/checksg/checksg.vue'
+import sell from '../assembly/sell/sell.vue';
+import footer from '../assembly/foot/foot.vue';
+import Dashboard from '../assembly/accountvue/Dashboard.vue';
+import newwallet from '../assembly/accountvue/wallet.vue'
 export default {
 	components: {
-		'v-wallet': wallet,
+		'v-sell': sell,
 		'v-footer': footer,
 		'v-Dashboard':Dashboard,
-		'v-newwallet':newwallet
+		'v-newwallet':newwallet,
+		'v-checksg':checksg
 	},
 	data() {
 		return {
@@ -131,7 +134,7 @@ export default {
 	margin-top: 21px;
 }
 .account1-1 > div:nth-of-type(3) {
-	width: 128px;
+	min-width: 128px;
 	height: 31px;
 	border: 1px solid rgba(0, 195, 255, 1);
 	text-align: center;

@@ -1,6 +1,6 @@
 <template>
 	<div class="halfarea-1">
-		<img src="../../static/Fill.png" class="box2" />
+		<img src="../../../static/Fill.png" class="box2" />
 		<span class="box1">AUWELS</span>
 		<div class="box3">
 			<span @click="forbuyshell">Buy/Sell</span>

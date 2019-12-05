@@ -28,7 +28,7 @@
 			<div class="account3-2"></div>
 			<div class="account3-3" v-for="(gtem, index) in newlist" :key="index">
 				<div :style="{ backgroundImage: 'url(' + gtem.wimage + ')' }" class="account3-3-1 shou" @click="fortu(gtem.id)">
-					<img src="../../static/xpath6.png" v-if="gtem.checked == true" />
+					<img src="../../../static/xpath6.png" v-if="gtem.checked == true" />
 				</div>
 				<div class="account3-3-2">
 					<div>{{ gtem.title }}</div>
@@ -45,11 +45,11 @@
 	data() {
 		return {
 			newlist: [
-				{ wimage: require('../../static/xpath5.png'), msg: 'Buy BTC with credit card now  >', checked: true, id: 0, title: 'VISA:', clicktype: 'Buy/Sell' },
-				{ wimage: require('../../static/xpath1.png'), msg: '12uvW2iVm41z4aiotu5L7LDaN3DA6Tqh2L', checked: false, id: 1, title: 'BTC Address:', clicktype: 'Copy Address' },
-				{ wimage: require('../../static/xpath3.png'), msg: 'Buy BTC with credit card now  >', checked: false, id: 2, title: 'American Express:', clicktype: 'Buy/Sell' },
-				{ wimage: require('../../static/xpath2.png'), msg: '12uvW2iVm41z4aiotu5L7LDaN3DA6Tqh2L', checked: false, id: 3, title: 'ETH Address:', clicktype: 'Copy Address' },
-				{ wimage: require('../../static/xpath4.png'), msg: 'Buy BTC with credit card now  >', checked: false, id: 4, title: 'MasterCard:', clicktype: 'Buy/Sell' }
+				{ wimage: require('../../../static/xpath5.png'), msg: 'Buy BTC with credit card now  >', checked: true, id: 0, title: 'VISA:', clicktype: 'Buy/Sell' },
+				{ wimage: require('../../../static/xpath1.png'), msg: '12uvW2iVm41z4aiotu5L7LDaN3DA6Tqh2L', checked: false, id: 1, title: 'BTC Address:', clicktype: 'Copy Address' },
+				{ wimage: require('../../../static/xpath3.png'), msg: 'Buy BTC with credit card now  >', checked: false, id: 2, title: 'American Express:', clicktype: 'Buy/Sell' },
+				{ wimage: require('../../../static/xpath2.png'), msg: '12uvW2iVm41z4aiotu5L7LDaN3DA6Tqh2L', checked: false, id: 3, title: 'ETH Address:', clicktype: 'Copy Address' },
+				{ wimage: require('../../../static/xpath4.png'), msg: 'Buy BTC with credit card now  >', checked: false, id: 4, title: 'MasterCard:', clicktype: 'Buy/Sell' }
 			],
 		};
 	},
