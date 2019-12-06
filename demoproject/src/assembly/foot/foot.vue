@@ -71,7 +71,7 @@
 .xian3 {
 	width: 1225px;
 	height: 1px;
-	background: rgba(255, 255, 255, 1);
+	background: RGBA(70, 82, 95, 1);
 }
 .footer6 {
 	display: flex;

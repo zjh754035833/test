@@ -6,6 +6,8 @@ import Element from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import echarts from 'echarts'
 import infiniteScroll from 'vue-infinite-scroll'
+import scroll from 'vue-seamless-scroll'
+Vue.use(scroll)
 Vue.use(infiniteScroll)
 Vue.use(Element)
 Vue.prototype.$echarts = echarts

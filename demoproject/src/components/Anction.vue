@@ -88,7 +88,7 @@
   };
 </script>
 
-<style>
+<style scoped="scoped">
   .anction3-1{
     width:263px;
     height:44px;

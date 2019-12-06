@@ -4,11 +4,11 @@
 		<div>
 			<el-dialog title="" :visible.sync="dialogTableVisible" width="75%">
 				<div class="tanchu">
-			<img src="../../static/bluejiao.png" />
-			<span>OUTPUT CHART-SHA-356(BITCOIN MINIMG)</span>
-			</div>
-			<div class="tanchu2">  <span> Output in AUD</span>  </div>
-			<div class="tanchu3"></div>
+					<img src="../../static/bluejiao.png" />
+					<span>OUTPUT CHART-SHA-356(BITCOIN MINIMG)</span>
+				</div>
+				<div class="tanchu2"><span>Output in AUD</span></div>
+				<div class="tanchu3"></div>
 			</el-dialog>
 		</div>
 		<div class="ming1">
@@ -83,7 +83,7 @@
 						<span>$0.11</span>
 					</div>
 					<div></div>
-					<div @click=formining class="shou">Start mining</div>
+					<div @click="formining" class="shou">Start mining</div>
 				</div>
 			</div>
 		</div>
@@ -140,46 +140,48 @@ export default {
 		this.moveall2 = 'margin-left:' + (-35 + (this.perduration / 100) * 65) + '%';
 		document.querySelector('body').setAttribute('style', 'background-color:#F0F0F0');
 	},
-	methods:{
-		formining(){
-			this.dialogTableVisible=true
+	methods: {
+		formining() {
+			this.dialogTableVisible = true;
 		}
 	}
-	
 };
 </script>
 
-<style>
-	.tanchu3{
-		height: 350px;
-	}
-	.tanchu2>span{
-		margin-left: 18px;
-	}
-	.tanchu2{
-		margin-top: 21px;
-		height:43px;
-		background:rgba(0,195,255,1);
-		border-radius:2px;
-		font-weight:400;
-		font-size:17px;
-		color:rgba(255,255,255,1);
-		line-height: 43px;
-	}
-	.tanchu{
-		height: 40px;
-		align-items: center;
-		display: flex;
-	}
-	.tanchu>img{
-		width: 4px;
-		height: 17px;
-		margin-left: 30px;
-	}
-	.tanchu>span{
-		font-size:17px;
-		margin-left: 5px;
-	}
+<style scoped="scoped">
+/deep/ .el-icon-circle-check:before {
+	display: none;
+}
+.tanchu3 {
+	height: 350px;
+}
+.tanchu2 > span {
+	margin-left: 18px;
+}
+.tanchu2 {
+	margin-top: 21px;
+	height: 43px;
+	background: rgba(0, 195, 255, 1);
+	border-radius: 2px;
+	font-weight: 400;
+	font-size: 17px;
+	color: rgba(255, 255, 255, 1);
+	line-height: 43px;
+}
+.tanchu {
+	height: 40px;
+	align-items: center;
+	display: flex;
+}
+.tanchu > img {
+	width: 4px;
+	height: 17px;
+	margin-left: 30px;
+}
+.tanchu > span {
+	font-size: 17px;
+	margin-left: 5px;
+}
 .ming6-1 > div:nth-of-type(3) {
 	width: 777px;
 	height: 1px;

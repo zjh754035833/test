@@ -32,7 +32,7 @@ export default {
 	}
 };
 </script>
-<style>
+<style scoped="scoped">
 .success {
 	width: 1169px;
 	height: 599px;

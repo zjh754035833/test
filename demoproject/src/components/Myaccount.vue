@@ -92,7 +92,7 @@ export default {
 };
 </script>
 
-<style>
+<style >
 
 .account1-2 {
 	width: 233px;
@@ -153,11 +153,11 @@ export default {
 }
 .accounthalf {
 	width: 100%;
-	height: 735px;
+	height: 785px;
 }
 .account1 {
 	width: 233px;
-	height: 711px;
+	height: 741px;
 
 	background: rgba(255, 255, 255, 1);
 	box-shadow: 0px 2px 20px 0px rgba(188, 188, 188, 0.5);
@@ -168,7 +168,7 @@ export default {
 }
 .account2 {
 	width: 996px;
-	height: 198px;
+	height:229px;
 	background: rgba(255, 255, 255, 1);
 	box-shadow: 0px 2px 12px 0px rgba(220, 220, 220, 0.5);
 	border-radius: 1px;
@@ -183,7 +183,7 @@ export default {
 	box-shadow: 0px 2px 12px 0px rgba(220, 220, 220, 0.5);
 	border-radius: 1px;
 	margin-left: 377px;
-	margin-top: 276px;
+	margin-top: 307px;
 	position: absolute;
 }
 </style>

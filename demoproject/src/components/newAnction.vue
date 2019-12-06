@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<v-sell></v-sell>
-		<div v-if="pagetype == 1"><v-index></v-index></div>
+		<div><v-index></v-index></div>
 		<v-footer style="margin-top: 60px;"></v-footer>
 	</div>
 </template>
@@ -19,7 +19,6 @@ export default {
 	},
 	data() {
 		return {
-			pagetype: '1'
 		};
 	},
 	methods: {
@@ -32,7 +31,6 @@ export default {
 		}
 	},
 	mounted() {
-		this.pagetype=localStorage.getItem("pagetype");
 		document.querySelector('body').setAttribute('style', 'background-color:#F0F0F0');
 	},
 	/* watch: {

@@ -124,7 +124,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped="scoped">
 	.google16-4-right>div:nth-of-type(2)>input:nth-of-type(1){
 	margin-left: 0px;
 	}

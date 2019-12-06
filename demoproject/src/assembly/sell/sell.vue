@@ -2,25 +2,26 @@
 	<div>
 		<div class="halfarea-1">
 			<img src="../../../static/Fill.png" class="box2" />
-			<span class="box1 shou" @click="forindex">AUWELS</span>
+			<span class="box1 shou" @click="forindex" >AUWELS</span>
 			<div class="box3">
-				<span @click="forbuyshell" :class="[blue1 == 1 ? 'blue' : '']">Buy/Sell</span>
+				<span @click="forbuyshell" :class="[blue1 == 1 || blue2 == 1? 'blue' : '']" @mouseenter="mouall(1)" @mouseleave="leaveall(1)">Buy/Sell</span>
 				<div  @mouseenter="mouAnction" @mouseleave="leaveAnction">
-				<div @click="forAnction" :class="[blue1 == 2 ? 'blue' : '']">Anction</div>
+				<div @click="forAnction" :class="[blue1 == 2 || blue2 == 2 ? 'blue' : '']">Anction</div>
 					<div class="anctionshow" :style="anctionstyle"  >
 						<div style=""></div>
 						<div :style="anction1" @mouseenter="forkuang1" @mouseleave="leavekuang1" @click="forpice"><div style="margin-left: 21px;z-index: 9999;" >Place a bid</div></div>
 						<div class="xian5"></div>
-						<div @mouseenter="forkuang2" @mouseleave="leavekuang2" :style="anction2"><div style="margin-left: 21px;" >Creat an auction</div></div>
+						<div @mouseenter="forkuang2" @mouseleave="leavekuang2" :style="anction2" @click="forcreate"><div style="margin-left: 21px;" >Creat an auction</div></div>
 					</div>
 					</div>
-				<span @click="forSavings" :class="[blue1 == 3 ? 'blue' : '']">Savings</span>
-				<span @click="forMining" :class="[blue1 == 4 ? 'blue' : '']">Mining</span>
+				<span @click="forSavings" :class="[blue1 == 3 || blue2 == 3 ? 'blue' : '']" @mouseenter="mouall(3)" @mouseleave="leaveall(3)">Savings</span>
+				<span @click="forMining" :class="[blue1 == 4 || blue2 == 4 ? 'blue' : '']" @mouseenter="mouall(4)" @mouseleave="leaveall(4)">Mining</span>
 			</div>
 			<v-wallet v-if="loginstate!=1"></v-wallet>
 			<div class="box5"  v-if="loginstate==1">
 				<span @mouseenter="forkuang" @mouseleave="leavekuang">Wallet</span>
-				<img src="../../../static/dx1.png" />
+				<img src="../../../static/dx1.png" v-if="tankstyle == 'display:none'"/>
+				<img src="../../../static/dx2.png"  v-if="tankstyle == 'display:block'" />
 				<span>Orders</span>
 				<img src="../../../static/dx2.png" />
 				<div @click="formyaccount" class="shou"></div>
@@ -63,7 +64,8 @@ export default {
 			anctionstyle: 'display:none',
 			anction1: '',
 			anction2: '',
-			loginstate:''
+			loginstate:'',
+			blue2:''
 		};
 	},
 	mounted() {
@@ -72,12 +74,16 @@ export default {
 				this.loginstate=localStorage.getItem('loginstate');
 	},
 	methods: {
+		forcreate(){
+			this.$router.push({ path: '/createauction' });
+		},
 		forpice(){
 			this.$router.push({ path: '/place' });
 		},
 		forindex() {
 			this.$router.push({ path: '/' });
 		},
+		
 		forlogin() {
 			this.$router.push({ path: '/login' });
 		},
@@ -118,9 +124,17 @@ export default {
 			this.anction2 = '';
 		},
 		mouAnction(){
+			this.blue2=2;
 			this.anctionstyle = 'display:block';
 		},
+		mouall(e){
+			this.blue2=e;
+		},
+		leaveall(){
+			this.blue2="";
+		},
 		leaveAnction(){
+			this.blue2="";
 			this.anctionstyle = 'display:none';
 		}
 	}

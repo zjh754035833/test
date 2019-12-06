@@ -96,7 +96,7 @@
 	}
 </script>
 
-<style>
+<style scoped="scoped">
 	.infinite-list-wrapper{
 			width: 100%;
 			height: 300px;

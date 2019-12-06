@@ -67,7 +67,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped="scoped">
 .yanz {
 	font-size: 14px;
 	font-weight: 400;

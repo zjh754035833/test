@@ -12,15 +12,44 @@
 			</div>
 			<div class="account2-1"></div>
 			<div class="account2-2">
-				<div class="account2-2-1"></div>
-				<div class="account2-2-2"></div>
-				<div class="account2-2-3">Account Balance</div>
-				<div class="account2-2-4">Estimated Value</div>
-				<div class="account2-2-5">
-					<span>BTC</span>
-					<span>8190.22</span>
+				<div class="xianx"></div>
+				<div class="account2-2-1">
+					<img src="../../../static/q1.png"/>
+					<div>
+						<div>Estimated Vale</div>
+						<div>30,0000</div>
+					</div>
+					<img src="../../../static/q2.png" />
+					<div>
+						<div>Fiat</div>
+						<div>
+							<span>AUD</span>
+							<span>4200</span>
+						</div>
+					</div>
 				</div>
-				<div class="account2-2-6">$7890.11</div>
+				<div  class="account2-3" >
+					<div>
+						<div>BTC</div>
+						<div>10</div>
+					</div>
+					<div>
+						<div>ETH</div>
+						<div>10</div>
+					</div>
+					<div>
+						<div>XRP</div>
+						<div>30</div>
+					</div>
+					<div>
+						<div>LTC</div>
+						<div>70</div>
+					</div>
+					<div>
+						<div>BNB</div>
+						<div>30</div>
+					</div>
+				</div>
 			</div>
 		</div>
 		<div class="account3">
@@ -64,8 +93,79 @@
 	}
 </script>
 
-<style>
-	
+<style scoped="scoped">
+	.xianx{
+		width:1px;
+		height:114px;
+		position: absolute;
+		background: rgba(208, 208, 208, 1);
+		margin-left: 544px;
+		margin-top: 10px;
+	}
+	.account2-3{
+		margin-left: 113px;
+		display: flex;
+		font-size:17px;
+		font-family:SFUIDisplay-Regular,SFUIDisplay;
+		font-weight:400;
+		color:rgba(102,102,102,1);
+		margin-top: 10px;
+	}
+	.account2-3>div:nth-of-type(1){
+		margin-left: 0px;
+	}
+	.account2-3>div>div:nth-of-type(2){
+		color: rgba(51, 51, 51, 1);
+	}
+	.account2-3>div{
+		margin-left: 45px;
+	}
+	.account2-2-1{
+		display: flex;
+		align-items: center;
+		}
+	.account2-2-1>img:nth-of-type(1){
+		width:58px;
+		height:58px;
+		margin-left: 32px;
+	}
+	.account2-2-1>img:nth-of-type(2){
+		width:58px;
+		height:58px;
+		margin-left: 355px;
+	}
+	.account2-2-1>div:nth-of-type(1){
+		margin-left: 23px;
+		font-size:17px;
+		font-weight:400;
+		color:rgba(153,153,153,1);
+	}
+	.account2-2-1>div:nth-of-type(2){
+		margin-left: 23px;
+		font-size:17px;
+		font-weight:400;
+		color:rgba(153,153,153,1);
+	}
+	.account2-2-1>div:nth-of-type(2)>div:nth-of-type(1){
+		font-weight:400;
+		color:rgba(153,153,153,1);
+	}
+	.account2-2-1>div:nth-of-type(2)>div:nth-of-type(2){
+	font-size:14px;
+	font-weight:400;
+	color:rgba(102, 102, 102, 1)
+	}
+	.account2-2-1>div:nth-of-type(2)>div:nth-of-type(2)>span:nth-of-type(2){
+	font-size:19.71px;
+	font-weight:600;
+	margin-left: 5px;
+	color:rgba(0, 195, 255, 1)
+	}
+	.account2-2-1>div:nth-of-type(1)>div:nth-of-type(2){
+		font-size:19.71px;
+		font-weight:600;
+		color:rgba(0, 195, 255, 1);
+	}
 	.account3-3-1 > img {
 		width: 35px;
 		height: 35px;
@@ -134,61 +234,9 @@
 		margin-top: 15px;
 		margin-left: 34px;
 	}
-	.account2-2-5 > span:nth-of-type(1) {
-		font-size: 20px;
-		color: #00c3ff;
-	}
-	.account2-2-5 > span:nth-of-type(2) {
-		font-size: 40px;
-		font-weight: bold;
-		color: rgba(51, 51, 51, 1);
-		margin-left: 5px;
-	}
-	.account2-2-5 {
-		position: absolute;
-		margin-top: 35px;
-		margin-left: 51px;
-	}
-	.account2-2-6 {
-		position: absolute;
-		margin-top: 35px;
-		margin-left: 516px;
-		font-weight: bold;
-		font-size: 40px;
-		color: rgba(51, 51, 51, 1);
-	}
-	.account2-2-3 {
-		font-size: 18px;
-		font-weight: 400;
-		color: rgba(153, 153, 153, 1);
-		position: absolute;
-		margin-left: 51px;
-	}
-	.account2-2-4 {
-		font-size: 18px;
-		font-weight: 400;
-		color: rgba(153, 153, 153, 1);
-		position: absolute;
-		margin-left: 516px;
-	}
-	.account2-2-1 {
-		width: 3px;
-		height: 88px;
-		background: rgba(1, 211, 210, 1);
-		border-radius: 1px;
-		position: absolute;
-		margin-left: 32px;
-	}
-	.account2-2-2 {
-		width: 3px;
-		height: 88px;
-		background: rgba(238, 66, 86, 1);
-		border-radius: 1px;
-		position: absolute;
-		margin-left: 492px;
-	}
+	
 	.account2-2 {
-		margin-top: 26px;
+		margin-top: 17px;
 	}
 	.account2-1 {
 		width: 929px;

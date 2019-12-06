@@ -1,14 +1,16 @@
 <template>
 	<div class="all">
-		<div class="toparea">
-			<div class="text1" v-for="item in list" :key="item.index">
-				<div>{{ item.msg }}</div>
-				<div style="height: 3px;"></div>
-				<span>{{ item.price }}</span>
-				<span style="color: rgba(238, 66, 86, 1);" v-if="item.priceper > 0">{{ item.priceper }}%</span>
-				<span style="color: rgba(1, 211, 210, 1)" v-if="item.priceper < 0">{{ item.priceper }}%</span>
+		<vue-seamless-scroll :data="list" :class-option="optionLeft" class="toparea">
+			<div class="toparea2">
+				<div class="text1" v-for="item in list" :key="item.index">
+					<div>{{ item.msg }}</div>
+					<div style="height: 3px;"></div>
+					<span>{{ item.price }}</span>
+					<span style="color: rgba(238, 66, 86, 1);" v-if="item.priceper > 0">{{ item.priceper }}%</span>
+					<span style="color: rgba(1, 211, 210, 1)" v-if="item.priceper < 0">{{ item.priceper }}%</span>
+				</div>
 			</div>
-		</div>
+		</vue-seamless-scroll>
 		<div class="halfarea">
 			<v-sell></v-sell>
 			<!-- 	<div class="halfarea-1">
@@ -63,8 +65,8 @@
 			<img src="../../static/mobile2.png" />
 			<div>Trade on the go</div>
 			<div>Take Poloniex everywhere you go with our apps.</div>
-			<img src="../../static/dowload2.png"  class="shou" @click="dowloadapp"/>
-			<img src="../../static/dowload1.png"  class="shou" @click="dowloadgoogle"/>
+			<img src="../../static/dowload2.png" class="shou" @click="dowloadapp" />
+			<img src="../../static/dowload1.png" class="shou" @click="dowloadgoogle" />
 		</div>
 
 		<!-- <div class="bottomarea5">
@@ -104,6 +106,7 @@
 <script>
 import footer from '../assembly/foot/foot.vue';
 import sell from '../assembly/sell/sell.vue';
+import https from '../https.js';
 export default {
 	components: {
 		'v-sell': sell,
@@ -115,10 +118,29 @@ export default {
 				{ msg: 'Bitcoin 24h', priceper: '-4.95', price: '$8,148.85' },
 				{ msg: 'Ethereum 24h', priceper: '-4.95', price: '$8,148.85' },
 				{ msg: 'XRP 24h', priceper: '+4.95', price: '$8,148.85' },
-				{ msg: 'Bitcoin Cash 24h', priceper: '+4.95', price: '$8,148.85' },
+				{ msg: 'XRP 24h', priceper: '+4.95', price: '$8,148.85' },
 				{ msg: 'Litecoin 24h', priceper: '-4.95', price: '$8,148.85' }
 			]
 		};
+	},
+	computed: {
+		optionLeft() {
+			return {
+				direction: 2,
+				limitMoveNum: 2
+			};
+		}
+	},
+	mounted() {
+		let params = {'email': '18362161496@163.com', 'password': 'admin123'};
+		https
+			.fetchPost('/account/signUp', params)
+			.then(data => {
+				window.console.log(data);
+			})
+			.catch(err => {
+				window.console.log(err);
+			});
 	},
 	methods: {
 		forbuyshell() {
@@ -139,18 +161,14 @@ export default {
 		forsignup() {
 			this.$router.push({ path: '/signup' });
 		},
-		dowloadapp(){
-			alert("下载中")
+		dowloadapp() {
+			alert('下载中');
 		},
-		dowloadgoogle(){
-			alert("下载中")
+		dowloadgoogle() {
+			alert('下载中');
 		}
 	},
-	created() {
-	},
-	mounted() {
-		
-	}
+	created() {},
 };
 </script>
 
@@ -489,8 +507,8 @@ export default {
 .text1 {
 	font-size: 16px;
 	color: rgba(84, 95, 107, 1);
-	line-height: 18px;
-	margin-top: 16px;
+	float: left;
+	margin-right: 146px;
 }
 
 .text1 > span {
@@ -500,12 +518,16 @@ export default {
 	line-height: 18px;
 }
 .toparea {
-	width: 100%;
 	height: 76px;
 	background: rgba(0, 17, 35, 1);
-	justify-content: space-around;
 	border-radius: 1px;
-	z-index: -1;
+	overflow: hidden;
+}
+.toparea2 {
 	display: flex;
+	background: rgba(0, 17, 35, 1);
+	border-radius: 1px;
+	height: 76px;
+	align-items: center;
 }
 </style>

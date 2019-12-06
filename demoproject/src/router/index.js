@@ -13,6 +13,9 @@ import Myaccount from '@/components/Myaccount'
 import SMS from '@/components/SMS'
 import google from '@/components/google'
 import place from '@/components/placeabid'
+import placedetail from '@/components/placedetail'
+import historybid from '@/components/historybid'
+import createauction from '@/components/creatauction'
 Vue.use(VueRouter)
 
 const routes = [
@@ -80,6 +83,21 @@ const routes = [
    path: '/place',
    name: 'place',
    component: place
+ },
+ {
+   path: '/placedetail',
+   name: 'placedetail',
+   component: placedetail
+ },
+ {
+   path: '/historybid',
+   name: 'historybid',
+   component: historybid
+ },
+ {
+   path: '/createauction',
+   name: 'createauction',
+   component: createauction
  },
 ]
 
