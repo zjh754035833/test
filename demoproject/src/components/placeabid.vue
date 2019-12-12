@@ -26,7 +26,7 @@
 				</el-table>
 			</div>
 		</div>
-		<div style="margin-top: 60px;">
+		<div style="margin-top: 10px;">
 			<el-pagination
 				class="fenpage"
 				background
@@ -37,7 +37,7 @@
 				:total="1000"
 			></el-pagination>
 		</div>
-		<v-footer style="margin-top: 60px;"></v-footer>
+		<v-footer style="margin-top: 20px;"></v-footer>
 	</div>
 </template>
 

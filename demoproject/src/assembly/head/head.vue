@@ -1,7 +1,7 @@
 <template>
 	<div class="halfarea-1">
 		<img src="../../../static/Fill.png" class="box2" />
-		<span class="box1">AUWELS</span>
+		<span class="box1 shou"  @click="forindex">AUWELS</span>
 		<div class="box3">
 			<span @click="forbuyshell">Buy/Sell</span>
 			<span @click="fornewAnction">Anction</span>
@@ -34,6 +34,9 @@ export default {
 		},
 		forMining() {
 			this.$router.push({ path: '/Mining' });
+		},
+		forindex() {
+			this.$router.push({ path: '/' });
 		}
 	}
 };

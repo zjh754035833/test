@@ -17,8 +17,8 @@
 				<span @click="forSavings" :class="[blue1 == 3 || blue2 == 3 ? 'blue' : '']" @mouseenter="mouall(3)" @mouseleave="leaveall(3)">Savings</span>
 				<span @click="forMining" :class="[blue1 == 4 || blue2 == 4 ? 'blue' : '']" @mouseenter="mouall(4)" @mouseleave="leaveall(4)">Mining</span>
 			</div>
-			<v-wallet v-if="loginstate!=1"></v-wallet>
-			<div class="box5"  v-if="loginstate==1">
+			<v-wallet v-if="loginstate==''||loginstate==null"></v-wallet>
+			<div class="box5"  v-if="loginstate!=''&loginstate!=null">
 				<span @mouseenter="forkuang" @mouseleave="leavekuang">Wallet</span>
 				<img src="../../../static/dx1.png" v-if="tankstyle == 'display:none'"/>
 				<img src="../../../static/dx2.png"  v-if="tankstyle == 'display:block'" />
@@ -26,7 +26,7 @@
 				<img src="../../../static/dx2.png" />
 				<div @click="formyaccount" class="shou"></div>
 				<span>
-					<img src="../../../static/dowload4.png" />
+					<img src="../../../static/dowload4.png"  style="width: 25px;height: 21px;"/>
 					<span class="yuanjiao">2</span>
 				</span>
 				<span><img src="../../../static/dowload3.png" /></span>
@@ -39,12 +39,12 @@
 		<div class="waletshow" :style="tankstyle">
 			<div>
 				<span>BTC</span>
-				<span>$177,222,111,99</span>
+				<span>${{btcval}}</span>
 			</div>
 			<div class="xian4"></div>
 			<div>
 				<span>AUD</span>
-				<span>A$998,020,00</span>
+				<span>${{audval}}</span>
 			</div>
 		</div>
 	
@@ -53,6 +53,7 @@
 
 <script>
 	import wallet from '../wallet/wallet.vue';
+	import https from '../../https.js';
 export default {
 	components: {
 		'v-wallet': wallet
@@ -65,13 +66,28 @@ export default {
 			anction1: '',
 			anction2: '',
 			loginstate:'',
-			blue2:''
+			blue2:'',
+			btcval:'',
+			audval:''
 		};
 	},
 	mounted() {
+	
 		this.blue1 = localStorage.getItem('clicksell');
 		localStorage.removeItem('clicksell')
-				this.loginstate=localStorage.getItem('loginstate');
+				this.loginstate=localStorage.getItem('token');
+				if(this.loginstate!=""&this.loginstate!=null){
+					https
+						.fetchGet('/account/walletInfo', "")
+						.then(data => {
+							window.console.log(data.data.detail);
+							this.btcval=data.data.detail.mbtc
+							this.audval=data.data.detail.meth
+						})
+						.catch(err => {
+							window.console.log(err);
+						});
+				}
 	},
 	methods: {
 		forcreate(){

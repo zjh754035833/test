@@ -1,5 +1,48 @@
 <template>
 	<div>
+		<div>
+			<el-dialog  :visible.sync="dialogTableVisible1" width="60%">
+				<div class="tanchu">
+					<img src="../../../static/bluejiao.png" />
+				<span>Please select mode of payment</span>
+				</div>
+				<div class="xiant"></div>
+				<div style="height: 366px;">
+					<div class="account3-3" v-for="(gtem, index) in newlist" :key="index" style="width: 50%;">
+						<div :style="{ backgroundImage: 'url(' + gtem.wimage + ')' }" class="account3-3-1 shou" @click="fortu1(gtem.id)">
+							<img src="../../../static/xpath6.png" v-if="gtem.checked == true" />
+						</div>
+						<div class="account3-3-2">
+							<div>{{ gtem.title }}</div>
+							<div>{{ gtem.msg }}</div>
+							<div>{{ gtem.clicktype }}</div>
+						</div>
+					</div>
+				</div>
+			
+			</el-dialog>
+		</div>
+		<div>
+			<el-dialog title="" :visible.sync="dialogTableVisible2" width="60%">
+			<div class="tanchu">
+				<img src="../../../static/bluejiao.png" />
+			<span>Please select mode of payment</span>
+			</div>
+			<div class="xiant"></div>
+			<div style="height: 366px;">
+				<div class="account3-3" v-for="(gtem, index) in newlist2" :key="index" style="width: 100%;">
+					<div :style="{ backgroundImage: 'url(' + gtem.wimage + ')' }" class="account3-3-1 shou" @click="fortu2(gtem.id)">
+						<img src="../../../static/xpath6.png" v-if="gtem.checked == true" />
+					</div>
+					<div class="account3-3-2">
+						<div>{{ gtem.title }}</div>
+						<div>{{ gtem.msg }}</div>
+						<div>{{ gtem.clicktype }}</div>
+					</div>
+				</div>
+			</div>
+			</el-dialog>
+		</div>
 		<div class="account4">
 			<span>Wallet /</span>
 			<span>Deposit</span>
@@ -53,11 +96,22 @@
 			</div>
 		</div>
 		<div class="account3">
-			<div class="account3-1">Select Network</div>
+			<!-- <div class="account3-1">Select Network</div>
 			<div class="account3-2"></div>
 			<div class="account3-3" v-for="(gtem, index) in newlist" :key="index">
 				<div :style="{ backgroundImage: 'url(' + gtem.wimage + ')' }" class="account3-3-1 shou" @click="fortu(gtem.id)">
 					<img src="../../../static/xpath6.png" v-if="gtem.checked == true" />
+				</div>
+				<div class="account3-3-2">
+					<div>{{ gtem.title }}</div>
+					<div>{{ gtem.msg }}</div>
+					<div>{{ gtem.clicktype }}</div>
+				</div>
+			</div> -->
+			<div class="account3-1">Select Network</div>
+			<div class="account3-2"></div>
+			<div class="account3-3" v-for="(gtem, index) in alllist" :key="index">
+				<div :style="{ backgroundImage: 'url(' + gtem.wimage + ')' }" class="account3-3-1 shou" @click="forall(gtem.id)">
 				</div>
 				<div class="account3-3-2">
 					<div>{{ gtem.title }}</div>
@@ -75,25 +129,68 @@
 		return {
 			newlist: [
 				{ wimage: require('../../../static/xpath5.png'), msg: 'Buy BTC with credit card now  >', checked: true, id: 0, title: 'VISA:', clicktype: 'Buy/Sell' },
-				{ wimage: require('../../../static/xpath1.png'), msg: '12uvW2iVm41z4aiotu5L7LDaN3DA6Tqh2L', checked: false, id: 1, title: 'BTC Address:', clicktype: 'Copy Address' },
-				{ wimage: require('../../../static/xpath3.png'), msg: 'Buy BTC with credit card now  >', checked: false, id: 2, title: 'American Express:', clicktype: 'Buy/Sell' },
-				{ wimage: require('../../../static/xpath2.png'), msg: '12uvW2iVm41z4aiotu5L7LDaN3DA6Tqh2L', checked: false, id: 3, title: 'ETH Address:', clicktype: 'Copy Address' },
-				{ wimage: require('../../../static/xpath4.png'), msg: 'Buy BTC with credit card now  >', checked: false, id: 4, title: 'MasterCard:', clicktype: 'Buy/Sell' }
+			
+				{ wimage: require('../../../static/xpath3.png'), msg: 'Buy BTC with credit card now  >', checked: false, id: 1, title: 'American Express:', clicktype: 'Buy/Sell' },
+				
+				{ wimage: require('../../../static/xpath4.png'), msg: 'Buy BTC with credit card now  >', checked: false, id: 2, title: 'MasterCard:', clicktype: 'Buy/Sell' }
 			],
+			alllist: [
+				{ wimage: require('../../../static/1all.png'), msg: 'Three credit card types >', checked: true, id: 0, title: 'Credit Card', clicktype: 'Next' },
+				{ wimage: require('../../../static/2all.png'), msg: 'Optional currency to buy >', checked: false, id: 1, title: 'Select currency', clicktype: 'Next' },
+			],
+			newlist2:[
+				{ wimage: require('../../../static/xpath2.png'), msg: '12uvW2iVm41z4aiotu5L7LDaN3DA6Tqh2L', checked: true, id: 0, title: 'ETH Address:', clicktype: 'Copy Address' },
+					{ wimage: require('../../../static/xpath1.png'), msg: '12uvW2iVm41z4aiotu5L7LDaN3DA6Tqh2L', checked: false, id: 1, title: 'BTC Address:', clicktype: 'Copy Address' },
+			],
+			dialogTableVisible1:false,
+			dialogTableVisible2:false
 		};
 	},
 	methods:{
-		fortu(e) {
+		fortu1(e) {
 			this.newlist.forEach(gtem => {
 				gtem.checked = false;
 			});
 			this.newlist[e].checked = true;
-		}
+		},
+		fortu2(e) {
+			this.newlist2.forEach(gtem => {
+				gtem.checked = false;
+			});
+			this.newlist2[e].checked = true;
+		},
+		forall(e){
+			if(e==0){
+				this.dialogTableVisible1=true
+			}else if(e==1){
+				this.dialogTableVisible2=true
+			}
+			}
+		
 	}
 	}
 </script>
 
 <style scoped="scoped">
+	.xiant{
+		height:1px;
+		margin-top: 22px;
+		background-color: rgba(238, 238, 238, 1);
+	}
+	.tanchu {
+		
+		align-items: center;
+		display: flex;
+	}
+	.tanchu > img {
+		width: 4px;
+		height: 17px;
+		margin-left: 30px;
+	}
+	.tanchu > span {
+		font-size: 17px;
+		margin-left: 5px;
+	}
 	.xianx{
 		width:1px;
 		height:114px;
@@ -189,7 +286,7 @@
 		margin-top: 7px;
 	}
 	.account3-3-2 > div:nth-of-type(3) {
-		width: 109px;
+		width: 50%;
 		height: 31px;
 		border: 1px solid rgba(0, 195, 255, 1);
 		font-size: 12px;
@@ -205,8 +302,8 @@
 		margin-top: 19px;
 	}
 	.account3-3 {
-		height: 92px;
-		width: 498px;
+		height: 40%;
+		width: 50%;
 		float: left;
 		margin-top: 42px;
 	}

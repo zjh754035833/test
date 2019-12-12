@@ -1,7 +1,6 @@
 <template>
 	<div>
 		<v-sell></v-sell>
-		<v-checksg></v-checksg>
 		<div class="accounthalf">
 			<div class="account1">
 				<div class="account1-1">
@@ -31,7 +30,6 @@
 </template>
 
 <script>
-	import checksg from '../assembly/checksg/checksg.vue'
 import sell from '../assembly/sell/sell.vue';
 import footer from '../assembly/foot/foot.vue';
 import Dashboard from '../assembly/accountvue/Dashboard.vue';
@@ -42,17 +40,16 @@ export default {
 		'v-footer': footer,
 		'v-Dashboard':Dashboard,
 		'v-newwallet':newwallet,
-		'v-checksg':checksg
 	},
 	data() {
 		return {
 			xztype: '0',
 			list: [
 				{ wimage: require('../../static/accountw1.png'), limage: require('../../static/account1.png'), msg: 'Dashboard', checked: true, id: 0 },
-				{ wimage: require('../../static/accountw4.png'), limage: require('../../static/account2.png'), msg: 'Wallet', checked: false, id: 1 },
-				{ wimage: require('../../static/accountw3.png'), limage: require('../../static/account5.png'), msg: 'Transaction History', checked: false, id: 2 },
-				{ wimage: require('../../static/accountw5.png'), limage: require('../../static/account4.png'), msg: 'Security', checked: false, id: 3 },
-				{ wimage: require('../../static/accountw2.png'), limage: require('../../static/account3.png'), msg: ' Settings', checked: false, id: 4 }
+				{ wimage: require('../../static/accountw2.png'), limage: require('../../static/account2.png'), msg: 'Wallet', checked: false, id: 1 },
+				{ wimage: require('../../static/accountw3.png'), limage: require('../../static/account3.png'), msg: 'Transaction History', checked: false, id: 2 },
+				{ wimage: require('../../static/accountw4.png'), limage: require('../../static/account4.png'), msg: 'Security', checked: false, id: 3 },
+				{ wimage: require('../../static/accountw5.png'), limage: require('../../static/account5.png'), msg: ' Settings', checked: false, id: 4 }
 			],
 			newlist: [
 				{ wimage: require('../../static/xpath5.png'), msg: 'Buy BTC with credit card now  >', checked: true, id: 0, title: 'VISA:', clicktype: 'Buy/Sell' },
@@ -100,8 +97,8 @@ export default {
 }
 
 .account1-2 > img {
-	width: 27px;
-	height: 34px;
+	width: 31px;
+	height: 36px;
 	position: absolute;
 	margin-left: 25px;
 }

@@ -15,10 +15,5 @@ body{
 }
 </style>
 <script>
-/* export default {
-		data(){},
-        mounted() {
-			window.console.log('init!')
-		}
-	}; */
+
 </script>

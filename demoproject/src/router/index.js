@@ -1,15 +1,15 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import index from '@/components/index'
-import signup from '@/components/signup'
+// import index from '@/components/index'
+// import signup from '@/components/signup'
 import login from '@/components/login'
-import sellbuy from '@/components/sellbuy'
-import Mining from '@/components/Mining'
-import Savings from '@/components/Savings'
-import Anction from '@/components/Anction'
-import newAnction from '@/components/newAnction'
-import Registsucess from '@/components/Registsucess'
-import Myaccount from '@/components/Myaccount'
+// import sellbuy from '@/components/sellbuy'
+// import Mining from '@/components/Mining'
+// import Savings from '@/components/Savings'
+// import Anction from '@/components/Anction'
+// import newAnction from '@/components/newAnction'
+// import Registsucess from '@/components/Registsucess'
+// import Myaccount from '@/components/Myaccount'
 import SMS from '@/components/SMS'
 import google from '@/components/google'
 import place from '@/components/placeabid'
@@ -22,12 +22,12 @@ const routes = [
  {
    path: '/',
    name: 'index',
-   component: index
+   component: () => import( /* webpackChunkName: "index" */ '@/components/index')
  },
  {
    path: '/signup',
    name: 'signup',
-   component: signup
+   component: () => import( /* webpackChunkName: "signup" */ '@/components/signup')
  },
  {
    path: '/login',
@@ -37,37 +37,37 @@ const routes = [
  {
    path: '/sellbuy',
    name: 'sellbuy',
-   component: sellbuy
+   component: () => import( /* webpackChunkName: "sellbuy" */ '@/components/sellbuy')
  },
  {
    path: '/Mining',
    name: 'Mining',
-   component: Mining
+   component: () => import( /* webpackChunkName: "Mining" */ '@/components/Mining')
  },
  {
    path: '/Anction',
    name: 'Anction',
-   component: Anction
+   component: () => import( /* webpackChunkName: "Anction" */ '@/components/Anction')
  },
  {
    path: '/newAnction',
    name: 'newAnction',
-   component: newAnction
+   component: () => import( /* webpackChunkName: "newAnction" */ '@/components/newAnction')
  },
  {
    path: '/Savings',
    name: 'Savings',
-   component: Savings
+   component: () => import( /* webpackChunkName: "Savings" */ '@/components/Savings')
  },
  {
    path: '/Registsucess',
    name: 'Registsucess',
-   component: Registsucess
+   component: () => import( /* webpackChunkName: "Registsucess" */ '@/components/Registsucess')
  },
  {
    path: '/Myaccount',
    name: 'Myaccount',
-   component: Myaccount
+   component: () => import( /* webpackChunkName: "Myaccount" */ '@/components/Myaccount')
  },
  {
    path: '/SMS',

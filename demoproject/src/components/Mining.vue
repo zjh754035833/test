@@ -69,7 +69,7 @@
 						<span>2019-11-28</span>
 					</div>
 					<div></div>
-					<div>view historical yield</div>
+					<div @click="formining" class="shou">view historical yield</div>
 				</div>
 			</div>
 			<div class="ming6">
@@ -445,7 +445,7 @@ export default {
 .ming2 > span {
 	margin-left: 10px;
 	margin-right: 20px;
-	font-size: 0.03rem;
+	font-size: 14px;
 	color: #ffffff;
 	opacity: 0.8;
 }
@@ -459,7 +459,7 @@ export default {
 }
 .ming3 > span {
 	margin-left: 10px;
-	font-size: 0.03rem;
+	font-size:14px;
 	color: #ffffff;
 	opacity: 0.8;
 }
