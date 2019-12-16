@@ -204,28 +204,28 @@ export default {
 					this.str1 = this.strx1.slice(0, this.i1++) + '.';
 					this.timer1 = setTimeout(() => {
 						this.typing1();
-					}, 20);
+					}, 100);
 			} else {
 				if (this.i2 <= this.strx2.length) {
 						_this.show2 = true;
 					this.str2 = this.strx2.slice(0, this.i2++) + '.';
 					this.timer2 = setTimeout(() => {
 						this.typing1();
-					}, 20);
+					}, 100);
 				} else {
 				if (this.i3 <= this.strx3.length) {
 						_this.show3 = true;
 					this.str3 = this.strx3.slice(0, this.i3++) + '.';
 					this.timer13 = setTimeout(() => {
 						this.typing1();
-					}, 20);
+					}, 100);
 				} else {
 					if (this.i4 <= this.strx4.length) {
 							_this.show4 = true;
 						this.str4 = this.strx4.slice(0, this.i4++) + '.';
 						this.timer4 = setTimeout(() => {
 							this.typing1();
-						}, 20);
+						}, 100);
 					}else{
 						this.inmove()
 					}

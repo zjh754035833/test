@@ -16,10 +16,12 @@ import {
 	checkbox,
 	Dropdown,
 	DropdownMenu,
-	DropdownItem
-	
+	DropdownItem,
+	MessageBox,
+
 
 } from 'element-ui';
+Vue.prototype.$alert = MessageBox.alert;
 Vue.use(Dropdown);
 Vue.use(DropdownMenu);
 Vue.use(DropdownItem);

@@ -78,6 +78,10 @@ export default {
 							localStorage.removeItem('clicksell')
 							localStorage.setItem('token',data.data.token); 
 							this.$router.push({ path: '/Myaccount' })
+					}else{
+						this.$alert(data.data.msg, {
+							confirmButtonText: 'Determine'
+						});
 					}
 				})
 				.catch(err => {
