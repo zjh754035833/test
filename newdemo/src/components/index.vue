@@ -21,9 +21,25 @@ export default {
 	},
 	computed: {},
 	mounted() {
+	var token = localStorage.getItem('token');
+		if (token != null & token != '') {
+			this.isadmin(token)
+		}
+		
 		document.querySelector('body').setAttribute('style', 'background-color:#F0F0F0');
 	},
 	methods: {
+		isadmin(e) {
+			let param = { token: e };
+			https.fetchGet('/isAdmin', param).then(data => {
+				window.console.log(data);
+				if (data.data.state == 0) {
+				localStorage.removeItem('token')
+				} else if (data.data.state == 1) {
+						this.$router.push({ path: '/Artboard' });
+				}
+			});
+		},
 		usename(e) {
 			this.usenameval = e.target.value;
 		},

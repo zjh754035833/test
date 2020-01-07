@@ -4,6 +4,8 @@
 			<div>Start trading now</div>
 			<div>Register now</div>
 			<div>Trade now</div>
+			<div>Certified by</div>
+			<img src="../../../static/footimg.png" />
 		</div>
 		<div class="footer2">
 			<div>About Us</div>
@@ -182,6 +184,17 @@
 	text-align: center;
 	font-size: 22px;
 	margin-top: 23px;
+}
+.footer1 > div:nth-of-type(4) {
+	font-size:31px;
+	color:rgba(255,255,255,1);
+	margin-top: 22px;
+}
+.footer1>img{
+	width:227px;
+	margin-top: 15px;
+	height:73px;
+	border-radius:2px;
 }
 .footer {
 	width: 100%;

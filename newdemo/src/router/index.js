@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import index from '@/components/index'
 import Artboard from'@/components/Artboard'
+
 Vue.use(VueRouter)
 
 const routes = [
@@ -15,6 +16,7 @@ const routes = [
    name: 'Artboard',
    component: Artboard
  },
+ 
 ]
 
 const router = new VueRouter({

@@ -18,12 +18,18 @@ import {
 	DropdownMenu,
 	DropdownItem,
 	MessageBox,
-
-
+	Carousel,
+	CarouselItem,
+	Slider,
+	Upload
 } from 'element-ui';
 Vue.prototype.$alert = MessageBox.alert;
+Vue.use(Upload);
 Vue.use(Dropdown);
+Vue.use(Slider);
 Vue.use(DropdownMenu);
+Vue.use(Carousel);
+Vue.use(CarouselItem);
 Vue.use(DropdownItem);
 Vue.use(echarts);
 Vue.use(Table);
@@ -41,6 +47,7 @@ import infiniteScroll from 'vue-infinite-scroll'
 import scroll from 'vue-seamless-scroll'
 Vue.use(scroll)
 Vue.use(infiniteScroll)
+Vue.prototype.$confirm = MessageBox.confirm;
 Vue.config.productionTip = false
 new Vue({
 	router,
