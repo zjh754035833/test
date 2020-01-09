@@ -3,6 +3,9 @@ import App from './App.vue'
 import 'amfe-flexible';
 import router from '@/router/index.js'
 import echarts from 'echarts'
+import lang from 'element-ui/lib/locale/lang/en'
+import locale from 'element-ui/lib/locale'
+
 import {
 	Radio,
 	Select,
@@ -21,11 +24,17 @@ import {
 	Carousel,
 	CarouselItem,
 	Slider,
-	Upload
+	Upload,
+	Tooltip,
+	Badge
+
 } from 'element-ui';
+locale.use(lang)
 Vue.prototype.$alert = MessageBox.alert;
+Vue.use(Badge);
 Vue.use(Upload);
 Vue.use(Dropdown);
+Vue.use(Tooltip);
 Vue.use(Slider);
 Vue.use(DropdownMenu);
 Vue.use(Carousel);

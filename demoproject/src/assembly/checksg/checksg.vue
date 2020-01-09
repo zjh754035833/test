@@ -7,6 +7,7 @@
 					<div>Google</div>
 					<div>Authentication</div>
 				</div>
+				
 				<div @click="forsms" class="shou">
 					<div>SMS</div>
 					<div>Authentication</div>

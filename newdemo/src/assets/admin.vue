@@ -111,14 +111,16 @@
 									</el-popover>
 								</template>
 							</el-table-column>
-							<el-table-column label="发送内容" width="200" align="center">
+							<el-table-column label="发送内容" width="240" align="center">
 								<template slot-scope="scope">
 									<el-popover trigger="hover" placement="top">
 										<div slot="reference" class="name-wrapper">
 											<el-tag size="medium" v-if="scope.row.usermessage.length > 30">{{ scope.row.usermessage.substring(0, 30) + '...' }}</el-tag>
 											<el-tag size="medium" v-if="scope.row.usermessage.length <= 30">{{ scope.row.usermessage }}</el-tag>
 										</div>
-										<div><el-button type="primary" plain @click="updatenum(scope.row.userid, scope.row.mtimesmp)">文本详情</el-button></div>
+										<div style="display: flex;"><el-button type="primary" plain @click="updatenum(scope.row.userid, scope.row.mtimesmp)">文本详情</el-button>
+										<el-button @click="toExport1(scope.row.userid, scope.row.mtimesmp)">导出文案</el-button>
+										</div>
 									</el-popover>
 								</template>
 							</el-table-column>
@@ -142,13 +144,12 @@
 									</div>
 									<div v-if="scope.row.sate == 'n'">
 										<el-button @click="toExport(scope.row.userid, scope.row.mtimesmp)">导出手机号</el-button>
-										<el-button @click="toExport1(scope.row.userid, scope.row.mtimesmp)">导出文案</el-button>
 										<el-button type="danger" style="margin-top: 10px;" @click="changenum(scope.row.userid, scope.row.mtimesmp)">修改发送条数</el-button>
 									</div>
 									<div v-if="scope.row.sate == 'g'">
 										<div style="color: white;">(用户已经更新了该批次,请重新导出)</div>
 										<el-button @click="toExport(scope.row.userid, scope.row.mtimesmp)">导出手机号</el-button>
-										<el-button @click="toExport1(scope.row.userid, scope.row.mtimesmp)">导出文案</el-button>
+										
 										<el-button type="danger" @click="forreally(scope.row.userid, scope.row.mtimesmp)">标记为正常</el-button>
 									</div>
 								</template>

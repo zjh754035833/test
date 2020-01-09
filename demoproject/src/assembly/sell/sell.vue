@@ -7,7 +7,7 @@
 					<span @click="forbuyshell" @mouseenter="mouall(1)" @mouseleave="leaveall(1)">BUY/SELL</span>
 					<div class="dxian" v-if="blue1 == 1 || blue2 == 1"></div>
 				</div>
-				<div @mouseenter="mouAnction" @mouseleave="leaveAnction">
+				<!-- <div @mouseenter="mouAnction" @mouseleave="leaveAnction">
 					<div @click="forAnction">
 						<el-popover placement="top-start"  width="200" trigger="hover" content="coming soon......">
 							<el-button slot="reference">ANCTION</el-button>
@@ -24,19 +24,17 @@
 							<div @mouseenter="forkuang2" @mouseleave="leavekuang2" :style="anction2" @click="forcreate"><div style="margin-left: 21px;">Creat an auction</div></div>
 						</div>
 					</div>
-				</div>
-				<div>
-				
-					<span @click="forSavings" @mouseenter="mouall(3)" @mouseleave="leaveall(3)">
-						<el-popover placement="top-start"  width="200" trigger="hover" content="coming soon......">
-							<el-button slot="reference">SAVING</el-button>
-						</el-popover>
-					</span>
-					<!-- <div class="dxian" v-if="blue1 == 3 || blue2 == 3"></div> -->
-				</div>
+				</div> -->
+
 				<div>
 					<span @click="forMining" @mouseenter="mouall(4)" @mouseleave="leaveall(4)">MINING</span>
 					<div class="dxian" v-if="blue1 == 4 || blue2 == 4"></div>
+				</div>
+				<div>
+					<span @click="forSavings" @mouseenter="mouall(3)" @mouseleave="leaveall(3)">
+						<el-badge value="coming soon......" class="item">SAVING</el-badge>
+					</span>
+					<!-- <div class="dxian" v-if="blue1 == 3 || blue2 == 3"></div> -->
 				</div>
 			</div>
 			<v-wallet v-if="loginstate == '' || loginstate == null"></v-wallet>
@@ -61,26 +59,7 @@
 				<!-- <img src="../../../static/dx11.png" /> -->
 				<div @click="formyaccount" class="" @mouseenter="forkuang3" @mouseleave="leavekuang3">
 					<div class="shou dashboadr">dash board</div>
-					<div style="height: 70px;"></div>
-					<div class="waletshow2" :style="tankstyle3">
-						<div><span>Vi***@163.com</span></div>
-						<div>
-							<img src="../../../static/ma1.png" />
-							<span>Security</span>
-						</div>
-						<div>
-							<img src="../../../static/ma2.png" style="width: 16px;height: 13px;" />
-							<span>Identification</span>
-						</div>
-						<div>
-							<img src="../../../static/ma3.png" style="width: 15px;height: 14px;" />
-							<span>Referral</span>
-						</div>
-						<div>
-							<img src="../../../static/ma4.png" style="width: 16px;height: 16px;" />
-							<span>Log out</span>
-						</div>
-					</div>
+					
 				</div>
 				<span style="display: flex;margin-left: 30px;">
 					<img src="../../../static/dowload44.png" style="width: 27px;height: 20px;" />
@@ -91,6 +70,26 @@
 					<span>AUD</span>
 					<img src="../../../static/dx2.png" style="margin-left: 2px;" />
 				</div> -->
+			</div>
+	
+		</div>
+		<div class="waletshow2" :style="tankstyle3">
+			<div><span>Vi***@163.com</span></div>
+			<div>
+				<img src="../../../static/ma1.png" />
+				<span>Security</span>
+			</div>
+			<div>
+				<img src="../../../static/ma2.png" style="width: 16px;height: 13px;" />
+				<span>Identification</span>
+			</div>
+			<div>
+				<img src="../../../static/ma3.png" style="width: 15px;height: 14px;" />
+				<span>Referral</span>
+			</div>
+			<div>
+				<img src="../../../static/ma4.png" style="width: 16px;height: 16px;" />
+				<span>Log out</span>
 			</div>
 		</div>
 	</div>
@@ -155,7 +154,7 @@ export default {
 			this.$router.push({ path: '/sellbuy' });
 		},
 		forAnction() {
-/* 			this.$router.push({ path: '/newAnction' }); 暂不开放 */
+			/* 			this.$router.push({ path: '/newAnction' }); 暂不开放 */
 		},
 		forSavings() {
 			/* this.$router.push({ path: '/Savings' }); 暂不开放 */
@@ -209,17 +208,17 @@ export default {
 </script>
 
 <style scoped="scoped">
-	.dashboadr{
-		height: 30px;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		background-color: rgba(41, 47, 136, 1);
-		font-size: 14px;
-		width: 100px;
-		color: white;
-		border-radius: 5px;
-	}
+.dashboadr {
+	height: 30px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: rgba(41, 47, 136, 1);
+	font-size: 14px;
+	width: 100px;
+	color: white;
+	border-radius: 5px;
+}
 .dxian {
 	width: 80px;
 	height: 2px;
@@ -323,14 +322,14 @@ export default {
 	margin-top: 80px;
 }
 .waletshow2 {
+	margin-left: 940px;
+	position: absolute;
 	font-size: 14px;
 	width: 194px;
+	margin-top: -10px;
 	height: 240px;
 	background: rgba(255, 255, 255, 1);
 	box-shadow: 0px 2px 5px 0px rgba(193, 208, 232, 1);
-	position: absolute;
-	margin-top: 144px;
-	margin-left: -50px;
 	z-index: 999;
 }
 .waletshow2 > div {
@@ -474,6 +473,7 @@ export default {
 	display: flex;
 	position: relative;
 	justify-content: center;
+	align-items: center;
 	flex-direction: column;
 	height: 65px;
 	align-items: center;

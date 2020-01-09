@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<v-head></v-head>
-		<img src="../../static/memblist1.png" class="individ1" />
+		<img src="../../static/user1.png" class="individ1" />
 		<div style="display: flex;margin-top: 43px;">
 			<div class="individual2" >Becoming a member</div>
 			<div class="individual3">
@@ -15,13 +15,6 @@
 				<div>An Australian business interested in the development or deployment of blockchain technology but whose primary business model is not blockchain focused.</div>
 			</div>
 			
-		</div>
-		<div class="individual4">
-			<input placeholder="Company name"/>
-			<input placeholder="Contact name" />
-			<input type="number" placeholder="Telephone"/>
-			<input placeholder="Email"/>
-			<div class="subilt shou">SUBMIT</div>
 		</div>
 		<div></div>
 		<v-foot style="margin-top: 42px;"></v-foot>

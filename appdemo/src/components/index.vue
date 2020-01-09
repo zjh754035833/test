@@ -1,7 +1,10 @@
 <template>
 	<div class="indexall">
 		<v-head></v-head>
-		<img src="../../static/indeximg1.png" />
+		<div class="indexallimg">
+			<img  src="../../static/indexsad2.png"/>
+			<img src="../../static/anniu.png" class="shou" @click="forwailian"/>
+		</div>
 		<div class="indextop" style="margin-top: 0px;">
 			<div class="index1">
 				<div>What We Do</div>
@@ -37,13 +40,13 @@
 			<div class="index6">
 				<div class="index7"></div>
 			</div>
-			<div class="index8">
+			<!-- <div class="index8">
 				<span>PARTNERS</span>
 				<img src="../../static/indeximg5.png" />
 			</div>
 			<div class="index6">
 				<div class="index7"></div>
-			</div>
+			</div> -->
 			<v-foot style="margin-top: 10px;background-color: #F0F0F0;"></v-foot>
 	</div>
 </template>
@@ -81,7 +84,11 @@ export default {
 	mounted() {
 		document.querySelector('body').setAttribute('style', 'background-color:#F0F0F0');
 	},
-	methods: {},
+	methods: {
+		forwailian(){
+			window.location.href='https://docs.google.com/forms/d/1uTkDsxb65mmh9ieRQVh7oNauaX0b6yAvsTg-W4X26PY/edit?usp=sharing'
+		}
+	},
 	created() {}
 };
 </script>
@@ -181,8 +188,24 @@ font-weight:400;
 		display: flex;
 	}
 	
-	.indexall > img {
+	.indexallimg {
 		width: 100%;
+		height: 670px;
+		background-image: url(../../static/indexasd.png);
+		background-size: 100%;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+	.indexallimg>img:nth-of-type(1){
+		width: 100%;
+		height: 329px;
+		margin-top: 100px;
+	}
+	.indexallimg>img:nth-of-type(2){
+		width: 222px;
+		height: 60px;
+		margin-top: 50px;
 	}
 	.index1 {
 		display: flex;

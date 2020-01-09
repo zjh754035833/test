@@ -204,12 +204,12 @@
 				</div>
 				<div class="sellbuy2">
 					<div class="text1" v-for="(item, index) in list" :key="index">
-						<div v-if="item.msg != 'Last Price'">{{ item.msg }}</div>
-						<div style="color:rgba(0, 195, 255, 1)" v-if="item.msg == 'Last Price'">{{ item.msg }}</div>
+						<div v-if="item.msg != 'Last Price'" >{{ item.msg }}</div>
+						<div style="color:rgba(0, 195, 255, 1);font-size: 20px;" v-if="item.msg == 'Last Price'">{{ item.msg }}</div>
 						<div style="height: 3px;"></div>
 						<span v-if="(item.msg != '24h change') & (item.msg != 'Last Price')">{{ item.price }}</span>
 						<span style="color:rgba(238,66,86,1);" v-if="item.msg == '24h change'">{{ item.price }}</span>
-						<span style="color:rgba(0, 195, 255, 1)" v-if="item.msg == 'Last Price'">{{ item.price }}</span>
+						<span style="color:rgba(0, 195, 255, 1);font-size: 20px;" v-if="item.msg == 'Last Price'">{{ item.price }}</span>
 					</div>
 				</div>
 			</div>

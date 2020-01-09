@@ -51,7 +51,7 @@
 					<div>
 						<div class="jindu">
 							<div class="shijian">
-								<el-slider v-model="value2" @change="changesider2" :format-tooltip="formatTooltip2" tooltip-class="toolstyle" :max="360"></el-slider>
+								<el-slider v-model="value2"  :format-tooltip="formatTooltip2" tooltip-class="toolstyle" :max="360"></el-slider>
 								<!-- <el-progress :percentage="per" status="success" :color="customColor"></el-progress> -->
 							</div>
 						</div>
@@ -80,7 +80,7 @@
 						<span>${{ nowprice }}</span>
 					</div>
 					<div>
-						<span>Estimated daily output will be</span>
+						<span>Expected due output</span>
 						<span>${{ estimated }}</span>
 					</div>
 					<div></div>
@@ -94,12 +94,14 @@
 
 <script>
 var _this;
+import https from '../../https.js'
 import sell from '../../assembly/sell/sell.vue';
 import footer from '../../assembly/foot/foot.vue';
 export default {
 	components: {
 		'v-sell': sell,
-		'v-footer': footer
+		'v-footer': footer,
+		
 	},
 	data() {
 		return {
@@ -129,8 +131,8 @@ export default {
 			dialogTableVisible: false,
 			value1: 1,
 			value2: 1,
-			changeth: '',
-			changeday: '',
+			changeth: 10,
+			changeday: 1,
 			nowprice: '',
 			yearh: '0.035',
 			estimated: ''
@@ -140,10 +142,24 @@ export default {
 		localStorage.setItem('clicksell', 4);
 	},
 	mounted() {
+		
 		_this = this;
 		document.querySelector('body').setAttribute('style', 'background-color:#F0F0F0');
 	},
 	methods: {
+		suanli(){
+			let params = { h: this.changeth, day: this.changeday };
+			https
+				.fetchPost('/debug/testMin', params)
+				.then(data => {
+					window.console.log(data);
+					this.nowprice=(data.data.capital).toFixed(4);
+					this.estimated=(data.data.capital+data.data.profit-data.data.fee).toFixed(4)
+				})
+				.catch(err => {
+					window.console.log(err);
+				});
+		},
 		formatTooltip1(val) {
 			if (val < 10) {
 				val = 10;
@@ -168,11 +184,7 @@ export default {
 			this.dialogTableVisible = true;
 		},
 		estimatval() {
-			if (_this.changeth * _this.changeday * _this.yearh < 0.01) {
-				this.estimated = (_this.changeth + _this.changeth * _this.changeday * _this.yearh - 0.01).toFixed(4);
-			} else {
-				this.estimated = (_this.changeth + _this.changeth * _this.changeday * _this.yearh - _this.changeday * 0.009 * _this.changeth).toFixed(4);
-			}
+			this.suanli()
 		}
 	}
 };

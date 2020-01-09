@@ -1,7 +1,6 @@
 <template>
 	<div>
 	<v-head></v-head>
-	<img src="../../static/about1.png" class="about1"/>
 	<div class="index3">
 		<el-carousel :interval="3000" autoplay="true" indicator-position="outside" height="500px">
 			<el-carousel-item v-for="item in swiplist" :key="item">

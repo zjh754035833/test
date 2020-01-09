@@ -1,11 +1,11 @@
 <template>
 	<div>
-		<div v-if="checktype == true"><v-checksg @func="getchecktype"></v-checksg></div>
+		<div v-if="deposittype == true"><v-checkdeposit @funcdeposit="funcdeposit"></v-checkdeposit></div>
 		<div class="dashboard2">
 			<div class="dashboard2-1">
 				<div>My Account</div>
-				<div>Deposit</div>
-				<div>Withdraw</div>
+				<div @click="forDeposit()" class="shou">Deposit</div>
+				<div @click="fordraw()" class="shou">Withdraw</div>
 			</div>
 			<div class="dashboard2-2"></div>
 			<div class="dashboard2-3">
@@ -27,14 +27,14 @@
 		</div>
 		<div class="dashboardx-2">
 			<div class="dashboardx-1-1"><span>Login history</span></div>
-			<div class="dashboardx-1-2-xian" ></div>
+			<div class="dashboardx-1-2-xian"></div>
 			<div style="margin-top: 10px;"></div>
 			<div class="dashboardx-2-1" v-for="(item, index) in Loginhistory" :key="index">
 				<span>IP:47.888.999</span>
 				<span>2019-12-19 11:45:27</span>
 			</div>
 		</div>
-	
+
 		<div class="dashboardx-1">
 			<div class="dashboardx-1-1"><span>Announcements</span></div>
 			<div class="dashboardx-1-2" v-for="(gtem, index) in Announcementslist" :key="index">
@@ -43,74 +43,41 @@
 				<div class="dashboardx-1-2-2"><div style="float: right;">2019-12-18</div></div>
 			</div>
 		</div>
-			<div class="dashboard3">
-				<div>
-					<span>Increase your account security</span>
-					<span>0</span>
-					<span>/4</span>
-				</div>
-				<div class="dashboard3-1"></div>
-				<div class="dashboard3-2">
-					<li v-for="(item, index) in securitylist" :key="index">
-						<span>{{ item.name }}</span>
-						<span @click="forchecksg(item.id)">{{ item.value }}</span>
-					</li>
-				</div>
-			</div>
-			
-			<div class="dashboardx-3">
-				<div class="dashboardx-1-1"><span>Operation record</span></div>
-				<div class="dashboardx-1-2-xian"></div>
-				<div style="margin-top: 10px;"></div>
-				<div class="dashboardx-2-1" v-for="(item, index) in Operationlist" :key="index">
+		<div class="dashboard3">
+			<div><span>2FA</span></div>
+			<div class="dashboard3-1"></div>
+			<div class="dashboard3-2">
+				<li v-for="(item, index) in securitylist" :key="index">
 					<span>{{ item.name }}</span>
-					<span>{{ item.date }}</span>
-				</div>
+					<span @click="forchecksg(item.id)">{{ item.value }}</span>
+				</li>
 			</div>
-		<!-- 		<div class="dashboard4">
-			<div>Transaction History</div>
-			<div>
-				<div class="dashboard4-1">
-					<span>Buy</span>
-					<span>Amount</span>
-					<span>Status</span>
-					<span>Price</span>
-					<span>Date</span>
-				</div>
+		</div>
+
+		<div class="dashboardx-3">
+			<div class="dashboardx-1-1"><span>Operation record</span></div>
+			<div class="dashboardx-1-2-xian"></div>
+			<div style="margin-top: 10px;"></div>
+			<div class="dashboardx-2-1" v-for="(item, index) in Operationlist" :key="index">
+				<span>{{ item.name }}</span>
+				<span>{{ item.date }}</span>
 			</div>
-			<div class="infinite-list-wrapper">
-				<div class="dashboard4-2" v-for="(gtem, index) in historylist" :key="index">
-					<div>{{ gtem.buy }}</div>
-					<div>{{ gtem.Amount }}</div>
-					<div>{{ gtem.Status }}</div>
-					<div>{{ gtem.Price }}</div>
-					<div>{{ gtem.Date }}</div>
-					<div class="dashboard4-3"></div>
-				</div>
-			</div>
-		</div> -->
+		</div>
+	
 	</div>
 </template>
 
 <script>
-import checksg from '../checksg/checksg.vue';
+import checkdeposit from '../checksg/checkdeposit.vue';
 export default {
 	components: {
-		'v-checksg': checksg
+		'v-checkdeposit': checkdeposit
 	},
 	data() {
 		return {
-			historylist: [
-				{ buy: '$988,889', Amount: '192', Status: 'failure', Price: '$0.22390', Date: '2019-11-12' },
-				{ buy: '$988,889', Amount: '192', Status: 'failure', Price: '$0.22390', Date: '2019-11-12' },
-				{ buy: '$988,889', Amount: '192', Status: 'failure', Price: '$0.22390', Date: '2019-11-12' },
-				{ buy: '$988,889', Amount: '192', Status: 'failure', Price: '$0.22390', Date: '2019-11-12' },
-				{ buy: '$988,889', Amount: '192', Status: 'failure', Price: '$0.22390', Date: '2019-11-12' },
-				{ buy: '$988,889', Amount: '192', Status: 'failure', Price: '$0.22390', Date: '2019-11-12' },
-				{ buy: '$988,889', Amount: '192', Status: 'failure', Price: '$0.22390', Date: '2019-11-12' },
-				{ buy: '$988,889', Amount: '192', Status: 'failure', Price: '$0.22390', Date: '2019-11-12' }
-			],
+		
 			checktype: false,
+			deposittype: false,
 			Announcementslist: [{}, {}],
 			Loginhistory: [{}, {}, {}, {}],
 			Operationlist: [
@@ -119,17 +86,28 @@ export default {
 				{ name: 'Change Password', date: '2019-12-19 11:45:27' },
 				{ name: 'Auction', date: '2019-12-19 11:45:27' }
 			],
-			securitylist: [{ name: 'Enable 2FA', value: 'on', id: 1 }, { name: 'Identity Verification', value: 'Verify', id: 2 }]
+			securitylist: [{ name: 'Google Authentication', value: 'On', id: 1 }, { name: 'SMS Authentication ', value: 'Disable', id: 2 }]
 		};
 	},
 	methods: {
 		forchecksg(e) {
 			if (e == 1) {
-				this.checktype = true;
+				this.$router.push({ path: '/google' });
+			} else if (e == 2) {
+				this.$router.push({ path: '/SMS' });
 			}
+		},
+		fordraw() {
+			this.$router.push({ path: '/withdraw' });
 		},
 		getchecktype(data) {
 			this.checktype = data;
+		},
+		forDeposit() {
+			this.deposittype = true;
+		},
+		funcdeposit(data) {
+			this.deposittype = data;
 		}
 	}
 };
@@ -167,7 +145,7 @@ export default {
 	margin-right: 20px;
 }
 .dashboardx-1-2-1 {
-	width:940px;
+	width: 940px;
 	height: 42px;
 	font-size: 14px;
 	font-weight: 400;
@@ -283,7 +261,7 @@ export default {
 	font-size: 16px;
 }
 .dashboard3-2 > li > span:nth-of-type(2) {
-	color: #00c3ff;
+	color: rgba(41, 47, 136, 1);
 	font-size: 14px;
 	text-decoration: underline;
 	margin-left: 18px;
@@ -438,7 +416,7 @@ export default {
 	margin-top: 17px;
 }
 .dashboardx-1 {
-	width:994px;
+	width: 994px;
 	margin-left: 334px;
 	height: 250px;
 	margin-top: 478px;

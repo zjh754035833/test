@@ -24,12 +24,17 @@
 			<div v-if="xztype == '0'">
 				<v-usercenter></v-usercenter>
 			</div>
+			<div v-if="xztype == '3'">
+				<v-security></v-security>
+			</div>
+			
 		</div>
 		<v-footer></v-footer>
 	</div>
 </template>
 
 <script>
+import security from '../../assembly/accountvue/Security.vue'
 import sell from '../../assembly/sell/sell.vue';
 import footer from '../../assembly/foot/foot.vue';
 import usercenter from '../../assembly/accountvue/Dashboard.vue';
@@ -40,6 +45,7 @@ export default {
 		'v-footer': footer,
 		'v-usercenter':usercenter,
 		'v-newwallet':newwallet,
+		'v-security':security
 	},
 	data() {
 		return {

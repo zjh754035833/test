@@ -5,21 +5,12 @@
 		</div>
 		<div class="our2">Our mission</div>
 		<div class="our3">
-			Association of Australian Cryptocurrency is the industry body that represents Australian businesses and business professionals participating in the digital economy
-			through blockchain technology. 
+			The association of Australian cryptocurrency (AAC) is a non-profit and non-commercial professional organization with its headquarters located in Sydney, Australia. AAC comprises professionals from Forex industry, investment banking, funds and multinational technology companies.
 			<br /><br />
-			Association of Australian Cryptocurrency aims to encourage the responsible adoption of blockchain technology by industry and governments
-			across Australia as a means to drive innovation in service delivery across all sectors of the economy.
+			AAC encourages advocacy, through networking and leveraging the power of organizations in communities such as bank/university/fund to promote and participate in Australian Cryptocurrency trade.
 		</div>
-		<div class="our2">Our mission</div>
-		<div class="our3">
-			Association of Australian Cryptocurrency is the industry body that represents Australian businesses and business professionals participating in the digital economy
-			through blockchain technology. 
-			<br /><br />
-			Association of Australian Cryptocurrency aims to encourage the responsible adoption of blockchain technology by industry and governments
-			across Australia as a means to drive innovation in service delivery across all sectors of the economy.
-		</div>
-		<v-foot style="margin-top: 90px;"></v-foot>
+		
+		<v-foot ></v-foot>
 	</div>
 </template>
 
@@ -45,7 +36,7 @@ export default {
 .our1 {
 	width: 100%;
 	height: 68px;
-	background-image: url("../../static/memblist1.png");
+	background-image: url("../../static/user1.png");
 	background-size: 100%;
 }
 .our2{
@@ -57,7 +48,7 @@ export default {
 }
 .our3{
 	width:862px;
-	height:167px;
+	height:367px;
 	margin-left: 308px;
 	margin-top: 17px;
 	font-size:18px;

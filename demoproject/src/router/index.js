@@ -28,6 +28,21 @@ const routes = [
 		component: () => import( /* webpackChunkName: "index" */ '@/components/Generation/Generation')
 	},
 	{
+		path: '/Crypto',
+		name: 'Crypto',
+		component: () => import( /* webpackChunkName: "index" */ '@/components/Deposit/Crypto')
+	},
+	{
+		path: '/withdraw',
+		name: 'withdraw',
+		component: () => import( /* webpackChunkName: "index" */ '@/components/withdraw/withdraw')
+	},
+	{
+		path: '/Fiat',
+		name: 'Fiat',
+		component: () => import( /* webpackChunkName: "index" */ '@/components/Deposit/Fiat')
+	},
+	{
 		path: '/changeEmail',
 		name: 'changeEmail',
 		component: () => import( /* webpackChunkName: "index" */ '@/components/changeEmail')

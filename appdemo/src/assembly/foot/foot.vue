@@ -1,15 +1,15 @@
 <template>
 	<div class="footall">
 		<img src="../../../static/foot1.png" />
-		<span>Company</span>
+		<!-- <span>Company</span> -->
 		<span>Inspiaration</span>
 		<span>Services</span>
 		<span>Blog</span>
 		<span>Contacts</span>
 		<div>
-		<img src="../../../static/foot2.png" />
+	<!-- 	<img src="../../../static/foot2.png" />
 		<img src="../../../static/foot3.png" />
-		<img src="../../../static/foot4.png" />
+		<img src="../../../static/foot4.png" /> -->
 		</div>
 	</div>
 </template>

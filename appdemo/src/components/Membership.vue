@@ -24,12 +24,12 @@
 			<div class="img2"><div class="menbersign">Sign up</div></div>
 			<!-- <img src="../../static/menber2.png" />
 			<img src="../../static/menber3.png" /> -->
-			<div class="img3">
+			<!-- <div class="img3">
 				<div>AAC</div>
 				<div>Membership list</div>
 				<div>Association of Australian Cryptocurrency</div>
 				<div>View</div>
-			</div>
+			</div> -->
 		</div>
 		<v-foot style="margin-top: 78px;"></v-foot>
 	</div>

@@ -101,7 +101,7 @@ color:rgba(153,153,153,1);
 
 		width: 100%;
 		height: 68px;
-		background-image: url("../../static/memblist1.png");
+		background-image: url("../../static/user1.png");
 		background-size: 100%;
 }
 </style>

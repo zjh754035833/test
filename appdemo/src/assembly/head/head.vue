@@ -1,28 +1,44 @@
 <template>
 	<div class="head1">
 		<img src="../../../static/headimg.png" />
-		<span style="margin-left: 120px;" class="shou" @click="forhome">home</span>
-		<div class="shou"  @mouseenter="mouall(1)" @mouseleave="leaveall(1)" >
-		<span @click="forabout">About</span>	
-			<i class="el-icon-arrow-down el-icon--right" v-if="jiantoustyle1==1"></i>
-			<i class="el-icon-arrow-up el-icon--right" v-if="jiantoustyle1==2"></i>
+		<span style="margin-left: 120px;" class="shou" @click="forhome">Home</span>
+		<div class="shou" @mouseenter="mouall(1)" @mouseleave="leaveall(1)" style="z-index: 999;">
+			<span @click="forabout">About</span>
+			<i class="el-icon-arrow-down el-icon--right" v-if="jiantoustyle1 == 1"></i>
+			<i class="el-icon-arrow-up el-icon--right" v-if="jiantoustyle1 == 2"></i>
 			<div class="headkuang1" :style="headkuang1style">
-				<div class="headkuang1-1" @click="formission">Our mission / histor</div>
-					<div class="headkuang1-2" @click="forstandard">Standard</div>
+				<div class="headkuang1-1"  @click="forstandard">Our mission</div>
+				<div class="headkuang1-2" @click="formission">About as</div>
 			</div>
 		</div>
-		<div class="shou"  @mouseenter="mouall(2)" @mouseleave="leaveall(2)">
-			<span @click="forMembership">Membership</span>	
-			<i class="el-icon-arrow-down el-icon--right" v-if="jiantoustyle2==1"></i>
-			<i class="el-icon-arrow-up el-icon--right" v-if="jiantoustyle2==2"></i>
+		<div class="shou" @mouseenter="mouall(2)" @mouseleave="leaveall(2)" style="z-index: 999;">
+			<span @click="forMembership">Membership</span>
+			<i class="el-icon-arrow-down el-icon--right" v-if="jiantoustyle2 == 1"></i>
+			<i class="el-icon-arrow-up el-icon--right" v-if="jiantoustyle2 == 2"></i>
 			<div class="headkuang2" :style="headkuang2style">
 				<div class="headkuang2-1" @click="forindividual">Individual</div>
-					<div class="headkuang2-2">Corporation</div>
-					<div class="headkuang2-2" @click="formemberlist">Membership list</div>
+				<div class="headkuang2-2" @click="forCorporation">Corporation</div>
+				<div class="headkuang2-2" @click="formemberlist">Membership list</div>
 			</div>
 		</div>
-		<span style="margin-right: 50px;" class="shou" @click="forresource">Resource library</span>
-		<div class="login shou"  @click="forlogin">Login</div>
+		<div class="shou" @mouseenter="mouall(3)" @mouseleave="leaveall(3)" style="z-index: 999;margin-right: 50px;">
+		<span class="shou" @click="forresource">Resource library</span>
+			<i class="el-icon-arrow-down el-icon--right" v-if="jiantoustyle3 == 1"></i>
+			<i class="el-icon-arrow-up el-icon--right" v-if="jiantoustyle3 == 2"></i>
+			<div class="headkuang3" :style="headkuang3style">
+				<div class="headkuang3-1" @click="forSubscription">Subscription</div>
+			</div>
+		</div>
+		<div class="shou" @mouseenter="mouall(4)" @mouseleave="leaveall(4)" style="z-index: 999;margin-right: 150px;" v-if="islogin==true">
+		<span class="shou" @click="forresource">Doggie  yang</span>
+			<i class="el-icon-arrow-down el-icon--right" v-if="jiantoustyle4 == 1"></i>
+			<i class="el-icon-arrow-up el-icon--right" v-if="jiantoustyle4 == 2"></i>
+			<div class="headkuang3" :style="headkuang4style">
+				<div class="headkuang3-1" @click="forUsercenter">User Center</div>
+				<div class="headkuang3-1"  style="margin-top: 0px;">Log out</div>
+			</div>
+		</div>
+		<div class="login shou" @click="forlogin" v-if="islogin==false">Login</div>
 	</div>
 </template>
 
@@ -30,122 +46,163 @@
 export default {
 	data() {
 		return {
-			headkuang1style:"display:none",
-			headkuang2style:"display:none",
-			jiantoustyle1:1,
-				jiantoustyle2:1
+			headkuang1style: 'display:none',
+			headkuang2style: 'display:none',
+			headkuang3style: 'display:none',
+			headkuang4style: 'display:none',
+			jiantoustyle1: 1,
+			jiantoustyle2: 1,
+			jiantoustyle3: 1,
+			jiantoustyle4: 1,
+			islogin:false
 		};
 	},
 	computed: {},
-	mounted() {},
+	mounted() {
+		if((localStorage.getItem('token'))!=""&(localStorage.getItem('token'))!=null){
+			this.islogin=true;
+		}
+	},
 	methods: {
-		forstandard(){
+		forstandard() {
 			this.$router.push({ path: '/Standard' });
 		},
-		forhome(){
+		forhome() {
 			this.$router.push({ path: '/' });
 		},
-		forabout(){
-				this.$router.push({ path: '/about' });
+		forabout() {
 		},
-		forMembership(){
-				this.$router.push({ path: '/Membership' });
+		forMembership() {
+			this.$router.push({ path: '/Membership' });
 		},
-		formission(){
-				this.$router.push({ path: '/ourmission' });
+		formission() {
+			this.$router.push({ path: '/ourmission' });
 		},
-		formemberlist(){
+		forUsercenter(){
+			this.$router.push({ path: '/usercenter' });
+		},
+		formemberlist() {
 			this.$router.push({ path: '/Memberlist' });
 		},
-		forindividual(){
+		forCorporation() {
+			this.$router.push({ path: '/Corporation' });
+		},
+		forindividual() {
 			this.$router.push({ path: '/individual' });
 		},
-		forresource(){
+		forresource() {
 			this.$router.push({ path: '/resource' });
 		},
-		forlogin(){
+		forlogin() {
 			this.$router.push({ path: '/login' });
 		},
-		mouall(e){
-			if(e==1){
-				this.headkuang1style="display:block";
-				this.jiantoustyle1=2;
-			}else if(e==2){
-				this.headkuang2style="display:block";
-				this.jiantoustyle2=2;
+		forSubscription(){
+			this.$router.push({ path: '/Subscription' });
+		},
+		mouall(e) {
+			if (e == 1) {
+				this.headkuang1style = 'display:block';
+				this.jiantoustyle1 = 2;
+			} else if (e == 2) {
+				this.headkuang2style = 'display:block';
+				this.jiantoustyle2 = 2;
+			} else if (e == 3) {
+				this.headkuang3style = 'display:block';
+				this.jiantoustyle3 = 2;
+			}else if(e == 4){
+				this.headkuang4style = 'display:block';
+				this.jiantoustyle4 = 2;
 			}
-			},
-			leaveall(e){
-				if(e==1){
-					this.headkuang1style="display:none";
-					this.jiantoustyle1=1;
-				}else if(e==2){
-					this.jiantoustyle2=1;
-					this.headkuang2style="display:none";
-				}
+		},
+		leaveall(e) {
+			if (e == 1) {
+				this.headkuang1style = 'display:none';
+				this.jiantoustyle1 = 1;
+			} else if (e == 2) {
+				this.jiantoustyle2 = 1;
+				this.headkuang2style = 'display:none';
+			} else if (e == 3) {
+				this.jiantoustyle3 = 1;
+				this.headkuang3style = 'display:none';
+			} else if (e == 4) {
+				this.jiantoustyle4 = 1;
+				this.headkuang4style = 'display:none';
 			}
-			
-			
+		}
 	},
 	created() {}
 };
 </script>
 
 <style>
-	.headkuang1-1{
-		width:220px;
-		height:70px;
-		background:rgba(255,255,255,1);
-		box-shadow:0px 2px 12px 0px rgba(211,210,210,0.5);
-		border-radius:1px;
-		margin-top: 15px;
-		line-height: 70px;
-		font-size:19px;
-		padding-left: 20px;
-	}
-	.headkuang2-1{
-		width:220px;
-		height:70px;
-		background:rgba(255,255,255,1);
-		box-shadow:0px 2px 12px 0px rgba(211,210,210,0.5);
-		border-radius:1px;
-		margin-top: 15px;
-		line-height: 70px;
-		font-size:19px;
-		padding-left: 20px;
-	}
-	.headkuang1-1:hover{
-		background:rgba(247,247,247,1);
-	}
-	.headkuang2-1:hover{
-		background:rgba(247,247,247,1);
-	}
-	.headkuang1-2:hover{
-		background:rgba(247,247,247,1);
-	}
-	.headkuang2-2:hover{
-		background:rgba(247,247,247,1);
-	}
-	.headkuang1-2{
-		width:220px;
-		font-size:19px;
-		height:70px;
-		line-height: 70px;
-		background:rgba(255,255,255,1);
-		box-shadow:0px 2px 12px 0px rgba(211,210,210,0.5);
-		border-radius:1px;
-		padding-left: 20px;
-		}
-		.headkuang2-2{
-			width:220px;
-			font-size:19px;
-			height:70px;
-			line-height: 70px;
-			background:rgba(255,255,255,1);
-			box-shadow:0px 2px 12px 0px rgba(211,210,210,0.5);
-			border-radius:1px;
-			padding-left: 20px;
-			}
+.headkuang1-1 {
+	width: 220px;
+	height: 70px;
+	background: rgba(255, 255, 255, 1);
+	box-shadow: 0px 2px 12px 0px rgba(211, 210, 210, 0.5);
+	border-radius: 1px;
+	margin-top: 15px;
+	line-height: 70px;
+	font-size: 19px;
+	padding-left: 20px;
+}
+.headkuang2-1 {
+	width: 220px;
+	height: 70px;
+	background: rgba(255, 255, 255, 1);
+	box-shadow: 0px 2px 12px 0px rgba(211, 210, 210, 0.5);
+	border-radius: 1px;
+	margin-top: 15px;
+	line-height: 70px;
+	font-size: 19px;
+	padding-left: 20px;
+}
+.headkuang3-1 {
+	width: 220px;
+	height: 70px;
+	background: rgba(255, 255, 255, 1);
+	box-shadow: 0px 2px 12px 0px rgba(211, 210, 210, 0.5);
+	border-radius: 1px;
+	margin-top: 15px;
+	line-height: 70px;
+	font-size: 19px;
+	padding-left: 20px;
+}
+.headkuang1-1:hover {
+	background: rgba(247, 247, 247, 1);
+}
+.headkuang2-1:hover {
+	background: rgba(247, 247, 247, 1);
+}
+.headkuang3-1:hover {
+	background: rgba(247, 247, 247, 1);
+}
+.headkuang1-2:hover {
+	background: rgba(247, 247, 247, 1);
+}
+.headkuang2-2:hover {
+	background: rgba(247, 247, 247, 1);
+}
+.headkuang1-2 {
+	width: 220px;
+	font-size: 19px;
+	height: 70px;
+	line-height: 70px;
+	background: rgba(255, 255, 255, 1);
+	box-shadow: 0px 2px 12px 0px rgba(211, 210, 210, 0.5);
+	border-radius: 1px;
+	padding-left: 20px;
+}
+.headkuang2-2 {
+	width: 220px;
+	font-size: 19px;
+	height: 70px;
+	line-height: 70px;
+	background: rgba(255, 255, 255, 1);
+	box-shadow: 0px 2px 12px 0px rgba(211, 210, 210, 0.5);
+	border-radius: 1px;
+	padding-left: 20px;
+}
 .login {
 	width: 127px;
 	height: 39px;
@@ -157,13 +214,14 @@ export default {
 	margin-right: 126px;
 	color: rgba(255, 255, 255, 1);
 }
-.headkuang1{
+.headkuang1 {
 	position: absolute;
-
 }
-.headkuang2{
+.headkuang2 {
 	position: absolute;
-
+}
+.headkuang3 {
+	position: absolute;
 }
 .head1 {
 	display: flex;

@@ -10,17 +10,26 @@ import individual from '@/components/individual'
 import resource from '@/components/resource'
 import login from '@/components/login'
 import sigin from '@/components/sigin'
+import Corporation from '@/components/Corporation'
+import Subscription from '@/components/Subscription'
+import usercenter  from'@/components/usercenter'
+import emailsOK  from'@/components/emailsOK'
+
 Vue.use(VueRouter)
 
-const routes = [
-	{
-			path: '/sigin',
-			name: 'sigin',
-			component: sigin
-		},{
+const routes = [{
+		path: '/sigin',
+		name: 'sigin',
+		component: sigin
+	}, {
 		path: '/login',
 		name: 'login',
 		component: login
+	},
+	{
+		path: '/Subscription',
+		name: 'Subscription',
+		component: Subscription
 	},
 	{
 		path: '/',
@@ -62,6 +71,26 @@ const routes = [
 		name: 'resource',
 		component: resource
 	},
+	{
+		path: '/Corporation',
+		name: 'Corporation',
+		component: Corporation
+	},
+	{
+		path: '/usercenter',
+		name: 'usercenter',
+		component: usercenter
+	},
+	{
+		path: '/emailsOK/:text/',
+		name: 'emailsOK',
+		component: emailsOK
+	},
+	{
+		path: '/emailsOK',
+		name: 'emailsOK',
+		component: emailsOK
+	}
 ]
 
 const router = new VueRouter({

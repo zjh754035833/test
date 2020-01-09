@@ -1,17 +1,17 @@
 <template>
 	<div class="loginmain">
-		<v-head></v-head>
+		<v-head style="z-index: 999;"></v-head>
 	<div class="login1">
 		<div  class="login1-1">
 		<img src="../../static/login1.png" class="img1"/>
 		<div class="login2">
 			<div style="margin-left: 58px;">
-			<div class="login3">Login</div>
+			<div class="login3 " >Login</div>
 			<input class="login4" placeholder="Email" />
 			<input class="login5" placeholder="Password" />
-			<div class="login6"><span>Sign up</span><span>Forget password</span></div>
+			<div class="login6"><span @click="forsign" class="shou">Sign up</span></div>
 			<div class="login7">
-				<div>Login</div>
+				<div @click="forlogin" class="shou">Login</div>
 				<div>Or login with</div>
 			</div>
 			</div>
@@ -32,7 +32,15 @@ export default {
 	},
 	computed: {},
 	mounted() {},
-	methods: {},
+	methods: {
+		forsign(){
+			this.$router.push({ path: '/Sigin' });
+		},
+		forlogin(){
+			localStorage.setItem('token',"1"); 
+			this.$router.push({ path: '/' })
+		}
+	},
 	created() {}
 };
 </script>
@@ -97,8 +105,6 @@ export default {
 	}
 	.login3{
 		margin-top: 10%;
-		width:83px;
-		height:38px;
 		font-size:32px;
 		font-family:SFUIDisplay-Bold,SFUIDisplay;
 		font-weight:bold;
@@ -106,7 +112,7 @@ export default {
 		line-height:38px;
 	}
 	.login1{
-	
+	z-index: -10;
 	}
 	.login1-1{
 	display: flex;

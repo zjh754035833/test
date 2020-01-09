@@ -90,7 +90,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped="scoped">
 .z1 {
 	font-size: 30px;
 	font-weight: bold;
