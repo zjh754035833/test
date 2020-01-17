@@ -1,5 +1,9 @@
 <template>
-	<div id="app"><router-view /></div>
+	<div id="app">
+		<v-head v-if="$route.path!=='Generation'&$route.path!=='/login'&$route.path!=='/signup'"></v-head>
+		<router-view></router-view>
+		<v-foot v-if="$route.path!=='Generation'&$route.path!=='/login'&$route.path!=='/signup'" ></v-foot>
+		</div>
 </template>
 
 <style>
@@ -25,6 +29,21 @@ body {
 }
 </style>
 <script>
+	import head from './assembly/sell/sell.vue';
+	import foot from './assembly/foot/foot.vue';
+	export default {
+		data() {
+			return {
+				login: 'false'
+			};
+		},
+		name: 'app',
+		components: {
+			'v-head': head,
+			'v-foot': foot
+		},
+		methods: {}
+	};
 /* export default {
 		data(){},
         mounted() {

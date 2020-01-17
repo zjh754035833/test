@@ -3,45 +3,34 @@
 		<div class="footer1">
 			<div>Start trading now</div>
 			<div>Register now</div>
-			<div>Trade now</div>
+			<div style="opacity: 0.5;">Trade now</div>
 			<div>Certified by</div>
 			<img src="../../../static/footimg.png" />
 		</div>
 		<div class="footer2">
-			<div>About Us</div>
 			<div>About</div>
+			<div>About Us</div>
 			<div>Careers</div>
 			<div>Terms</div>
-			<div>Privacy</div>
 			<div>Privacy</div>
 		</div>
 		<div class="footer3">
-			<div>About Us</div>
-			<div>About</div>
-			<div>Careers</div>
-			<div>Trading Rules</div>
-			<div>Privacy</div>
-			<div>Careers</div>
-			<div>Trading Rules</div>
-			<div>Privacy</div>
+			<div>Aussiebit</div>
+			<div>Buy/Sell </div>
+			<div>Mining</div>
+			<div>Saving</div>
+			<div>Wallet</div>
+			<div>Affiliates</div>
+			<div>Fees</div>
 		</div>
 		<div class="footer4">
-			<div>About Us</div>
-			<div>About</div>
-			<div>Careers</div>
-			<div>Terms</div>
-			<div>Trading Rules</div>
-			<div>Trading Rules</div>
-		</div>
-		<div class="footer5">
-			<div>About Us</div>
-			<div>About</div>
-			<div>Trading Rules</div>
-			<div>Terms</div>
-			<div>Privacy</div>
+			<div>Support</div>
+			<div>Help Center</div>
+			<div>FAQ</div>
+			<div>Broadcast</div>
 		</div>
 		<div class="footer7"><div class="xian3"></div></div>
-		<div class="footer6">2019-2020 auwels.com. rights reserved</div>
+		<div class="footer6">2019-2020 Aussiebit.com rights reserved</div>
 	</div>
 </template>
 

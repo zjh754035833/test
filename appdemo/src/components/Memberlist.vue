@@ -1,6 +1,5 @@
 <template>
 	<div>
-		<v-head></v-head>
 		<img src="../../static/memblist1.png" class="topimg"/>
 		<div class="memlist1" style="margin-top: 0px;">
 			<div style="margin-top: 38px;position: absolute;">
@@ -21,17 +20,12 @@
 			<div class="memlist1-3">CORPORATE AND ADVISORY</div>
 			</div>
 		</div>
-		<v-foot></v-foot>
 		</div>
 </template>
 
 <script>
-	import head from '../assembly/head/head.vue';
-	import foot from '../assembly/foot/foot.vue';
 	export default {
 		components: {
-			'v-head': head,
-			'v-foot': foot
 		},
 		data() {
 			return {};

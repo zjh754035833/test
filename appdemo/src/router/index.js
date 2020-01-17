@@ -12,19 +12,22 @@ import login from '@/components/login'
 import sigin from '@/components/sigin'
 import Corporation from '@/components/Corporation'
 import Subscription from '@/components/Subscription'
-import usercenter  from'@/components/usercenter'
-import emailsOK  from'@/components/emailsOK'
-
+import usercenter from '@/components/usercenter'
+import emailsOK from '@/components/emailsOK'
+import realstandard from '@/components/realStandard'
+import passwordisOK from '@/components/passwordisOK'
 Vue.use(VueRouter)
-
+ 
 const routes = [{
 		path: '/sigin',
 		name: 'sigin',
-		component: sigin
+		component: sigin,
+		
 	}, {
 		path: '/login',
 		name: 'login',
-		component: login
+		component: login,
+		
 	},
 	{
 		path: '/Subscription',
@@ -87,10 +90,25 @@ const routes = [{
 		component: emailsOK
 	},
 	{
+		path: '/passwordisOK/:text/',
+		name: 'passwordisOK',
+		component: passwordisOK
+	},
+	{
+		path: '/passwordisOK',
+		name: 'passwordisOK',
+		component: passwordisOK
+	},
+	{
 		path: '/emailsOK',
 		name: 'emailsOK',
 		component: emailsOK
-	}
+	},
+	{
+		path: '/realstandard',
+		name: 'realstandard',
+		component: realstandard
+	},
 ]
 
 const router = new VueRouter({

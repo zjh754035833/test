@@ -1,23 +1,18 @@
 <template>
 	<div>
-		<v-sell></v-sell>
 		<div class="success">
 			<img src="../../../static/sucess.png" />
 			<div>Account activated</div>
-			<div>Congratulations! Your Auwels account has been activated. Please log in to start trading.</div>
-			<div @click="forlogin" class="shou">Log ln</div>
+			<div><!-- Congratulations!, the activation email has been sent to your registration email, please login your email and complete the registration by the activation
+					email. --></div>
+			<div @click="forlogin" class="shou" style="font-size:22px;">Log ln</div>
 		</div>
-		
-		<v-footer style="margin-top: 88px;"></v-footer>
+		<div style="height: 88px;"></div>
 	</div>
 </template>
 <script>
-import sell from '../../assembly/sell/sell.vue';
-import footer from '../../assembly/foot/foot.vue';
 export default {
 	components: {
-		'v-sell': sell,
-		'v-footer': footer
 	},
 	data() {
 		return {};
@@ -59,14 +54,16 @@ export default {
 }
 .success>div:nth-of-type(2){
 	font-size:18px;
+	width: 800px;
 	font-weight:600;
+	display: flex;
 	color:rgba(153,153,153,1);
 	margin-top: 9px;
 }
 .success>div:nth-of-type(3){
 	width:534px;
 	height:58px;
-	background:rgba(0,195,255,1);
+	background:rgba(41,47,136,1);
 	border-radius:1px;
 	font-size:22px;
 	color:rgba(255,255,255,1);

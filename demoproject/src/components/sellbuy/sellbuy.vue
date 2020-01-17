@@ -185,7 +185,6 @@
 			<div id="myChart1" ref="myChart1"></div>
 		</div>
 		<div :style="gquanp">
-			<v-sell></v-sell>
 
 			<div class="sellbuy1">
 				<div class="sellbuy3">
@@ -316,11 +315,9 @@
 
 <script>
 import echarts from 'echarts';
-import sell from '../../assembly/sell/sell.vue';
 
 export default {
 	components: {
-		'v-sell': sell
 	},
 	name: 'echarts',
 	data() {
@@ -537,9 +534,7 @@ export default {
 			changepricetype: true
 		};
 	},
-	created() {
-		localStorage.setItem('clicksell', 1);
-	},
+
 	mounted() {
 		this.setEchartOption();
 		document.querySelector('body').setAttribute('style', 'background-color:rgba(250, 250, 250, 1)');

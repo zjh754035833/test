@@ -7,8 +7,9 @@
 			<i class="el-icon-arrow-down el-icon--right" v-if="jiantoustyle1 == 1"></i>
 			<i class="el-icon-arrow-up el-icon--right" v-if="jiantoustyle1 == 2"></i>
 			<div class="headkuang1" :style="headkuang1style">
-				<div class="headkuang1-1"  @click="forstandard">Our mission</div>
-				<div class="headkuang1-2" @click="formission">About as</div>
+				<div class="headkuang1-1" @click="formission">Our Mission</div>
+				<div class="headkuang1-2" @click="forstandard">About Us</div>
+				<div class="headkuang1-2" @click="forrealstandard">Standard</div>
 			</div>
 		</div>
 		<div class="shou" @mouseenter="mouall(2)" @mouseleave="leaveall(2)" style="z-index: 999;">
@@ -18,31 +19,35 @@
 			<div class="headkuang2" :style="headkuang2style">
 				<div class="headkuang2-1" @click="forindividual">Individual</div>
 				<div class="headkuang2-2" @click="forCorporation">Corporation</div>
-				<div class="headkuang2-2" @click="formemberlist">Membership list</div>
+				<!-- <div class="headkuang2-2" @click="formemberlist">Membership list</div> -->
 			</div>
 		</div>
 		<div class="shou" @mouseenter="mouall(3)" @mouseleave="leaveall(3)" style="z-index: 999;margin-right: 50px;">
-		<span class="shou" @click="forresource">Resource library</span>
+			<span class="shou" >Academy</span>
+
 			<i class="el-icon-arrow-down el-icon--right" v-if="jiantoustyle3 == 1"></i>
 			<i class="el-icon-arrow-up el-icon--right" v-if="jiantoustyle3 == 2"></i>
 			<div class="headkuang3" :style="headkuang3style">
-				<div class="headkuang3-1" @click="forSubscription">Subscription</div>
+				<!-- <div style="margin-top: 15px;" class="headkuang3-1" @click="forSubscription">Subscription</div> -->
+				<div class="headkuang3-1" style="margin-top: 15px;" @click="forresource">Resource library</div>
 			</div>
 		</div>
-		<div class="shou" @mouseenter="mouall(4)" @mouseleave="leaveall(4)" style="z-index: 999;margin-right: 150px;" v-if="islogin==true">
-		<span class="shou" @click="forresource">Doggie  yang</span>
+		<div class="shou" @mouseenter="mouall(4)" @mouseleave="leaveall(4)" style="z-index: 999;margin-right: 150px;" v-if="islogin == true">
+			<span class="shou">{{ username }}</span>
 			<i class="el-icon-arrow-down el-icon--right" v-if="jiantoustyle4 == 1"></i>
 			<i class="el-icon-arrow-up el-icon--right" v-if="jiantoustyle4 == 2"></i>
 			<div class="headkuang3" :style="headkuang4style">
 				<div class="headkuang3-1" @click="forUsercenter">User Center</div>
-				<div class="headkuang3-1"  style="margin-top: 0px;">Log out</div>
+				<div class="headkuang3-1" style="margin-top: 0px;" @click="logout">Log out</div>
 			</div>
 		</div>
-		<div class="login shou" @click="forlogin" v-if="islogin==false">Login</div>
+		<div class="login shou" @click="forlogin" v-if="islogin == false">Log in</div>
+		<div class="Signup shou" @click="forsign" v-if="islogin == false">Sign up</div>
 	</div>
 </template>
 
 <script>
+import https from '../../https.js';
 export default {
 	data() {
 		return {
@@ -54,31 +59,64 @@ export default {
 			jiantoustyle2: 1,
 			jiantoustyle3: 1,
 			jiantoustyle4: 1,
-			islogin:false
+			islogin: false,
+			username: ''
 		};
 	},
 	computed: {},
 	mounted() {
-		if((localStorage.getItem('token'))!=""&(localStorage.getItem('token'))!=null){
-			this.islogin=true;
+		if ((localStorage.getItem('token') != '') & (localStorage.getItem('token') != null)) {
+			this.islogin = true;
+			this.userinfo();
 		}
 	},
 	methods: {
+		userinfo() {
+			https
+				.fetchPost('account/userName')
+				.then(data => {
+					window.console.log(data);
+					this.username = data.data.userName;
+					this.$emit('funusername', this.username);
+				})
+				.catch(err => {
+					window.console.log(err);
+				});
+		},
+		logout() {
+		
+			https
+				.fetchGet('account/loginOut')
+				.then(data => {
+					window.console.log(data);
+					if (data.data.msg == 'ok') {
+						localStorage.removeItem('token');
+						location.reload();
+					}
+				})
+				.catch(err => {
+					window.console.log(err);
+				});
+			/* localStorage.setItem('token',"1"); 
+			this.$router.push({ path: '/' }) */
+		},
 		forstandard() {
 			this.$router.push({ path: '/Standard' });
+		},
+		forrealstandard() {
+			this.$router.push({ path: '/realstandard' });
 		},
 		forhome() {
 			this.$router.push({ path: '/' });
 		},
-		forabout() {
-		},
+		forabout() {},
 		forMembership() {
 			this.$router.push({ path: '/Membership' });
 		},
 		formission() {
 			this.$router.push({ path: '/ourmission' });
 		},
-		forUsercenter(){
+		forUsercenter() {
 			this.$router.push({ path: '/usercenter' });
 		},
 		formemberlist() {
@@ -96,7 +134,10 @@ export default {
 		forlogin() {
 			this.$router.push({ path: '/login' });
 		},
-		forSubscription(){
+		forsign() {
+			this.$router.push({ path: '/Sigin' });
+		},
+		forSubscription() {
 			this.$router.push({ path: '/Subscription' });
 		},
 		mouall(e) {
@@ -109,7 +150,7 @@ export default {
 			} else if (e == 3) {
 				this.headkuang3style = 'display:block';
 				this.jiantoustyle3 = 2;
-			}else if(e == 4){
+			} else if (e == 4) {
 				this.headkuang4style = 'display:block';
 				this.jiantoustyle4 = 2;
 			}
@@ -163,7 +204,6 @@ export default {
 	background: rgba(255, 255, 255, 1);
 	box-shadow: 0px 2px 12px 0px rgba(211, 210, 210, 0.5);
 	border-radius: 1px;
-	margin-top: 15px;
 	line-height: 70px;
 	font-size: 19px;
 	padding-left: 20px;
@@ -211,7 +251,17 @@ export default {
 	text-align: center;
 	line-height: 39px;
 	font-weight: 400;
-	margin-right: 126px;
+	color: rgba(255, 255, 255, 1);
+}
+.Signup {
+	width: 127px;
+	height: 39px;
+	background: rgba(38, 0, 120, 1);
+	font-size: 17px;
+	text-align: center;
+	line-height: 39px;
+	font-weight: 400;
+	margin-right: 50px;
 	color: rgba(255, 255, 255, 1);
 }
 .headkuang1 {

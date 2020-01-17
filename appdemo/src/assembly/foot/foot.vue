@@ -2,10 +2,22 @@
 	<div class="footall">
 		<img src="../../../static/foot1.png" />
 		<!-- <span>Company</span> -->
-		<span>Inspiaration</span>
-		<span>Services</span>
-		<span>Blog</span>
-		<span>Contacts</span>
+		
+		<div> 
+		<span>About</span> 
+			<span>Our mission</span>
+			<span>Standard</span>
+		</div> 
+		<div>
+		<span>Membership</span>
+			<span>Individual</span>
+			<span>Corporation</span>
+		</div>
+		<div>
+		<span>Academy</span>
+			<span>Subscription</span>
+			<span>Resource library</span>
+		</div>
 		<div>
 	<!-- 	<img src="../../../static/foot2.png" />
 		<img src="../../../static/foot3.png" />
@@ -18,12 +30,11 @@
 </script>
 
 <style >
-	.footall>span{
+	.footall>div{
 		font-size:13px;
 		color:rgba(51,51,51,1);
-		text-decoration: underline;
 	}
-	.footall>span:nth-of-type(1){
+	.footall>div:nth-of-type(1){
 		font-size:13px;
 		color:rgba(51,51,51,1);
 		margin-left: 42px;
@@ -48,6 +59,11 @@
 		margin-left: 27px;
 	}
 .footall>div{
+	display: flex;
+	flex-direction: column;
 		margin-right: 78px;
+	}
+	.footall>div>span{
+		margin-top: 20px;
 	}
 </style>

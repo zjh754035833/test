@@ -5,6 +5,8 @@ import login from '@/components/Registerlogin/login'
 
 import SMS from '@/components/authenticator/SMS'
 import google from '@/components/authenticator/google'
+import emailsOK from '@/components/emailsOK'
+import passwordisOK from '@/components/passwordisOK'
 /* import place from '@/components/Anction/placeabid'
 import placedetail from '@/components/Anction/placedetail'
 import historybid from '@/components/Anction/historybid'
@@ -20,7 +22,7 @@ const routes = [
 	{
 		path: '/',
 		name: 'index',
-		component: () => import( /* webpackChunkName: "index" */ '@/components/index/index')
+		component: () => import( /* webpackChunkName: "index" */ '@/components/Comming')
 	},
 	{
 		path: '/Generation',
@@ -48,6 +50,11 @@ const routes = [
 		component: () => import( /* webpackChunkName: "index" */ '@/components/changeEmail')
 	},
 	{
+		path: '/Comming',
+		name: 'Comming',
+		component: () => import('@/components/Comming')
+	},
+	{
 		path: '/signup',
 		name: 'signup',
 		component: () => import( /* webpackChunkName: "signup" */ '@/components/Registerlogin/signup')
@@ -68,12 +75,12 @@ const routes = [
 		component: () => import( /* webpackChunkName: "Mining" */ '@/components/Mining/Mining')
 	},
 
-/* 	
+	
 	{
 		path: '/Savings',
 		name: 'Savings',
 		component: () => import( '@/components/savings/Savings')
-	}, */
+	},
 	{
 		path: '/Registsucess',
 		name: 'Registsucess',
@@ -94,6 +101,26 @@ const routes = [
 		name: 'google',
 		component: google
 	},
+	{
+		path: '/emailsOK/:text/',
+		name: 'emailsOK',
+		component: emailsOK
+	},
+	{
+		path: '/passwordisOK/:text/',
+		name: 'passwordisOK',
+		component: passwordisOK
+	},
+	{
+		path: '/passwordisOK',
+		name: 'passwordisOK',
+		component: passwordisOK
+	},
+	{
+		path: '/emailsOK',
+		name: 'emailsOK',
+		component: emailsOK
+	}
 	/* {
 		path: '/place',
 		name: 'place',

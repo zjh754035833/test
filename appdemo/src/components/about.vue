@@ -1,6 +1,5 @@
 <template>
 	<div>
-	<v-head></v-head>
 	<div class="index3">
 		<el-carousel :interval="3000" autoplay="true" indicator-position="outside" height="500px">
 			<el-carousel-item v-for="item in swiplist" :key="item">
@@ -14,17 +13,12 @@
 			</el-carousel-item>
 		</el-carousel>
 	</div>
-	<v-foot></v-foot>
 	</div>
 </template>
 
 <script>
-	import head from '../assembly/head/head.vue';
-	import foot from '../assembly/foot/foot.vue';
 	export default {
 		components: {
-			'v-head': head,
-			'v-foot': foot
 		},
 		data() {
 			return {

@@ -1,6 +1,5 @@
 <template>
 	<div>
-		<v-sell></v-sell>
 		<div class="Cryptoall">
 			<div class="Cryptoall-1">
 				<div class="Cryptoall-1-1">
@@ -92,10 +91,8 @@ color:rgba(153,153,153,1);"
 </template>
 
 <script>
-import sell from '../../assembly/sell/sell.vue';
 export default {
 	components: {
-		'v-sell': sell
 	},
 	data() {
 		return {

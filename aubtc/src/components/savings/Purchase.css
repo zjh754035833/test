@@ -1,0 +1,249 @@
+
+.pruchaseall {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.pruchaseaone {}
+
+.pruchaseaone-2 {
+	width: 837px;
+	height: 394px;
+	background: rgba(255, 255, 255, 1);
+	box-shadow: 0px 2px 7px 0px rgba(220, 220, 220, 0.5);
+	border-radius: 2px;
+	margin-top: 8px;
+	margin-bottom: 47px;
+}
+
+.pruchaseaone-1 {
+	display: flex;
+	margin-top: 21px;
+}
+
+.pruchaseaone-1-1 {
+	width: 414px;
+	height: 294px;
+	background: rgba(255, 255, 255, 1);
+	box-shadow: 0px 2px 7px 0px rgba(220, 220, 220, 0.5);
+	border-radius: 2px;
+}
+
+.pruchaseaone-1-2 {
+	width: 414px;
+	height: 294px;
+	background: rgba(255, 255, 255, 1);
+	box-shadow: 0px 2px 7px 0px rgba(220, 220, 220, 0.5);
+	border-radius: 2px;
+	margin-left: 10px;
+}
+
+.pruchaseaone-1-1-2 {
+	display: flex;
+	justify-content: space-between;
+	margin-right: 46px;
+	margin-top: 20px;
+}
+
+.pruchaseaone-1-1-2-2 {
+	width: 2px;
+	height: 101px;
+	background: rgba(238, 238, 238, 1);
+}
+.pruchaseaone-1-1-1{
+	font-size:18px;
+	font-weight:bold;
+	color:rgba(51,51,51,1);
+}
+.pruchaseaone-1-1-2-1{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+.pruchaseaone-1-1-2-1>div:nth-of-type(1){
+	font-size:35px;
+	font-weight:600;
+	color:rgba(237,55,53,1);
+}
+.pruchaseaone-1-1-2-1>div:nth-of-type(2){
+	font-size:15px;
+	font-weight:400;
+	color:rgba(102,102,102,1);
+	margin-top: 13px;
+}
+.pruchaseaone-1-1-2-2{
+	
+}
+.pruchaseaone-1-1-2-3{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+.pruchaseaone-1-1-3{
+	font-size:15px;
+	font-weight:400;
+	color:rgba(102,102,102,1);
+	margin-top: 70px;
+}
+.pruchaseaone-1-2-1{
+	font-size:18px;
+	font-weight:bold;
+	color:rgba(51,51,51,1);
+}
+.pruchaseaone-1-2-2{
+	display: flex;
+	margin-top: 36px;
+	}
+	.pruchaseaone-1-2-2>div>input{
+		width:160px;
+		height:45px;
+		background:rgba(247,247,247,1);
+		padding-left: 40px;
+		border-radius:2px;
+		border:1px solid rgba(226,226,226,1);
+	}
+	.pruchaseaone-1-2-2>div>span{
+		font-size:21px;
+		font-weight:400;
+		position: absolute;
+		margin-left: 17px;
+		color:rgba(51,51,51,1);
+	}
+	.pruchaseaone-1-2-2>div{
+		display: flex;
+		align-items: center;
+	}
+	.pruchaseaone-1-2-2>div:nth-of-type(2){
+		width:117px;
+		height:47px;
+		display: flex;
+		justify-content: center;
+		background:rgba(238,66,86,1);
+		border-radius:2px;
+		font-size:17px;
+		font-weight:400;
+		color:rgba(255,255,255,1);
+		line-height:45px;
+		margin-left: 11px;
+	}
+	.pruchaseaone-1-2-3{
+		font-size:15px;
+		font-weight:400;
+		color:rgba(102,102,102,1);
+		margin-top: 20px;
+	}
+	.pruchaseaone-1-2-4{
+		margin-top: 64px;
+		font-size:15px;
+		font-weight:400;
+		color:rgba(102,102,102,1);
+	}
+	.pruchaseaone-1-2-4>span:nth-of-type(2){
+		color: rgba(41, 47, 136, 1);
+		text-decoration: underline;
+	}
+	.pruchaseaone-1-2-4>span:nth-of-type(3){
+		color: rgba(41, 47, 136, 1);
+		margin-left: 114px;
+		text-decoration: underline;
+	}
+	.google2-4 {
+	position: absolute;
+	width: 150px;
+	margin-top: 50px;
+		font-size: 14px;
+		text-align: center;
+		color: rgba(217, 217, 217, 1);
+		height: 20px;
+		line-height: 20px;
+		margin-left: -40px;
+	}
+	.google2-4blue {
+		position: absolute;
+		width: 150px;
+		margin-top: 50px;
+		font-size: 14px;
+		text-align: center;
+		color: rgba(41, 47, 136, 1);
+		height: 20px;
+		margin-left: -40px;
+	}
+	.xianx{
+		width:813px;
+		height:1px;
+		background: rgba(238, 238, 238, 1);
+		margin-top: 110px;
+		margin-left: 12px;
+	}
+	.google2-3 {
+		margin-left: 5px;
+		width: 34px;
+		height: 34px;
+	}
+	.google2 > div:nth-of-type(4) > div:nth-last-of-type(1) {
+		display: none;
+	}
+	.google2-2 {
+		width: 161px;
+		height: 1px;
+		margin-left: 11px;
+		border-bottom: 1.5px #d9d9d9 dashed;
+	}
+	.google2-1 {
+		margin-left: 5px;
+		align-items: center;
+		justify-content: center;
+		color: rgba(255, 255, 255, 1);
+		text-align: center;
+		line-height: 34px;
+		width: 34px;
+		height: 34px;
+		background: rgba(217, 217, 217, 1);
+		border-radius: 30px;
+	}
+	.pruchaseaone-2-1{
+		font-size:18px;
+		font-weight:bold;
+		color:rgba(51,51,51,1);
+		margin-left: 32px;
+	}
+	.google2-1blue {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		margin-left: 5px;
+		color: rgba(255, 255, 255, 1);
+		text-align: center;
+		width: 34px;
+		height: 34px;
+		background: rgba(41, 47, 136, 1);
+		border-radius: 30px;
+	}
+	.google2 {
+		margin-top: 65px;
+		margin-left: 90px;
+		display: flex;
+		align-items: center;
+		flex-direction: row;
+	}
+	
+	.google2 > div {
+		display: flex;
+		align-items: center;
+	}
+.pruchaseaone-2-2{
+	font-size:14px;
+	font-weight:400;
+	color:rgba(102,102,102,1);
+	display: flex;
+	flex-flow: column;
+	justify-content: center;
+	margin-top: 18px;
+	margin-left: 39px;
+}
+.pruchaseaone-2-2>li{
+	margin-top: 6px;
+}

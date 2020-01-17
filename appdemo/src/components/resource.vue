@@ -1,6 +1,5 @@
 <template>
 	<div>
-		<v-head></v-head>
 		<div class="resorce1">
 			<div class="resorce1-1">
 				<input placeholder="Bitcoin exchange rate" />
@@ -12,95 +11,108 @@
 		</div>
 		<div class="resorce2">
 			<div class="resorce2-1">
-				<div class="img1"></div>
+				<div class="img1 shou" @click="forhref('https://www.youtube.com/watch?v=Pl8OlkkwRpc')">
+					<div class="z1">
+						What is the blockchain?
+					</div>
+				</div>
 				<div class="div1">
 					<div style="margin-left: 40px;">
-						<div class="z1">
-							What is Blockchain?
-							<br />
-							World Economic Forum
-							<br />
-							(2.19 minutes)
-						</div>
-						<div class="z2">Blockchain is a form of distributed ledger technology that links together</div>
+						<div class="z2">This Key Sign Shows Bitcoin Bulls Are Accumulating..</div>
 						<div class="z3">
-							transaction and other information in cryptographic chain that cannot be altered. This gives all authorised participants full confidence in the security
-							and authenticity of the records.
+							Bitcoin price is confined in a range below the key $8,200 resistance against the US Dollar, suggesting a short term accumulation phase. BTC could either rally above $8,200 or it might dip to $7,700 before a decent bounce.Bitcoin is moving in a range between $8,200 and $8,000 against the US Dollar.The bulls are likely...
 						</div>
+						<div class="shou read"  @click="readmore('https://cryptonews.com.au/story/this-key-sign-shows-bitcoin-bulls-are-accumulating-important-levels-to-watch-109532')" >READ MORE</div>
 					</div>
 				</div>
 			</div>
 			<div class="resorce2-1">
 				<div class="div1">
 					<div style="margin-left: 40px;">
-						<div class="z1">
-							Don Tapscott
-							<br />
-							Author of “The Blockchain
-							<br />
-							Revolution”
-						</div>
-						<div class="z2">Blockchain is a form of distributed ledger technology that links together</div>
+						<div class="z2">Reserve Bank of Australia Considers ..</div>
 						<div class="z3">
-							transaction and other information in cryptographic chain that cannot be altered. This gives all authorised participants full confidence in the security
-							and authenticity of the records.
+							By Jeff FawkesThe Australian Central Bank has its own blockchain lab since 2018, where they test Ethereum-based private blockchain. The platform securely emulates the...
 						</div>
+						<div class="shou read" @click="readmore('https://cryptonews.com.au/story/reserve-bank-of-australia-considers-ultimate-ethereum-based-crypto-109349')">READ MORE</div>
 					</div>
 				</div>
-				<div class="img2"></div>
+				<div class="img2 shou" @click="forhref('https://www.youtube.com/watch?v=sDNN0uH2Z3o')">
+					<div class="z1">
+						Why Blockchain Matters More Than You Think!
+					</div>
+				</div>
 			</div>
 			<div class="resorce2-1">
-				<div class="img3"></div>
+				<div class="img3 shou" @click="forhref('https://www.youtube.com/watch?v=UU8Mvy5WY7k')">
+					<div class="z1">
+						Bitcoin or bitcon?
+					</div>
+				</div>
 				<div class="div1">
 					<div style="margin-left: 40px;">
-						<div class="z1">
-							How to trade
-							<br />
-						by AAC)
-							<br />
-						</div>
-						<div class="z2">Blockchain is a form of distributed ledger technology that links together</div>
-						<div class="z3">
-							transaction and other information in cryptographic chain that cannot be altered. This gives all authorised participants full confidence in the security
-							and authenticity of the records.
-						</div>
+					<div class="z2">Australias Blockchain Roadmap ...</div>
+					<div class="z3">
+						via Blockchain MagazineThe Department of Industry, Innovation, and Science considers that blockchain is an assuring application in agriculture and food production in Australia, plugging its advantages in providing ....
+					</div>
+					<div class="shou read"  @click="readmore('https://cryptonews.com.au/story/australias-blockchain-roadmap-to-release-shortly-109286')">READ MORE</div>
 					</div>
 				</div>
 			</div>
 		</div>
-		<v-foot style="margin-top: 51px;"></v-foot>
+		<div style="margin-bottom: 51px;"></div>
 	</div>
 </template>
 
 <script>
-import head from '../assembly/head/head.vue';
-import foot from '../assembly/foot/foot.vue';
 export default {
 	components: {
-		'v-head': head,
-		'v-foot': foot
 	},
 	data() {
 		return {};
 	},
 	computed: {},
 	mounted() {},
-	methods: {},
+	methods: {
+		forhref(e){
+			window.location.href=e
+		},
+		readmore(e){
+			window.location.href=e
+		}
+		
+	},
 	created() {}
+	
+	
 };
 </script>
 
 <style scoped="scoped">
+	.read{
+		width: 150px;
+		height: 40px;
+		color: #ffffff;
+		background: #282927;
+		border-color: #282927;
+		border-radius: 15px;
+		margin-top: 40px;
+		text-align: center;
+		font-size: 15px;
+		line-height: 40px;
+	}
 .z1 {
+	text-align: center;
 	font-size: 30px;
+	margin-top: 40px;
 	font-weight: bold;
-	color: rgba(51, 51, 51, 1);
+	color: white;
 	line-height: 36px;
 }
 .z2 {
-	font-size: 15px;
+	font-size: 22px;
 	font-weight: bold;
-	color: rgba(102, 102, 102, 1);
+	color: black;
+	margin-bottom: 20px;
 	line-height: 27px;
 	margin-top: 17px;
 }
@@ -112,7 +124,6 @@ export default {
 }
 .resorce2 {
 	display: flex;
-	margin-top: 32px;
 	flex-direction: column;
 	align-items: center;
 }
@@ -121,6 +132,7 @@ export default {
 	background-size: 100%;
 	width: 600px;
 	height: 360px;
+	
 }
 .img2 {
 	background-image: url('../../static/rimg2.png');

@@ -26,12 +26,18 @@ import {
 	Slider,
 	Upload,
 	Tooltip,
-	Badge
+	Badge,
+	Button,
+	Input,
+Loading
 
 } from 'element-ui';
 locale.use(lang)
+Vue.prototype.$loading = Loading.service;
 Vue.prototype.$alert = MessageBox.alert;
 Vue.use(Badge);
+	Vue.use(Button);
+	Vue.use(Input);
 Vue.use(Upload);
 Vue.use(Dropdown);
 Vue.use(Tooltip);

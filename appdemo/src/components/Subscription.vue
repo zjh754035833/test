@@ -1,6 +1,5 @@
 <template>
 	<div>
-		<v-head></v-head>
 		<el-dialog title="" :visible.sync="dixdiag1" width="60%" top="0" >
 			<div class="diagsub1">Payment</div>
 			<div class="diagsub2"></div>
@@ -16,8 +15,8 @@
 				<el-radio-group v-model="radio" class="diagsub5">
 					<el-radio :label="1" class="diagsub5"><div class="zhifu1"><img src="../../static/bit3.png" /><span>Bank Card</span></div></el-radio>
 
-					<el-radio :label="2" class="diagsub5"><div class="zhifu2"><img src="../../static/bit2.png" /></div>
-					</el-radio>
+				<!-- 	<el-radio :label="2" class="diagsub5"><div class="zhifu2"><img src="../../static/bit2.png" /></div>
+					</el-radio> -->
 				</el-radio-group>
 			</div>
 			<div class="diagsub6 shou" @click="forpay()">Confirm</div>
@@ -70,17 +69,12 @@
 				<div class="sub1-5-3 shou" @click="forsub">Subscribe</div>
 			</div>
 		</div>
-		<v-foot></v-foot>
 	</div>
 </template>
 
 <script>
-import head from '../assembly/head/head.vue';
-import foot from '../assembly/foot/foot.vue';
 export default {
 	components: {
-		'v-head': head,
-		'v-foot': foot
 	},
 	data() {
 		return {

@@ -1,6 +1,5 @@
 <template>
 	<div>
-		<v-sell></v-sell>
 		<div class="savingall">
 			<div class="savingtop"><img src="../../../static/indeximg1.png" /></div>
 			<div class="savinghalf">
@@ -59,17 +58,13 @@
 				</div>
 			</div>
 		</div>
-		<div style="margin-top: 80px;"><v-footer></v-footer></div>
+		<div style="margin-top: 80px;"></div>
 	</div>
 </template>
 
 <script>
-import sell from '../../assembly/sell/sell.vue';
-import footer from '../../assembly/foot/foot.vue';
 export default {
 	components: {
-		'v-sell': sell,
-		'v-footer': footer
 	},
 	data() {
 		return {
@@ -81,9 +76,7 @@ export default {
 			halftype3:"off"
 		};
 	},
-	created() {
-		localStorage.setItem('clicksell', 3);
-	},
+
 	mounted() {
 		document.querySelector('body').setAttribute('style', 'background-color:#F0F0F0');
 	},

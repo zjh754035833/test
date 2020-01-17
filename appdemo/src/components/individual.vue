@@ -1,33 +1,33 @@
 <template>
 	<div>
-		<v-head></v-head>
 		<img src="../../static/user1.png" class="individ1" />
 		<div style="display: flex;margin-top: 43px;">
-			<div class="individual2" >Becoming a member</div>
-			<div class="individual3">
-				<div style="margin-top: 0px;">Membership Enquiries</div>
-				<div >Please fill out the form below and we will be in contact with you shortly. Choose the membership type that best describes your company.</div>
-				<div>Blockchain Scale Ups</div>
-				<div>An Australian business whose primary purpose is to research, develop or operate a blockchain centric business model.</div>
-				<div>Digital Currency Exchanges</div>
-				<div>An Australian business whose primary purpose is to operate a digital currency exchange that requires registration with AUSTRAC.</div>
-				<div>Corporate and Advisory</div>
-				<div>An Australian business interested in the development or deployment of blockchain technology but whose primary business model is not blockchain focused.</div>
+			<div class="individual2" >AAC membership</div>
+			<div class="membership3">
+				<div>
+					Association of Australian Cryptocurrency(AAC) is Australia’s industry network for businesses applying or evaluating Cryptocurrency or distributed ledger
+					technology.
+				</div>
+				<div>As part of the Australia Cryptocurrency network, individual businesses may:</div>
+	<li style="margin-top: 0px;">Get industry information and analysis report pushed by the ACC </li>
+	<li >Certification issued by the ACC</li>
+	<li>Blockchain Scale Ups</li>
+	<li>Use ACC logos in your email signatures, company website and literature</li>
+	<li>Be promoted by ACC to target audiences through avenues like social media</li>
+	<li>Eligibility to participate in events or summits.</li>
+				<div>
+					Collectively, Cryptocurrency Australia members help advance the adoption of Cryptocurrency technology in Australia and work together to advocate for appropriate regulatory and policy settings.
+				</div>
 			</div>
 			
 		</div>
-		<div></div>
-		<v-foot style="margin-top: 42px;"></v-foot>
+		<div style="margin-bottom: 42px;"></div>
 	</div>
 </template>
 
 <script>
-import head from '../assembly/head/head.vue';
-import foot from '../assembly/foot/foot.vue';
 export default {
 	components: {
-		'v-head': head,
-		'v-foot': foot
 	},
 	data() {
 		return {};
@@ -42,6 +42,37 @@ export default {
 </script>
 
 <style scoped="scoped">
+	.membership3 {
+		width: 900px;
+		font-size: 16px;
+		margin-left: 76px;
+		font-weight: 600;
+		color: rgba(102, 102, 102, 1);
+		line-height: 24px;
+		margin-bottom: 50px;
+	}
+	.membership3 > div:nth-of-type(2) {
+		font-size: 15px;
+		color: rgba(153, 153, 153, 1);
+		margin-top: 20px;
+	}
+	.membership3 > div:nth-of-type(3) {
+		margin-top: 20px;
+	}
+	.membership3 > div:nth-of-type(4) {
+		font-size: 15px;
+		color: rgba(153, 153, 153, 1);
+		margin-top: 20px;
+	}
+	.membership3 > li:nth-of-type(1) {
+		font-size: 15px;
+		margin-top: 20px;
+		color: rgba(153, 153, 153, 1);
+	}
+	.membership3 > li {
+		font-size: 15px;
+		color: rgba(153, 153, 153, 1);
+	}
 	.individual4{
 		margin-left: 406px;	
 		
@@ -65,21 +96,7 @@ export default {
 		border:1px solid rgba(218,218,218,1);
 		font-size:15px;
 	}
-	.individual3>div:nth-of-type(2n){
-		color: rgba(153, 153, 153, 1);
-		font-size: 15px;
-		margin-top: 10px;
-	}
-	.individual3>div:nth-of-type(2n+1){
-		margin-top: 43px;
-		color: rgba(51, 51, 51, 1);
-		font-size: 18px;
-		
-	}
-	.individual3{
-		width:821px;
-		margin-left: 40px;
-	}
+
 .individ1 {
 	width: 100%;
 }

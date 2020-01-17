@@ -32,9 +32,9 @@
 				</div>
 				<div>
 					<span @click="forSavings" @mouseenter="mouall(3)" @mouseleave="leaveall(3)">
-						<el-badge value="coming soon......" class="item">SAVING</el-badge>
+					SAVING
 					</span>
-					<!-- <div class="dxian" v-if="blue1 == 3 || blue2 == 3"></div> -->
+					<div class="dxian" v-if="blue1 == 3 || blue2 == 3"></div>
 				</div>
 			</div>
 			<v-wallet v-if="loginstate == '' || loginstate == null"></v-wallet>
@@ -57,14 +57,14 @@
 				</div> -->
 				<!-- <span style="margin-left: 20px;">Orders</span> -->
 				<!-- <img src="../../../static/dx11.png" /> -->
-				<div @click="formyaccount" class="" @mouseenter="forkuang3" @mouseleave="leavekuang3">
-					<div class="shou dashboadr">dash board</div>
+				<div @click="formyaccount"  style="height: 100%;"  @mouseleave="leavekuang3" >
+					<div class="shou dashboadr" @mouseenter="forkuang3" >Dash board</div>
 					
 				</div>
-				<span style="display: flex;margin-left: 30px;">
+				<!-- <span style="display: flex;margin-left: 30px;">
 					<img src="../../../static/dowload44.png" style="width: 27px;height: 20px;" />
 					<span class="yuanjiao">2</span>
-				</span>
+				</span> -->
 				<!-- 	<img src="../../../static/dowload33.png" style="width: 21px;height: 21px;margin-left: 20px;" />
 				<div>
 					<span>AUD</span>
@@ -73,21 +73,21 @@
 			</div>
 	
 		</div>
-		<div class="waletshow2" :style="tankstyle3">
-			<div><span>Vi***@163.com</span></div>
-			<div>
+		<div class="waletshow2" :style="tankstyle3"  @mouseenter="forkuang3" @mouseleave="leavekuang3">
+			<div style="opacity: 0.3; display: none;"><span>{{username}}</span></div>
+			<div  style="opacity: 0.3;">
 				<img src="../../../static/ma1.png" />
 				<span>Security</span>
 			</div>
-			<div>
+			<div  style="opacity: 0.3;">
 				<img src="../../../static/ma2.png" style="width: 16px;height: 13px;" />
 				<span>Identification</span>
 			</div>
-			<div>
+			<div  style="opacity: 0.3;">
 				<img src="../../../static/ma3.png" style="width: 15px;height: 14px;" />
 				<span>Referral</span>
 			</div>
-			<div>
+			<div @click="loginout" class="shou">
 				<img src="../../../static/ma4.png" style="width: 16px;height: 16px;" />
 				<span>Log out</span>
 			</div>
@@ -113,18 +113,20 @@ export default {
 			blue2: '',
 			btcval: '',
 			tankstyle3: 'display:none',
-			audval: ''
+			audval: '',
+			username:''
 		};
 	},
+	
 	mounted() {
-		this.blue1 = localStorage.getItem('clicksell');
+	
 		localStorage.removeItem('clicksell');
 		this.loginstate = localStorage.getItem('token');
 		if ((this.loginstate != '') & (this.loginstate != null)) {
 			https
 				.fetchGet('/account/walletInfo', '')
 				.then(data => {
-					window.console.log(data.data.detail);
+					window.console.log(data);
 					this.btcval = data.data.detail.mbtc;
 					this.audval = data.data.detail.meth;
 				})
@@ -133,7 +135,23 @@ export default {
 				});
 		}
 	},
+	
 	methods: {
+		loginout(){
+		
+			https
+				.fetchGet('/account/loginOut')
+				.then(data => {
+					window.console.log(data.data.msg);
+					if(data.data.msg=="SUCCESS"){
+						localStorage.removeItem("token")
+						location.reload();
+					}
+				})
+				.catch(err => {
+					window.console.log(err);
+				});
+		},
 		forcreate() {
 			this.$router.push({ path: '/createauction' });
 		},
@@ -141,7 +159,7 @@ export default {
 			this.$router.push({ path: '/place' });
 		},
 		forindex() {
-			this.$router.push({ path: '/' });
+			/* this.$router.push({ path: '/' }); */
 		},
 
 		forlogin() {
@@ -151,16 +169,19 @@ export default {
 			this.$router.push({ path: '/signup' });
 		},
 		forbuyshell() {
-			this.$router.push({ path: '/sellbuy' });
+			/* this.blue1=1; */
+			/* this.$router.push({ path: '/sellbuy' }); */
 		},
 		forAnction() {
 			/* 			this.$router.push({ path: '/newAnction' }); 暂不开放 */
 		},
 		forSavings() {
-			/* this.$router.push({ path: '/Savings' }); 暂不开放 */
+			/* this.blue1=3; */
+			/* this.$router.push({ path: '/Savings' }); */
 		},
 		forMining() {
-			this.$router.push({ path: '/Mining' });
+			/* this.blue1=4; */
+			/* this.$router.push({ path: '/Mining' }); */
 		},
 		forkuang() {
 			this.tankstyle = 'display:block';
@@ -175,7 +196,7 @@ export default {
 			this.tankstyle = 'display:none';
 		},
 		formyaccount() {
-			this.$router.push({ path: '/Myaccount' });
+			/* this.$router.push({ path: '/Myaccount' }); */
 		},
 		forkuang1() {
 			this.anction1 = 'background:rgba(0,195,255,1);color:rgba(255, 255, 255, 1)';
@@ -208,6 +229,10 @@ export default {
 </script>
 
 <style scoped="scoped">
+	/deep/.el-badge__content {
+    background-color: white;
+    color: red;
+	}
 .dashboadr {
 	height: 30px;
 	display: flex;
@@ -221,7 +246,7 @@ export default {
 }
 .dxian {
 	width: 80px;
-	height: 2px;
+	height: 3px;
 	background: rgba(0, 195, 255, 1);
 	position: absolute;
 	bottom: 0;
@@ -327,7 +352,7 @@ export default {
 	font-size: 14px;
 	width: 194px;
 	margin-top: -10px;
-	height: 240px;
+	height: 198px;
 	background: rgba(255, 255, 255, 1);
 	box-shadow: 0px 2px 5px 0px rgba(193, 208, 232, 1);
 	z-index: 999;

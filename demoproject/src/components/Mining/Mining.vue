@@ -1,6 +1,5 @@
 <template>
 	<div>
-		<v-sell></v-sell>
 		<div>
 			<el-dialog title="" :visible.sync="dialogTableVisible" width="75%">
 				<div class="tanchu">
@@ -88,19 +87,15 @@
 				</div>
 			</div>
 		</div>
-		<v-footer style="margin-top: 27px;"></v-footer>
+		<div style="height: 27px;"></div>
 	</div>
 </template>
 
 <script>
 var _this;
 import https from '../../https.js'
-import sell from '../../assembly/sell/sell.vue';
-import footer from '../../assembly/foot/foot.vue';
 export default {
 	components: {
-		'v-sell': sell,
-		'v-footer': footer,
 		
 	},
 	data() {
@@ -138,9 +133,7 @@ export default {
 			estimated: ''
 		};
 	},
-	created() {
-		localStorage.setItem('clicksell', 4);
-	},
+		
 	mounted() {
 		
 		_this = this;

@@ -148,13 +148,11 @@
 			</div>
 		</div> -->
 		<div class="bottomarea"></div>
-		<v-footer></v-footer>
 	</div>
 </template>
 
 <script>
 var _this;
-import footer from '../../assembly/foot/foot.vue';
 import sell from '../../assembly/sell/sell.vue';
 import https from '../../https.js';
 var preD = function(e) {
@@ -163,7 +161,6 @@ var preD = function(e) {
 export default {
 	components: {
 		'v-sell': sell,
-		'v-footer': footer
 	},
 	data() {
 		return {

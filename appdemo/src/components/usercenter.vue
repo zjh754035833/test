@@ -1,6 +1,5 @@
 <template>
 	<div>
-		<v-head></v-head>
 		<img src="../../static/user1.png" class="userimg" />
 		<div class="userall">
 			<div class="userall1">
@@ -9,7 +8,7 @@
 					<div class="userall1-2">
 						<div>
 							<span class="user1">User Name :</span>
-							<span class="user2">Doggige Yang</span>
+							<span class="user2">{{username}}</span>
 						</div>
 						<div style="margin-top: 20px;">
 							<span class="user1">Type of membership：</span>
@@ -37,7 +36,7 @@
 								<span>Search</span>
 							</div>
 						</div>
-						<el-select v-model="value" placeholder="Any" class="selectall">
+						<el-select v-model="value" placeholder="read" class="selectall">
 							<el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value"></el-option>
 						</el-select>
 					</div>
@@ -49,24 +48,30 @@
 				</div>
 			</div>
 		</div>
-		<v-foot></v-foot>
 	</div>
 </template>
 
 <script>
-import head from '../assembly/head/head.vue';
-import foot from '../assembly/foot/foot.vue';
+	import https from '../https.js';
 export default {
 	components: {
-		'v-head': head,
-		'v-foot': foot
 	},
 	data() {
 		return {
-			options: [],
+			username:"",
+			options: [
+				{
+					value: '选项1',
+					label: 'read'
+				},
+				{
+					value: '选项2',
+					label: 'unread'
+				}
+			],
 			value: '',
 			tableData: [
-				{
+				/* {
 					Subject: 'Test',
 					Date: '2020-01-03',
 					Status: 'Read'
@@ -95,33 +100,48 @@ export default {
 					Subject: 'Test',
 					Date: '2020-01-03',
 					Status: 'Read'
-				}
+				} */
 			]
 		};
 	},
 	computed: {},
 	mounted() {
 		document.querySelector('body').setAttribute('style', 'background-color:whitesmoke');
+		if ((localStorage.getItem('token') == '') || (localStorage.getItem('token') == null)) {
+				this.$router.push({ path: '/' });
+		}
+		this.userinfo()
 	},
-	methods: {},
+	methods: {
+		userinfo(){
+			https
+				.fetchPost('account/userName')
+				.then(data => {
+					window.console.log(data);
+					this.username=data.data.userName
+					this.$emit('funusername', this.username);
+				})
+				.catch(err => {
+					window.console.log(err);
+				});
+		},
+	},
 	created() {}
 };
 </script>
 
 <style scoped="scoped">
-	.user1{
-		font-size:20px;
-		font-weight:400;
-		color:rgba(153, 153, 153, 1);
-		
-		}
-		.user2{
-			font-size:20px;
-			font-weight:400;
-			margin-left: 10px;
-			color:rgba(51, 51, 51, 1);
-			
-			}
+.user1 {
+	font-size: 20px;
+	font-weight: 400;
+	color: rgba(153, 153, 153, 1);
+}
+.user2 {
+	font-size: 20px;
+	font-weight: 400;
+	margin-left: 10px;
+	color: rgba(51, 51, 51, 1);
+}
 .userall1-2 {
 	margin-left: 27px;
 }
