@@ -74,9 +74,9 @@ height:38px;" />
 							</template></el-table-column>
 
 					<el-table-column prop="Name" label="Name" width="120"></el-table-column>
-					<el-table-column prop="Totalbalance" label="Total balance" width="120"></el-table-column>
-					<el-table-column prop="Availablebalance" label="Available balance" width="180"></el-table-column>
-					<el-table-column prop="Inorder" label="In order" width="120"></el-table-column>
+					<el-table-column prop="Totalbalance" label="Total balance" width="260"></el-table-column>
+					<el-table-column prop="Availablebalance" label="Available balance" width="260"></el-table-column>
+					<el-table-column prop="Inorder" label="In order" width="200"></el-table-column>
 					<el-table-column prop="Action" label="Action" align="center">
 						<template>
 							<span class="walletall-3-1">Deposit</span>

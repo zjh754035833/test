@@ -8,7 +8,7 @@ import {
 
 axios.defaults.timeout = 60000; //响应时间
 axios.defaults.headers.post['Content-Type'] = 'application/json; charset=utf-8'; //配置请求头
-axios.defaults.baseURL = 'http://47.103.159.142:8095'; //配置接口地址 */
+ axios.defaults.baseURL = 'http://47.103.159.142:8095';  //配置接口地址 */
 //axios.defaults.baseURL = 'https://aussiebit.com.au:8096'; //配置接口地址
 //POST传参序列化(添加请求拦截器)
 /* axios.interceptors.request.use((config) => {
@@ -37,18 +37,18 @@ axios.interceptors.response.use((res) => {
 //返回一个Promise(发送post请求)
 export function fetchPost(url, params) {
 	var token = localStorage.getItem('token')
-	const loading = Loading.service({
+/* 	const loading = Loading.service({
 		lock: true,
 		text: 'loading……',
 		background: 'rgba(0, 0, 0, 0.7)'
-	})
+	}) */
 	if (token != "" & token != null) {
 		axios.defaults.headers.common['Authentication'] = token;
 	}
 	return new Promise((resolve, reject) => {
 		axios.post(url, params)
 			.then(response => {
-				loading.close()
+				//loading.close()
 				if (response.data.msg == "not login") {
 					MessageBox("Your login status has expired, please login again", {
 						confirmButtonText: 'Determine'
@@ -73,11 +73,11 @@ export function fetchPost(url, params) {
 ////返回一个Promise(发送get请求)
 export function fetchGet(url, param) {
 	var token = localStorage.getItem('token')
-	const loading = Loading.service({
+	/* const loading = Loading.service({
 		lock: true,
 		text: 'loading……',
 		background: 'rgba(0, 0, 0, 0.7)'
-	})
+	}) */
 	if (token != "" & token != null) {
 		axios.defaults.headers.common['Authentication'] = token;
 	}
@@ -86,7 +86,7 @@ export function fetchGet(url, param) {
 				params: param
 			})
 			.then(response => {
-				loading.close()
+				//loading.close()
 				window.console.log(response.data.msg)
 				if (response.data.msg == "not login") {
 					MessageBox("Your login status has expired, please login again", {

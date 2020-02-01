@@ -22,6 +22,7 @@ import {
 	DropdownItem,
 	MessageBox,
 	Carousel,
+	Switch,
 	CarouselItem,
 	Slider,
 	Upload,
@@ -42,6 +43,7 @@ Vue.use(Autocomplete);
 Vue.use(Button);
 Vue.use(Input);
 Vue.use(Step);
+Vue.use(Switch);
 Vue.use(Steps);
 Vue.use(Upload);
 Vue.use(Dropdown);

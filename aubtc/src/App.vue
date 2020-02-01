@@ -1,8 +1,8 @@
 <template>
 	<div id="app">
-		<v-head v-if="$route.path!=='/'&$route.path!=='/login'&$route.path!=='/signup'"></v-head>
+		<v-head v-if="$route.path!=='/'&$route.path!=='/login'&$route.path!=='/signup'&$route.path!=='/sellbuy'"></v-head>
 		<router-view></router-view>
-		<v-foot v-if="$route.path!=='/login'&$route.path!=='/signup'" ></v-foot>
+		<v-foot v-if="$route.path!=='/login'&$route.path!=='/signup'&$route.path!=='/sellbuy'" ></v-foot>
 		</div>
 </template>
 

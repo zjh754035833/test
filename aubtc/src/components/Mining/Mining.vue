@@ -25,7 +25,7 @@
 					<div class="ming4top">
 					<div class="ming4-1">
 						<div>Select mining algorithms</div>
-						<div>{{ changeth }}</div>
+						<input :value="changeth"  @input="changejindu" :max="1000" type="number">
 						<div>TH/s</div>
 					</div>
 					
@@ -130,6 +130,15 @@ export default {
 			this.nowprice = (_this.changeth * 0.1).toFixed(4);
 			this.estimatval();
 			return val + ' TH/s';
+		},
+		changejindu(e){
+			window.console.log(e.target.value)
+			let val2=e.target.value
+			if(val2>1000){
+				val2=1000
+			}
+			_this.value1=Number(val2);
+				_this.changeth = val2;
 		},
 		changesider1(e) {
 			window.console.log(e);

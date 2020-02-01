@@ -1,5 +1,10 @@
 <template>
 	<div>
+		<v-sell :style="gquanp"></v-sell>
+		<div :style="kquanp" class="quanp">
+			<img src="../../../static/formore.png" class="nomore" @click="tquanp" />
+			<div id="myChart1" ref="myChart1"></div>
+		</div>
 		<el-dialog title="" :visible.sync="dixdiag.sell1" width="60%" top="0" :before-close="handleClose1">
 			<div class="tanchu">
 				<img src="../../../static/bluejiao.png" />
@@ -197,10 +202,7 @@
 				</div>
 			</div>
 		</el-dialog>
-		<div :style="kquanp">
-			<img src="../../../static/formore.png" class="nomore" @click="tquanp" />
-			<div id="myChart1" ref="myChart1"></div>
-		</div>
+	
 		<div :style="gquanp">
 			<div class="sellbuy1">
 				<div class="sellbuy3">
@@ -217,13 +219,13 @@
 					</el-dropdown>
 				</div>
 				<div class="sellbuy2">
-					<div class="text1" v-for="(item, index) in list" :key="index">
-						<div v-if="item.msg != 'Last Price'">{{ item.msg }}</div>
-						<div class="lastprice"  v-if="item.msg == 'Last Price'">{{ item.msg }}</div>
+					<div class="text2" v-for="(item, index) in list" :key="index">
+						<div v-show="item.msg != 'Last Price'">{{ item.msg }}</div>
+						<div class="lastprice"  v-show="item.msg == 'Last Price'">{{ item.msg }}</div>
 						<div style="height: 3px;"></div>
-						<span v-if="(item.msg != '24h change') & (item.msg != 'Last Price')">{{ item.price }}</span>
-						<span style="color:rgba(238,66,86,1);" v-if="item.msg == '24h change'">{{ item.price }}</span>
-						<span  v-if="item.msg == 'Last Price'" class="lastprice" >{{ item.price }}</span>
+						<span class="lastprice" style="color:rgba(0, 195, 255, 1);" v-show="item.msg == 'Last Price'" >{{ item.price }}</span>
+						<span v-show="(item.msg != '24h change') & (item.msg != 'Last Price')">{{ item.price }}</span>
+						<span style="color:rgba(238,66,86,1);" v-show="item.msg == '24h change'">{{ item.price }}</span>
 					</div>
 				</div>
 			</div>
@@ -325,14 +327,19 @@
 				<div class="newsellbuy1-3"><div class="shou" @click="dixdiag.sell1 = true">sell</div></div>
 			</div>
 		</div>
+		<v-foot :style="gquanp"></v-foot>
 	</div>
 </template>
 
 <script>
 import echarts from 'echarts';
-
+import sell from '../../assembly/sell/sell.vue';
+import foot from '../../assembly/foot/foot.vue'
 export default {
-	components: {},
+	components: {
+		'v-sell':sell,
+		'v-foot':foot
+	},
 	name: 'echarts',
 	data() {
 		return {

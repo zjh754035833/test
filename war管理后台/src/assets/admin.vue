@@ -1,7 +1,7 @@
 <template>
 	<div style="height: 100vh;">
 		<el-dialog title="发送内容" :visible.sync="updatedialogTableVisible" width="60%">
-			<div class="diag1"><el-input type="textarea" placeholder="请输入内容" v-model="updatetextarea"  show-word-limit></el-input></div>
+			<div class="diag1"><el-input type="textarea" placeholder="请输入内容" v-model="updatetextarea" show-word-limit></el-input></div>
 		</el-dialog>
 		<div class="toparea1">
 			<img src="../../static/loginsu.png" />
@@ -24,11 +24,12 @@
 								<span>开户管理</span>
 							</template>
 							<el-menu-item index="2-1" @click="openarea(2)">开户</el-menu-item>
+							<el-menu-item index="2-2" @click="openarea(3)">开户信息</el-menu-item>
 						</el-submenu>
 					</el-menu>
 				</div>
 			</div>
-			<div style="width: 85%;background:rgba(255,255,255,1);max-height: 100px;">
+			<div style="background:rgba(255,255,255,1);max-height: 100px;">
 				<div v-if="area2 == true">
 					<div class="top1"><span style="	margin-left: 10px;">首页>开户管理>开户</span></div>
 					<div class="loginz">
@@ -39,20 +40,42 @@
 						<div class="denglu shou" @click="register()">开户</div>
 					</div>
 				</div>
+				<div v-if="area3 == true">
+					<div class="top1"><span style="	margin-left: 10px;">首页>开户管理>开户信息</span></div>
+					<template>
+						<el-table :data="alluserlist" style="width: 100%">
+							<el-table-column prop="date" label="日期" width="180"></el-table-column>
+							<el-table-column prop="name" label="姓名" width="180"></el-table-column>
+							<el-table-column prop="address" label="地址"></el-table-column>
+						</el-table>
+						<el-pagination
+							@current-change="handleCurrentChange2"
+							:page-size="10"
+							layout="total, prev, pager, next, jumper"
+							:total="allnum2"
+						></el-pagination>
+					</template>
+				</div>
 				<div v-if="area1 == true">
 					<div class="top1"><span style="	margin-left: 10px;">首页>信息管理>信息管理/导出</span></div>
-					<div class="block" style="margin-top: 20px;">
-						<el-date-picker
-							v-model="valuedate"
-							type="datetimerange"
-							range-separator="至"
-							start-placeholder="开始日期"
-							end-placeholder="结束日期"
-							value-format="timestamp"
-						></el-date-picker>
-						<el-button type="primary" @click="serchbysend">按发送时间段查询</el-button>
+					<div style="display: flex">
+						<div class="block" style="margin-top: 20px;">
+							<el-date-picker
+								v-model="valuedate"
+								type="datetimerange"
+								range-separator="至"
+								start-placeholder="开始日期"
+								end-placeholder="结束日期"
+								value-format="timestamp"
+							></el-date-picker>
+							<el-button type="primary" @click="serchbysend">按发送时间段查询</el-button>
+						</div>
+						<div class="block" style="margin-top: 20px;width: 600px;display: flex;margin-left: 100px;">
+							<el-input v-model="senduser" placeholder="请输入发送人账号名"></el-input>
+							<el-button type="primary" @click="serchbysenduser">按发送人查询</el-button>
+						</div>
 					</div>
-					<div class="block" style="margin-top: 20px;">
+					<div style="margin-top: 20px;">
 						<el-date-picker
 							v-model="valuedate2"
 							type="datetimerange"
@@ -65,7 +88,7 @@
 					</div>
 					<div>
 						<el-table :data="alllist" style="width: 100%" height="60vh" :row-class-name="tableRowClassName">
-							<el-table-column label="批次" width="80" align="center">
+							<el-table-column label="批次" min-width="80" align="center">
 								<template slot-scope="scope">
 									<el-popover trigger="hover" placement="top">
 										<div slot="reference" class="name-wrapper">
@@ -74,7 +97,7 @@
 									</el-popover>
 								</template>
 							</el-table-column>
-							<el-table-column label="手机号数量" width="120" align="center">
+							<el-table-column label="手机号数量" min-width="120" align="center">
 								<template slot-scope="scope">
 									<el-popover trigger="hover" placement="top">
 										<div slot="reference" class="name-wrapper">
@@ -83,7 +106,7 @@
 									</el-popover>
 								</template>
 							</el-table-column>
-							<el-table-column label="发送状态" width="120" align="center">
+							<el-table-column label="发送状态" min-width="120" align="center">
 								<template slot-scope="scope">
 									<el-popover trigger="hover" placement="top">
 										<div slot="reference" class="name-wrapper">
@@ -93,7 +116,7 @@
 									</el-popover>
 								</template>
 							</el-table-column>
-							<el-table-column label="发送人" width="120" align="center">
+							<el-table-column label="发送人" min-width="120" align="center">
 								<template slot-scope="scope">
 									<el-popover trigger="hover" placement="top">
 										<div slot="reference" class="name-wrapper">
@@ -102,7 +125,7 @@
 									</el-popover>
 								</template>
 							</el-table-column>
-							<el-table-column label="单条信息价格" width="120" align="center">
+							<el-table-column label="单条信息价格" min-width="120" align="center">
 								<template slot-scope="scope">
 									<el-popover trigger="hover" placement="top">
 										<div slot="reference" class="name-wrapper">
@@ -111,32 +134,33 @@
 									</el-popover>
 								</template>
 							</el-table-column>
-							<el-table-column label="发送内容" width="240" align="center">
+							<el-table-column label="发送内容" min-width="280" align="center">
 								<template slot-scope="scope">
 									<el-popover trigger="hover" placement="top">
 										<div slot="reference" class="name-wrapper">
 											<el-tag size="medium" v-if="scope.row.usermessage.length > 30">{{ scope.row.usermessage.substring(0, 30) + '...' }}</el-tag>
 											<el-tag size="medium" v-if="scope.row.usermessage.length <= 30">{{ scope.row.usermessage }}</el-tag>
 										</div>
-										<div style="display: flex;"><el-button type="primary" plain @click="updatenum(scope.row.userid, scope.row.mtimesmp)">文本详情</el-button>
-										<el-button @click="toExport1(scope.row.userid, scope.row.mtimesmp)">导出文案</el-button>
+										<div style="display: flex;justify-content: center;">
+											<el-button type="primary" plain @click="updatenum(scope.row.userid, scope.row.mtimesmp)">文本详情</el-button>
+											<el-button @click="toExport1(scope.row.userid, scope.row.mtimesmp)">导出文案</el-button>
 										</div>
 									</el-popover>
 								</template>
 							</el-table-column>
-							<el-table-column label="发送时间" width="240" align="center">
+							<el-table-column label="发送时间" min-width="240" align="center">
 								<template slot-scope="scope">
 									<i class="el-icon-time"></i>
 									<span style="margin-left: 10px">{{ scope.row.sendtime | timestampToTime }}</span>
 								</template>
 							</el-table-column>
-							<el-table-column label="最终导入时间" width="240" align="center">
+							<el-table-column label="最终导入时间" min-width="240" align="center">
 								<template slot-scope="scope">
 									<i class="el-icon-time"></i>
 									<span style="margin-left: 10px">{{ scope.row.mtimesmp | timestampToTime2 }}</span>
 								</template>
 							</el-table-column>
-							<el-table-column label="操作" fixed="right" width="270">
+							<el-table-column label="操作" fixed="right" min-width="270">
 								<template slot-scope="scope">
 									<div v-if="scope.row.sate == 'y'">
 										<div style="color: white;">(用户已经删除该批次)</div>
@@ -149,7 +173,7 @@
 									<div v-if="scope.row.sate == 'g'">
 										<div style="color: white;">(用户已经更新了该批次,请重新导出)</div>
 										<el-button @click="toExport(scope.row.userid, scope.row.mtimesmp)">导出手机号</el-button>
-										
+
 										<el-button type="danger" @click="forreally(scope.row.userid, scope.row.mtimesmp)">标记为正常</el-button>
 									</div>
 								</template>
@@ -216,6 +240,7 @@ export default {
 			daolist: '',
 			modalmessage: '',
 			userphonenum: 0,
+			senduser: '',
 			admin: '',
 			dialogTableVisible: false,
 			mobilepriceval: '',
@@ -233,7 +258,30 @@ export default {
 			sendEnd: '',
 			valuedate2: '',
 			insertStart: '',
-			insertEnd: ''
+			insertEnd: '',
+			alluserlist: [
+				{
+					date: '2016-05-02',
+					name: '王小虎',
+					address: '上海市普陀区金沙江路 1518 弄'
+				},
+				{
+					date: '2016-05-04',
+					name: '王小虎',
+					address: '上海市普陀区金沙江路 1517 弄'
+				},
+				{
+					date: '2016-05-01',
+					name: '王小虎',
+					address: '上海市普陀区金沙江路 1519 弄'
+				},
+				{
+					date: '2016-05-03',
+					name: '王小虎',
+					address: '上海市普陀区金沙江路 1516 弄'
+				}
+			],
+			allnum2:0
 		};
 	},
 	created: {},
@@ -243,6 +291,12 @@ export default {
 		this.getuserinfo();
 	},
 	methods: {
+		serchbysenduser() {
+			if (this.senduser == null || this.senduser == '') {
+				this.senduser = '';
+			}
+			this.getuserinfo();
+		},
 		serchbysend() {
 			this.insertStart = '';
 			this.insertEnd = '';
@@ -312,9 +366,16 @@ export default {
 			if (e == 1) {
 				this.area1 = true;
 				this.area2 = false;
+				this.area3 = false;
 			} else if (e == 2) {
-				this.area2 = true;
 				this.area1 = false;
+				this.area2 = true;
+				this.area3 = false;
+			} else if (e == 3) {
+				this.area1 = false;
+				this.area2 = false;
+				this.area3 = true;
+				this.getAlluser();
 			}
 		},
 		deletenum(userid, timesmpstr) {
@@ -504,11 +565,11 @@ export default {
 									var datas = x + '\n';
 									data.push(datas);
 								});
-							
+
 								var temp_string = data.join('');
-							
+
 								this.exportRaw('mobile' + userid + timesmpstr + '.txt', temp_string);
-							
+
 								loading.close();
 							}
 						} else if (data.data.state == 0) {
@@ -561,7 +622,29 @@ export default {
 		remove() {
 			/* localStorage.removeItem('token'); */
 		},
-
+			getAlluser(){
+				const loading = this.$loading({
+					lock: true,
+					text: '数据加载中，请稍后',
+					spinner: 'el-icon-loading',
+					background: 'rgba(0, 0, 0, 0.7)'
+				});
+				let param = {
+					token: token,
+					page: this.page,
+				};
+				https.fetchGet('/userAllList', param).then(data => {
+					
+					loading.close();
+					if (data.data.state == 0) {
+						loading.close();
+						this.open(data.data.msg);
+						this.$router.push({ path: '/' });
+					} else if (data.data.state == 1) {
+						window.console.log(data);
+						}
+				});
+			},
 		getuserinfo() {
 			const loading = this.$loading({
 				lock: true,
@@ -569,7 +652,15 @@ export default {
 				spinner: 'el-icon-loading',
 				background: 'rgba(0, 0, 0, 0.7)'
 			});
-			let param = { token: token, page: this.page, sendStart: this.sendStart, sendEnd: this.sendEnd, insertStart: this.insertStart, insertEnd: this.insertEnd };
+			let param = {
+				token: token,
+				page: this.page,
+				sendStart: this.sendStart,
+				sendEnd: this.sendEnd,
+				insertStart: this.insertStart,
+				insertEnd: this.insertEnd,
+				senduser: this.senduser
+			};
 			https.fetchGet('/userInfo', param).then(data => {
 				window.console.log(data);
 				if (data.data.state == 0) {
@@ -577,7 +668,7 @@ export default {
 					this.open(data.data.msg);
 					this.$router.push({ path: '/' });
 				} else if (data.data.state == 1) {
-						loading.close();
+					loading.close();
 					if (data.data.msg == 'admin') {
 						this.admin = 'y';
 					} else {
@@ -600,6 +691,11 @@ export default {
 			this.page = val - 1;
 			window.console.log(val - 1);
 			this.getuserinfo();
+		},
+		handleCurrentChange2(val) {
+			this.page = val - 1;
+			window.console.log(val - 1);
+			this.getAlluser()
 		}
 		/* 		handleCheckAllChange(val) {
 				this.checkList = val ? this.alllist : [];
@@ -610,8 +706,6 @@ export default {
 </script>
 
 <style scoped="scoped">
-.block {
-}
 /deep/ .el-table .warning-row {
 	background: #999999;
 }

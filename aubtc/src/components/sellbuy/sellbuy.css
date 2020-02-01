@@ -32,8 +32,9 @@
 }
 .lastprice{
 	font-size: 30px;
-	 color:rgba(0, 195, 255, 1);
+	color:rgba(0, 195, 255, 1);
 }
+
 .bu1-3{
 	margin-top: 25px;
 	display: flex;
@@ -395,17 +396,17 @@ font-size:14px;
 	justify-content: space-around;
 	width: 800px;
 }
-.text1 {
+.text2 {
 	font-size: 15px;
-	font-family: ArialMT;
 	color: rgba(153, 153, 153, 1);
 }
 
-.text1 > span {
+.text2 > span {
 	font-size: 15px;
 	font-weight: bold;
 	color: rgba(51, 51, 51, 1);
 }
+
 .newsellbuy1-2-1{
 	display: flex;
 	margin-top: 24px;

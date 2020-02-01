@@ -23,6 +23,9 @@
 			<div v-if="xztype == '0'">
 				<v-usercenter></v-usercenter>
 			</div>
+			<div v-if="xztype == '2'">
+				<v-history></v-history>
+			</div>
 			<div v-if="xztype == '3'">
 				<v-security></v-security>
 			</div>
@@ -33,13 +36,15 @@
 
 <script>
 import security from '../../assembly/accountvue/Security.vue'
-import usercenter from '../../assembly/accountvue/Dashboard.vue';
+import usercenter from '../../assembly/accountvue/Dashboard.vue'
 import newwallet from '../../assembly/accountvue/wallet.vue'
+import history from '../../assembly/accountvue/TransactionHistory.vue'
 export default {
 	components: {
 		'v-usercenter':usercenter,
 		'v-newwallet':newwallet,
-		'v-security':security
+		'v-security':security,
+		'v-history':history
 	},
 	data() {
 		return {
