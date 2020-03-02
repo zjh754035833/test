@@ -1,0 +1,63 @@
+buildscript {
+    ext{
+        redissonVersion = '3.11.3'
+        guavaVsersion = '27.1-jre'
+        slf4jVersion = '1.7.28'
+        logbackVersion = '1.2.3'
+    }
+    repositories {
+        jcenter()
+        mavenCentral()
+    }
+    dependencies {
+    }
+}
+
+plugins {
+    id 'java'
+    id 'war'
+    id 'idea'
+    id 'org.springframework.boot' version '2.1.7.RELEASE'
+}
+
+group 'joycai'
+version '1.1-SNAPSHOT'
+
+apply plugin: 'io.spring.dependency-management'
+
+jar {
+    baseName = 'springbootWeb'
+    version  = version
+}
+
+sourceCompatibility = JavaVersion.VERSION_1_8
+targetCompatibility = JavaVersion.VERSION_1_8
+
+repositories {
+    jcenter()
+    mavenCentral()
+}
+
+dependencies {
+    implementation("org.springframework.boot:spring-boot-starter-web")
+    implementation("org.springframework.boot:spring-boot-starter-aop")
+    implementation("org.springframework.boot:spring-boot-starter-data-jpa")
+    implementation("org.springframework.boot:spring-boot-starter-data-redis")
+    implementation("mysql:mysql-connector-java")
+
+    implementation("org.slf4j:slf4j-api:$slf4jVersion")
+    implementation("ch.qos.logback:logback-classic:$logbackVersion")
+
+    implementation("org.redisson:redisson:$redissonVersion")
+    implementation("com.google.guava:guava:$guavaVsersion")
+    testImplementation("org.springframework.boot:spring-boot-starter-test")
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = "UTF-8"
+}
+
+task createDirs {
+    sourceSets*.java.srcDirs*.each { it.mkdirs() }
+    sourceSets*.resources.srcDirs*.each { it.mkdirs() }
+}
