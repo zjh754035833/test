@@ -29,7 +29,7 @@
 					</el-menu>
 				</div>
 			</div>
-			<div style="background:rgba(255,255,255,1);max-height: 100px;">
+			<div style="background:rgba(255,255,255,1);max-height: 100px; width: 85%;">
 				<div v-if="area2 == true">
 					<div class="top1"><span style="	margin-left: 10px;">首页>开户管理>开户</span></div>
 					<div class="loginz">
@@ -44,16 +44,18 @@
 					<div class="top1"><span style="	margin-left: 10px;">首页>开户管理>开户信息</span></div>
 					<template>
 						<el-table :data="alluserlist" style="width: 100%">
-							<el-table-column prop="date" label="日期" width="180"></el-table-column>
-							<el-table-column prop="name" label="姓名" width="180"></el-table-column>
-							<el-table-column prop="address" label="地址"></el-table-column>
+								<el-table-column prop="username" label="姓名" width="180">
+								</el-table-column>
+							<el-table-column prop="mobilePrice" label="每条短信价格">
+							</el-table-column>
+							<el-table-column prop="mobilePrice" label="身份">
+								<template slot-scope="scope">
+							<span v-show="scope.row.isadmin=='y'">管理员</span>
+								<span v-show="scope.row.isadmin=='n'">普通用户</span>
+								</template>
+							</el-table-column>
 						</el-table>
-						<el-pagination
-							@current-change="handleCurrentChange2"
-							:page-size="10"
-							layout="total, prev, pager, next, jumper"
-							:total="allnum2"
-						></el-pagination>
+						<el-pagination @current-change="handleCurrentChange2" :page-size="10" layout="total, prev, pager, next, jumper" :total="allnum2"></el-pagination>
 					</template>
 				</div>
 				<div v-if="area1 == true">
@@ -70,7 +72,7 @@
 							></el-date-picker>
 							<el-button type="primary" @click="serchbysend">按发送时间段查询</el-button>
 						</div>
-						<div class="block" style="margin-top: 20px;width: 600px;display: flex;margin-left: 100px;">
+						<div class="block" style="margin-top: 20px;width: 400px;display: flex;margin-left: 100px;">
 							<el-input v-model="senduser" placeholder="请输入发送人账号名"></el-input>
 							<el-button type="primary" @click="serchbysenduser">按发送人查询</el-button>
 						</div>
@@ -160,7 +162,7 @@
 									<span style="margin-left: 10px">{{ scope.row.mtimesmp | timestampToTime2 }}</span>
 								</template>
 							</el-table-column>
-							<el-table-column label="操作" fixed="right" min-width="270">
+							<el-table-column label="操作" fixed="right" min-width="270" align="center">
 								<template slot-scope="scope">
 									<div v-if="scope.row.sate == 'y'">
 										<div style="color: white;">(用户已经删除该批次)</div>
@@ -227,6 +229,7 @@ export default {
 		return {
 			area1: true,
 			area2: false,
+			area3: false,
 			valuedate: '',
 			monety: '',
 			fileList: [],
@@ -248,6 +251,7 @@ export default {
 			passwordval: '',
 			value2: '',
 			page: 0,
+			page2: 0,
 			updatetextarea: '',
 			updatevalue2: '',
 			updatedialogTableVisible: false,
@@ -281,7 +285,7 @@ export default {
 					address: '上海市普陀区金沙江路 1516 弄'
 				}
 			],
-			allnum2:0
+			allnum2: 0
 		};
 	},
 	created: {},
@@ -375,6 +379,7 @@ export default {
 				this.area1 = false;
 				this.area2 = false;
 				this.area3 = true;
+				this.page2=0
 				this.getAlluser();
 			}
 		},
@@ -622,29 +627,30 @@ export default {
 		remove() {
 			/* localStorage.removeItem('token'); */
 		},
-			getAlluser(){
-				const loading = this.$loading({
-					lock: true,
-					text: '数据加载中，请稍后',
-					spinner: 'el-icon-loading',
-					background: 'rgba(0, 0, 0, 0.7)'
-				});
-				let param = {
-					token: token,
-					page: this.page,
-				};
-				https.fetchGet('/userAllList', param).then(data => {
-					
+		getAlluser() {
+			const loading = this.$loading({
+				lock: true,
+				text: '数据加载中，请稍后',
+				spinner: 'el-icon-loading',
+				background: 'rgba(0, 0, 0, 0.7)'
+			});
+			let param = {
+				token: token,
+				page: this.page2
+			};
+			https.fetchGet('/userAllList', param).then(data => {
+				loading.close();
+				if (data.data.state == 0) {
 					loading.close();
-					if (data.data.state == 0) {
-						loading.close();
-						this.open(data.data.msg);
-						this.$router.push({ path: '/' });
-					} else if (data.data.state == 1) {
-						window.console.log(data);
-						}
-				});
-			},
+					this.open(data.data.msg);
+					this.$router.push({ path: '/' });
+				} else if (data.data.state == 1) {
+					window.console.log(data);
+					this.allnum2=data.data.pageCounts
+					this.alluserlist=data.data.usermodels
+				}
+			});
+		},
 		getuserinfo() {
 			const loading = this.$loading({
 				lock: true,
@@ -693,9 +699,9 @@ export default {
 			this.getuserinfo();
 		},
 		handleCurrentChange2(val) {
-			this.page = val - 1;
+			this.page2 = val - 1;
 			window.console.log(val - 1);
-			this.getAlluser()
+			this.getAlluser();
 		}
 		/* 		handleCheckAllChange(val) {
 				this.checkList = val ? this.alllist : [];

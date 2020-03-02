@@ -49,7 +49,7 @@ const loading = Loading.service({
 					loading.close()
 					if (response.data.msg == "not login") {
 						MessageBox("Your login status has expired, please login again", {
-							confirmButtonText: '确定'
+							confirmButtonText: 'ok'
 						})
 						/* this.$alert('Your login status has expired, please login again', {
 							confirmButtonText: 'Determine'
@@ -87,7 +87,7 @@ export function fetchGet(url, param) {
 				loading.close()
 				if (response.data.msg == "not login") {
 					MessageBox("Your login status has expired, please login again", {
-						confirmButtonText: '确定'
+						confirmButtonText: 'ok'
 					})
 					/* this.$alert('Your login status has expired, please login again', {
 						confirmButtonText: 'Determine'

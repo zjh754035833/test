@@ -66,7 +66,7 @@
 			</div>
 			<div class="walletall-3">
 				<el-table :data="tableData" style="width: 100%" header-cell-style="background-color:rgba(245,245,245,1);">
-						<el-table-column prop="Coin" label="Coin" width="120" align="center">
+						<el-table-column prop="Coin" label="Coin" align="center">
 							
 							<template slot-scope="scope">
 							<img :src="scope.row.Coin" style="width:43px;
@@ -74,10 +74,10 @@ height:38px;" />
 							</template></el-table-column>
 
 					<el-table-column prop="Name" label="Name" width="120"></el-table-column>
-					<el-table-column prop="Totalbalance" label="Total balance" width="260"></el-table-column>
-					<el-table-column prop="Availablebalance" label="Available balance" width="260"></el-table-column>
-					<el-table-column prop="Inorder" label="In order" width="200"></el-table-column>
-					<el-table-column prop="Action" label="Action" align="center">
+					<el-table-column prop="Totalbalance" label="Total balance" ></el-table-column>
+					<el-table-column prop="Availablebalance" label="Available balance" ></el-table-column>
+					<el-table-column prop="Inorder" label="In order"></el-table-column>
+					<el-table-column prop="Action" label="Action" align="center" >
 						<template>
 							<span class="walletall-3-1">Deposit</span>
 							<span class="walletall-3-2">Withdraw</span>
@@ -152,19 +152,16 @@ export default {
 
 <style scoped="scoped">
 .walletall-3-1 {
-	font-size: 16px;
 	font-weight: 400;
 	margin-right: 20px;
 	color: rgba(153, 153, 153, 1);
 }
 .walletall-3-2 {
-	font-size: 16px;
 	font-weight: 400;
 	color: rgba(102, 102, 102, 1);
 	text-decoration: underline;
 }
 .walletall-3-3 {
-	font-size: 16px;
 	margin-left: 20px;
 	font-weight: 400;
 	color: rgba(102, 102, 102, 1);

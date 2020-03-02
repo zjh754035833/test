@@ -67,13 +67,46 @@
 		</div>
 		<div class="security2">
 			<div class="security2-1">
-				<div></div>
-				<div></div>
-				<div></div>
+				<div class="security2-1-1">
+					2FA 
+				</div>
+				<div class="security2-1-2"></div>
+				<div class="security2-1-3">
+					<li>Google Authentication</li><div>On</div>
+				</div>
+				<div class="security2-1-3">
+					<li>SMS Authentication </li><div>Disable</div>
+				</div>
 			</div>
-			<div class="security2-2"></div>
-			<div class="security2-3"></div>
-			<div class="security2-4"></div>
+			<div class="security2-2">
+				<div class="security2-2-1">
+					<span class="security2-2-1-1">Identity Verification </span>
+					<div class="security2-2-1-2">Certification</div>
+				</div>
+				<div class="security2-2-2"></div>
+				<div class="security2-2-3">
+					<span class="security2-2-1-1">Anti-phishing Code</span>
+					<div class="security2-2-3-2">Create</div>
+				</div>
+				<div class="security2-2-4">By setting up an Anti-phishing Code,you will be able to tell if your notification emails are coming from Aussiebit or phishing attempts.   </div>
+			</div>
+			<div class="security2-3">
+				<div class="security2-3-1">
+					<span>Account activity</span>
+					<div>More</div>
+				</div>
+				<div class="security2-3-2">
+					<span>Last login:2020-01-03 04:02:02  </span>
+				</div>
+				<div class="security2-3-3">
+					<span>Suspicious account activity ? </span>
+					<div>Disable account  </div>
+				</div>
+			</div>
+			<div class="security2-4">
+				<div class="security2-4-1">Bank Card Management  </div>
+				<div class="security2-4-2">Manage</div>
+			</div>
 		</div>
 	</div>
 </template>
@@ -98,6 +131,152 @@ export default {
 </script>
 
 <style>
+	.security2-4{
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+	.security2-4-1{
+		font-size:18px;
+		font-weight:400;
+		color:rgba(51,51,51,1);
+		margin-left: 23px;
+		font-weight: bold;
+	}
+	.security2-4-2{
+		width:71px;
+		margin-right: 31px;
+		height:31px;
+		border:1px solid rgba(238,238,238,1);
+		font-size:12px;
+		font-weight:400;
+		color:rgba(102,102,102,1);
+		line-height:31px;
+		text-align: center;
+	}
+	.security2-3-2>span{
+		font-size:16px;
+		font-weight:400;
+		color:rgba(153,153,153,1);
+	}
+	.security2-3-3>div{
+		font-size:16px;
+		font-weight:400;
+		color:#0A3E69;
+		margin-left: 10px;
+		text-decoration: underline;
+	}
+	.security2-3-3{
+		display: flex;
+		margin-top: 24px;
+	}
+	.security2-3-3>span{
+		font-size:16px;
+		font-weight:400;
+		color:rgba(153,153,153,1);
+		margin-left: 24px;
+	}
+	.security2-3-2{
+		margin-left: 24px;
+		margin-top: 24px;
+	}
+	.security2-3-1>span{
+		font-size:18px;
+		font-weight:400;
+		margin-left: 21px;
+		color:rgba(51,51,51,1);
+	}
+	.security2-3-1>div{
+		width:71px;
+		height:31px;
+		border:1px solid rgba(238,238,238,1);
+		font-size:12px;
+		font-weight:400;
+		line-height: 31px;
+		margin-right: 32px;
+		text-align: center;
+		color:rgba(102,102,102,1);
+	}
+	.security2-3-1{
+		display: flex;
+		align-items: center;
+		padding-top: 21px;
+		justify-content: space-between;
+	}
+	.security2-2-3-2{
+		width:116px;
+		height:31px;
+		border:1px solid rgba(41,47,136,1);
+		margin-right: 32px;
+		font-size:12px;
+		font-weight:400;
+		line-height: 31px;
+		text-align: center;
+		color:rgba(41,47,136,1);
+	}
+	.security2-2-4{
+		margin-top: 16px;
+		font-size:16px;
+		font-weight:400;
+		color:rgba(153,153,153,1);
+		line-height:19px;
+		margin-left: 24px;
+		margin-right: 32px;
+	}
+	.security2-2-3{
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding-top: 17px;
+	}
+	.security2-2-2{
+		width:434px;
+		height:2px;
+		background-color: #EEEEEE;
+		margin-top: 20px;
+		margin-left: 29px;
+		}
+	.security2-2-1-2{
+		width:116px;
+		height:31px;
+		border:1px solid rgba(238,238,238,1);
+		font-size:12px;
+		font-weight:400;
+		line-height: 31px;
+		text-align: center;
+		margin-right: 31px;
+		color:rgba(102,102,102,1);
+	}
+	.security2-2-1-1{
+		font-size:18px;
+		font-weight:400;
+		color:rgba(51,51,51,1);
+		margin-left: 24px;
+	}
+	.security2-2-1{
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding-top: 17px;
+	}
+	.security2-1-3{
+		display: flex;
+		padding-left: 32px;
+		margin-top: 25px;
+		align-items: center;
+	}
+	.security2-1-3>li{
+		font-size:16px;
+		font-weight:400;
+		color:rgba(102,102,102,1);
+	}
+	.security2-1-3>div{
+		font-size:14px;
+		font-weight:400;
+		text-decoration: underline;
+		color:rgba(41,47,136,1);
+		margin-left: 11px;
+	}
 	.security-3-3-2{
 		width: 15px;
 		height: 15px;
@@ -319,7 +498,20 @@ export default {
 	border-radius: 1px;
 	margin-top: 11px;
 }
-
+.security2-1-2{
+	width:434px;
+	height:2px;
+	background-color: #EEEEEE;
+	margin-top: 18px;
+	margin-left: 29px;
+}
+.security2-1-1{
+		font-size:18px;
+		font-weight:bold;
+		color:rgba(51,51,51,1);
+		padding-top: 20px;
+		padding-left: 32px;
+		}
 .security2 {
 	margin-left: 836px;
 	margin-top: 17px;
